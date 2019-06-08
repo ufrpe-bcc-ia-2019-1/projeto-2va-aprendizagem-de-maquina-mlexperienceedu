@@ -9,7 +9,8 @@
 ## Descrição:	
 A língua Tupi era a língua mais falada na costa brasileira antes da chegada dos nosso colonizadores portugueses. Ao longo dos anos esse idioma passou a ser substituído pela língua portuguesa que atualmnte é  a nosso idioma oficial do Brasil. Dada a importância de se manter viva a parte da cultura original dos nativos brasileiros, o projeto tenta contribuir culturalmente para a memória da língua Tupi.
 Sendo assim, o projeto consiste na utiliação de algoritmos de Deep Learning para a implementaçaõ de um tradutor Português-Tupi, utilizando para isso redes neurais e tecnicas de mineração de texto.
-A soluço deve ser acompanhada de experimentos para avaliação do desempenho dos algoritmos e parametrizações consideradas. Os resultados finais deverão ser apresentados em formato de artigo (template SBC), sendo o mesmo divido nas seções: **Introdução, Materiais, Métodos, Experimentos, Resultados e Conclusão**.				
+
+**A soluço deve ser acompanhada de experimentos para avaliação do desempenho dos algoritmos e parametrizações consideradas. Os resultados finais deverão ser apresentados em formato de artigo (template SBC), sendo o mesmo divido nas seções: **Introdução, Materiais, Métodos, Experimentos, Resultados e Conclusão**.				
 				
 ## Tipos de Projeto:				
 - **Aplicação**: Escolher uma aplicação de interesse, e explorar as melhores formas de aplicar aprendizagem de máquina para resolvê-lo. (este ẽ o tipo mais comum)			
