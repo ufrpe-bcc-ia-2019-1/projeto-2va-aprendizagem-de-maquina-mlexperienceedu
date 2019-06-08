@@ -2,13 +2,13 @@
 ## UFRPE - BCC - IA
 
 ## Equipe:
-- nome
+- Tiago de LIma
 - nome
 - nome
 
-## Descrição:				
-O projeto consiste na utilização de métodos de aprendizagem de máquina para resolução de um **problema real**. A solução deve ser submetida no repositório do grupo no github (classroom), podendo ser feita tanto em Java ou Python, com o uso de frameworks tradicionais de aprendizagem de máquina (e.g., Weka, Scikit Learn, etc), preferencialmente no formato de um **Jupyter Notebook**. 
-
+## Descrição:	
+A língua Tupi era a língua mais falada na costa brasileira antes da chegada dos nosso colonizadores portugueses. Ao longo dos anos esse idioma passou a ser substituído pela língua portuguesa que atualmnte é  a nosso idioma oficial do Brasil. Dada a importância de se manter viva a parte da cultura original dos nativos brasileiros, o projeto tenta contribuir culturalmente para a memória da língua Tupi.
+Sendo assim, o projeto consiste na utiliação de algoritmos de Deep Learning para a implementaçaõ de um tradutor Português-Tupi, utilizando para isso redes neurais e tecnicas de mineração de texto.
 A soluço deve ser acompanhada de experimentos para avaliação do desempenho dos algoritmos e parametrizações consideradas. Os resultados finais deverão ser apresentados em formato de artigo (template SBC), sendo o mesmo divido nas seções: **Introdução, Materiais, Métodos, Experimentos, Resultados e Conclusão**.				
 				
 ## Tipos de Projeto:				
@@ -46,22 +46,4 @@ Comentar os resultados obtidos e pontos passíveis de melhorias
 - [Exemplo 3](http://www.lbd.dcc.ufmg.br/colecoes/eniac/2016/059.pdf)
 - [Exemplo 4](https://portaldeconteudo.sbc.org.br/index.php/eniac/article/view/4477/4401)
 
-## Sugestões de Temas
-\# | Tema | Tipo | Dataset | Grupo 
---- | --- | --- | --- |--- 
-1 | Classificação de espécies de cobras/escorpiões	 |  Classificação (imagens) | http://www.snakebd.com  <br> http://snakedatabase.org/  <br> https://spidy.goliathus.com/english/gallery-scorpions.php
-2 | Classificação de questões (TREC dataset) | Classificação (textos) | http://cogcomp.org/Data/QA/QC/
-3 | Analise de Sentimentos em tweets | Classificação (textos) | http://www.sananalytics.com/lab/twitter-sentiment/
-4 | Recomendação de filmes sensível ao contexto | Recomendação | https://www.lucami.org/index.php/research/ldos-comoda-dataset/
-5 | Predição de No-Show | Classificação | 
-6 | Classificação de sons urbanos | Classificação (audio) | https://serv.cusp.nyu.edu/projects/urbansounddataset/
-7 | Análise de agrupamentos de dados de microarray | Clustering (biologia computacional) | https://schlieplab.org/Static/Supplements/CompCancer/datasets.htm
-8 | Manutenção Preditiva | Séries Temporais | 
 
-
-### Outros temas
-Caso você tenha alguma outra sugestão de tema, submeta a sua proposta contendo as seguintes seções:
-- Motivação: Que problema você está querendo resolver? Isto é uma aplicação, resultado teórico ou uma replicação de artigo?
-- Método: Quais técnicas de aprendizado de máquina você está planejando aplicar ou melhorar?
-- Experimentos planejados: quais experimentos você planeja executar? Como você planeja avaliar seu algoritmo de aprendizado de máquina?
-- Base de dados: você pretende usar alguma base de dados? Ela é acessível publicamente? Qual o link?
