@@ -12,7 +12,7 @@ sendo a tradução uma delas. Considerando a importância de facilitar o acesso 
 
 
 ## Seções do relatório final:	
-### 1. INTRODUÇÂO
+### 1. INTRODUÇÃO
 Algoritmos de Deep Learning podem ser amplamente usados para construção de modelos de inteligêcia artificial capazes de prêve resultados através de textos. Isso possibilita a criação de modelos de tradução de idiomas tais quais utilizados pelo google translator que não só identifica um determinado idioma, mas também é capaz de traduzi-lo para muitos outros. No entanto ainda existente vários idiomas que não possuem traduçaõ automática como é o caso das línguas indigenas brasileiras, a qual são o objeto de estudo do projeto aprensentado.
 
 Ainda que sendo a língua mais falada na costa brasileira antes da chegada dos nosso colonizadores portugueses, ao longo dos anos esse idioma passou a ser substituído pela língua portuguesa que atualmnte é o nosso idioma oficial. Ainda assim, a língua Tupi ainda não possui nenhum tradutor automático como os encontrados nos buscadores da internet como google e bing translator. 
