@@ -21,7 +21,7 @@ Dada a importância de se manter viva a parte da cultura original dos nativos br
 
 ### 2. MATERIAIS
 O projeto utiliza palavras coletadas da tradução da Bíblia em Tupi e uma versão da Bíblia no idioma português Brasil na versão 
-NTLH (Nova Tradução Línguagem de Hoje), além disso foram utilizadas api de Rede Neurais tais quais o TensorFlow e Keras.
+NTLH (Nova Tradução Linguagem de Hoje), além disso foram utilizadas api de Rede Neurais tais quais o TensorFlow e Keras.
 
 ### 3. MÉTODOS
 Descrever o algoritmo a ser utilizado. 
