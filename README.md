@@ -7,27 +7,21 @@
 - nome
 
 ## Descrição:	
-A língua Tupi era a língua mais falada na costa brasileira antes da chegada dos nosso colonizadores portugueses. Ao longo dos anos esse idioma passou a ser substituído pela língua portuguesa que atualmnte é  a nosso idioma oficial do Brasil. Dada a importância de se manter viva a parte da cultura original dos nativos brasileiros, o projeto tenta contribuir culturalmente para a memória da língua Tupi.
-Sendo assim, o projeto consiste na utiliação de algoritmos de Deep Learning para a implementaçaõ de um tradutor Português-Tupi, utilizando para isso redes neurais e tecnicas de mineração de texto.
+A utilizaçaõ de redes neurais para o processamento de texto é algo comumente usado atualmente para diversas finalidades, 
+sendo a tradução uma delas. Considerando a importância de facilitar o acesso a língua que já foi a mais falada no nosso país, no caso o Tupi, o projeto consiste na utilização de uma rede neural para a tradução da língua Tupi-Português.  
 
-**A soluço deve ser acompanhada de experimentos para avaliação do desempenho dos algoritmos e parametrizações consideradas. Os resultados finais deverão ser apresentados em formato de artigo (template SBC), sendo o mesmo divido nas seções: **Introdução, Materiais, Métodos, Experimentos, Resultados e Conclusão**.				
-				
-## Tipos de Projeto:				
-- **Aplicação**: Escolher uma aplicação de interesse, e explorar as melhores formas de aplicar aprendizagem de máquina para resolvê-lo. (este ẽ o tipo mais comum)			
-- **Replicação de resultados**: replicar os resultados em um artigo científico. No entanto, pedimos que, em vez de apenas replicar os resultados em um paper, também tente introduzir alguma variação (ou novo método) no estudo em questão.
-
-## Observações:				
-- Um projeto é considerado EXCELENTE, se este consiste em um trabalho publicável ou quase publicável em uma publicação/conferência científica. O aluno pode iniciar algo na disciplina e continuar aprimorando este trabalho na forma de pesquisa ou TCC nos semestres seguintes.                        			
-- Pré-processamento: embora o objetivo do projeto não seja que o aluno gaste muito tempo coletando dados brutos, porém, o processo de inspeção e visualização dos dados, experimentando diferentes tipos de pré-processamento e fazendo análises de erros é muitas vezes uma parte importante da Aprendizagem de Máquina. Dessa forma, projetos que envolvam mais (ou menos) trabalho de pré-processamento serão avaliados de maneiras distintas.			
-- Projetos com *deep learning*: Como o foco desta disciplina não é exatamento deep learning, pedimos que, se você decidir trabalhar em um projeto que envolva este tipo de técnica, certifique-se de usar outro material que aprendeu na aula também. Por exemplo, você pode configurar comparações *baseline* com knn, MLP, Naive Bayes, ou fazer alguma análise de dados usando os métodos não supervisionados abordados nas aulas. Podemos classificar esses projetos usando critérios diferentes para garantir que a classificação seja justa para alunos que não tiveram exposição a DL anteriormente.
 
 ## Seções do relatório final:	
 ### 1. INTRODUÇÂO
-Definir o problema em termos objetivos
+Algoritmos de Deep Learning podem ser amplamente usados para construção de modelos de inteligêcia artificial capazes de prêve resultados através de textos. Isso possibilita a criação de modelos de tradução de idiomas tais quais utilizados pelo google translator que não só identifica um determinado idioma, mas também é capaz de traduzi-lo para muitos outros. No entanto ainda existente vários idiomas que não possuem traduçaõ automática como é o caso das línguas indigenas brasileiras, a qual são o objeto de estudo do projeto aprensentado.
+
+Ainda que sendo a língua mais falada na costa brasileira antes da chegada dos nosso colonizadores portugueses, ao longo dos anos esse idioma passou a ser substituído pela língua portuguesa que atualmnte é o nosso idioma oficial. Ainda assim, a língua Tupi ainda não possui nenhum tradutor automático como os encontrados nos buscadores da internet como google e bing translator. 
+
+Dada a importância de se manter viva a parte da cultura original dos nativos brasileiros, o projeto tenta contribuir culturalmente para a memória da língua Tupi. Sendo assim, a parti da utiliação de algoritmos de Deep Learning pretende-se implementar de um tradutor Português-Tupi, utilizando para isso redes neurais e tecnicas de mineração de texto facilitando o processo de tradução e conhecimento do idioma que já foi o mais falado no território brasileiro.
 
 ### 2. MATERIAIS
-Descrição da(s) base(s) de dados
-Descrição das procedimentos de pré-processamento (se aplicável)
+O projeto utiliza palavras coletadas da tradução da Bíblia em Tupi e uma versão da Bíblia no idioma português Brasil na versão 
+NTLH (Nova Tradução Línguagem de Hoje), além disso foram utilizadas api de Rede Neurais tais quais o TensorFlow e Keras.
 
 ### 3. MÉTODOS
 Descrever o algoritmo a ser utilizado. 
@@ -41,10 +35,6 @@ Apresentação dos resultados obtidos
 ### 5. CONCLUSÃO
 Comentar os resultados obtidos e pontos passíveis de melhorias
 
-## Exemplos de relatório
-- [Exemplo 1](http://cs229.stanford.edu/proj2014/Yun%20Xu,%20Xinhui%20Wu,%20Qinxia%20Wang,%20Sentiment%20Analysis%20of%20Yelp's%20Ratings%20Based%20on%20Text%20Reviews.pdf)
-- [Exemplo 2](http://cs229.stanford.edu/proj2018/report/16.pdf)
-- [Exemplo 3](http://www.lbd.dcc.ufmg.br/colecoes/eniac/2016/059.pdf)
-- [Exemplo 4](https://portaldeconteudo.sbc.org.br/index.php/eniac/article/view/4477/4401)
+
 
 
