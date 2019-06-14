@@ -7,17 +7,17 @@
 - nome
 
 ## Descrição:	
-A utilizaçaõ de redes neurais para o processamento de texto é algo comumente usado atualmente para diversas finalidades, 
-sendo a tradução uma delas. Considerando a importância de facilitar o acesso a língua que já foi a mais falada no nosso país, no caso o Tupi, o projeto consiste na utilização de uma rede neural para a tradução da língua Tupi-Português.  
+A utilizaçãode redes neurais para o processamento de texto é algo comumente usado atualmente para diversas finalidades, 
+sendo a tradução uma delas. Através disso o projeto  consiste em facilitar o acesso a língua que já foi a mais falada no nosso país, no caso o Tupi, desenvolvendo uma rede neural capaz de realizar a tradução Tupi-Português.  
 
 
 ## Seções do relatório final:	
 ### 1. INTRODUÇÃO
-Algoritmos de Deep Learning podem ser amplamente usados para construção de modelos de inteligêcia artificial capazes de prêve resultados através de textos. Isso possibilita a criação de modelos de tradução de idiomas tais quais utilizados pelo google translator que não só identifica um determinado idioma, mas também é capaz de traduzi-lo para muitos outros. No entanto ainda existente vários idiomas que não possuem traduçaõ automática como é o caso das línguas indigenas brasileiras, a qual são o objeto de estudo do projeto aprensentado.
+Algoritmos de Deep Learning podem ser amplamente usados para construção de modelos de inteligêcia artificial capazes de prevê resultados através de textos. Isso possibilita a criação de modelos de tradução de idiomas, tais quais os utilizados pelo google translator que não só identifica um determinado idioma, mas também, é capaz de traduzi-lo para muitos outros. No entanto ainda existente vários idiomas que não possuem tradução automática, como é o caso das línguas indigenas brasileiras, a qual são o objeto de estudo do projeto aprensentado.
 
 Ainda que sendo a língua mais falada na costa brasileira antes da chegada dos nosso colonizadores portugueses, ao longo dos anos esse idioma passou a ser substituído pela língua portuguesa que atualmnte é o nosso idioma oficial. Ainda assim, a língua Tupi ainda não possui nenhum tradutor automático como os encontrados nos buscadores da internet como google e bing translator. 
 
-Dada a importância de se manter viva a parte da cultura original dos nativos brasileiros, o projeto tenta contribuir culturalmente para a memória da língua Tupi. Sendo assim, a parti da utiliação de algoritmos de Deep Learning pretende-se implementar de um tradutor Português-Tupi, utilizando para isso redes neurais e tecnicas de mineração de texto facilitando o processo de tradução e conhecimento do idioma que já foi o mais falado no território brasileiro.
+Dada a importância de se manter viva a parte da cultura original dos nativos brasileiros, o projeto tenta contribuir culturalmente para a memória da língua Tupi. Sendo assim, a parti da utiliação de algoritmos de Deep Learning pretende-se implementar de um tradutor Português-Tupi, utilizando para isso redes neurais e tecnicas de mineração de texto facilitando o processo de tradução e conhecimento do idioma que já foi o mais falado no nosso país.
 
 ### 2. MATERIAIS
 O projeto utiliza palavras coletadas da tradução da Bíblia em Tupi e uma versão da Bíblia no idioma português Brasil na versão 
