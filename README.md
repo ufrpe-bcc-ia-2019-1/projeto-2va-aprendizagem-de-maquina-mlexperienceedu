@@ -2,8 +2,8 @@
 ## UFRPE - BCC - IA
 
 ## Equipe:
-- Tiago de LIma
-- nome
+- Tiago de Lima
+- Rodemarck Junior
 - nome
 
 ## Descrição:	
