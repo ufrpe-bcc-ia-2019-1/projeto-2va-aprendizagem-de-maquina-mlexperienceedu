@@ -1,7 +1,7 @@
 import pandas as pd
 
 guarani = pd.read_csv('raw_data/guarani.csv', encoding='utf-8')
-pt_br = pd.read_csv('raw_data/NTLH.csv', encoding='utf-8')
+pt_br = pd.read_csv('raw_data/portugues.csv', encoding='utf-8')
 
 guarani = guarani['Scripture']
 pt_br = pt_br['Scripture']
