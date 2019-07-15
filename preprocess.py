@@ -1,4 +1,6 @@
 import pandas as pd
+plot.pyplot.plot(('xEpoch', 'yLoss', data=results))
+import matplotlib as mat
 
 guarani = pd.read_csv('raw_data/guarani.csv', encoding='utf-8')
 pt_br = pd.read_csv('raw_data/portugues.csv', encoding='utf-8')
@@ -32,3 +34,41 @@ def to_file(data, path='gu-pt_v1.txt'):
 data = to_translation_format(guarani, pt_br)
 
 to_file(data)
+
+def obtain_results():
+
+    file = open('results.txt', 'r')
+    results = { 'epoch': [],
+                'loss': [] }
+
+    epoch = []
+    loss = []
+    
+
+
+    line = True
+    while line:
+        result = []
+        for i in range(3):
+            line = file.readline()
+            result.append(line.lower().split())
+
+        line = file.readline()
+
+        index = result[1].index('epoch')
+        epoch.append(int(result[1][index+1]))
+        index = result[1].index('loss')
+        loss.append(float(result[1][index+1]))
+        
+        
+    file.close()
+
+
+    results['epoch'] = epoch
+    results['loss'] = loss
+   
+    return results
+
+results = obtain_results()
+print(results)
+mat.pyplot.plot('xEpoch', 'yLoss', data=results)
