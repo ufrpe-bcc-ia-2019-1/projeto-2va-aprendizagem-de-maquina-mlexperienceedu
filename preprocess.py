@@ -1,6 +1,5 @@
 import pandas as pd
-plot.pyplot.plot(('xEpoch', 'yLoss', data=results))
-import matplotlib as mat
+import matplotlib.pyplot as plt
 
 guarani = pd.read_csv('raw_data/guarani.csv', encoding='utf-8')
 pt_br = pd.read_csv('raw_data/portugues.csv', encoding='utf-8')
@@ -43,22 +42,16 @@ def obtain_results():
 
     epoch = []
     loss = []
-    
-
-
+    result = []
     line = True
     while line:
-        result = []
-        for i in range(3):
-            line = file.readline()
-            result.append(line.lower().split())
-
+      
         line = file.readline()
-
-        index = result[1].index('epoch')
-        epoch.append(int(result[1][index+1]))
-        index = result[1].index('loss')
-        loss.append(float(result[1][index+1]))
+        line = line.lower().split()
+        index = line.index('epoch')
+        epoch.append(int(line[index+1]))
+        index = line.index('loss')
+        loss.append(float(line[index+1]))
         
         
     file.close()
@@ -71,4 +64,8 @@ def obtain_results():
 
 results = obtain_results()
 print(results)
-mat.pyplot.plot('xEpoch', 'yLoss', data=results)
+
+plt.plot(results['epoch'],results['loss'])
+plt.xlabel('epoch')
+plt.ylabel('loss')
+plt.show()
