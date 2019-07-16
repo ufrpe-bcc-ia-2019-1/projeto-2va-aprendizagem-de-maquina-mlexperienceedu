@@ -43,16 +43,27 @@ def obtain_results():
     epoch = []
     loss = []
 
+<<<<<<< HEAD
     line = file.readline()
     while line:
       
         print(line)
+=======
+    line = True
+    while line:
+      
+        line = file.readline()
+>>>>>>> 5c2aafcc02546c09adc4d5140636c0c8811cfe44
         line = line.lower().split()
         index = line.index('epoch')
         epoch.append(int(line[index+1]))
         index = line.index('loss')
         loss.append(float(line[index+1]))
+<<<<<<< HEAD
         line = file.readline()
+=======
+        
+>>>>>>> 5c2aafcc02546c09adc4d5140636c0c8811cfe44
         
     file.close()
 
@@ -65,7 +76,11 @@ def obtain_results():
 results = obtain_results()
 print(results)
 
+<<<<<<< HEAD
 plt.scatter(results['epoch'],results['loss'])
+=======
+plt.plot(results['epoch'],results['loss'])
+>>>>>>> 5c2aafcc02546c09adc4d5140636c0c8811cfe44
 plt.xlabel('epoch')
 plt.ylabel('loss')
 plt.show()
