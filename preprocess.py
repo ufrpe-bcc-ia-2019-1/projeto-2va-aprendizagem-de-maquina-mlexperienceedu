@@ -42,7 +42,7 @@ def obtain_results():
 
     epoch = []
     loss = []
-    result = []
+
     line = True
     while line:
       
