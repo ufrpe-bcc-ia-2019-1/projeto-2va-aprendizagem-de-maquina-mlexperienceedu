@@ -76,11 +76,7 @@ def obtain_results():
 results = obtain_results()
 print(results)
 
-<<<<<<< HEAD
 plt.scatter(results['epoch'],results['loss'])
-=======
-plt.plot(results['epoch'],results['loss'])
->>>>>>> 5c2aafcc02546c09adc4d5140636c0c8811cfe44
 plt.xlabel('epoch')
 plt.ylabel('loss')
 plt.show()
