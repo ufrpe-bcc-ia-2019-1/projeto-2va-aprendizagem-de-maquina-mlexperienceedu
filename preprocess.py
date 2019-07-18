@@ -34,37 +34,43 @@ data = to_translation_format(guarani, pt_br)
 
 to_file(data)
 
-def obtain_results():
+def obtain_results(file_name, param = []):
 
-    file = open('results.txt', 'r')
-    results = { 'epoch': [],
-                'loss': [] }
+    results = {}
 
-    epoch = []
-    loss = []
+    for p in param:
+        results[p] = []
 
+    file = open(file_name, 'r')
+   
     line = file.readline()
     while line:
       
-        line = line.lower().split()
-        index = line.index('epoch')
-        epoch.append(int(line[index+1]))
-        index = line.index('loss')
-        loss.append(float(line[index+1]))
-        line = file.readline()
-        
+      data = line.lower().split()
+
+      for p in param:
+        index = data.index(p)
+        results[p].append(float(data[index+1]))
+
+      line = file.readline()
+
     file.close()
 
-
-    results['epoch'] = epoch
-    results['loss'] = loss
-   
     return results
 
-results = obtain_results()
+results = obtain_results('raw_data/test_result.txt', ['treino', 'test', 'acc'])
 
+def plot_results(results, param1, param2, xlabel, ylabel, title):
 
-plt.scatter(results['epoch'],results['loss'])
-plt.xlabel('epoch')
-plt.ylabel('loss')
-plt.show()
+    plt.plot(results[param1], results[param2])
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.title(title)
+    plt.show()
+   
+
+title = "Evolução da precisão"
+xlabel = 'Quantidade exemplos usados para teste'
+ylabel = 'Precisão utilizando 1 - distância de Hamming'
+
+plot_results(results, 'test', 'acc', xlabel, ylabel, title)
