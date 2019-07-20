@@ -16,6 +16,7 @@ def to_translation_format(raw_1, raw_2):
 
         r_1 = ' '.join(r_1.split())
         r_2 = ' '.join(r_2.split())
+
         filter_text.append(r_1 + '\t' + r_2 + '\n')
         
     return filter_text
@@ -58,7 +59,15 @@ def obtain_results(file_name, param = []):
 
     return results
 
-results = obtain_results('raw_data/test_result.txt', ['treino', 'test', 'acc'])
+results = obtain_results('raw_data/results.txt', ['time'])
+
+time_taken = 0
+
+for t in results['time']:
+      time_taken += t
+
+print(time_taken/3600)
+print("Epoch necessárias: {} ".format(400/(time_taken/3600)))
 
 def plot_results(results, param1, param2, xlabel, ylabel, title):
 
@@ -73,4 +82,4 @@ title = "Evolução da precisão"
 xlabel = 'Quantidade exemplos usados para teste'
 ylabel = 'Precisão utilizando 1 - distância de Hamming'
 
-plot_results(results, 'test', 'acc', xlabel, ylabel, title)
+#plot_results(results, 'test', 'acc', xlabel, ylabel, title)

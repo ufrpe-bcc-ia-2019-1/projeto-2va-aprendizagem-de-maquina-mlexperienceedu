@@ -1,162 +1,970 @@
-<<<<<<< HEAD
-Epoch 1 Loss 2.1241 Time 244.283844948 sec
-Epoch 2 Loss 1.8255 Time 27.1968529224 sec
-Epoch 3 Loss 1.7698 Time 27.0454771519 sec
-Epoch 4 Loss 1.6885 Time 27.2232811451 sec
-Epoch 5 Loss 1.6106 Time 26.3840610981 sec
-Epoch 6 Loss 1.5351 Time 27.1177148819 sec
-Epoch 7 Loss 1.4785 Time 26.5964860916 sec
-Epoch 8 Loss 1.4286 Time 27.1756520271 sec
-Epoch 9 Loss 1.3793 Time 26.6045880318 sec
-Epoch 10 Loss 1.3309 Time 27.1748149395 sec
-Epoch 11 Loss 1.2863 Time 26.6401309967 sec
-Epoch 12 Loss 1.2451 Time 27.2765681744 sec
-Epoch 13 Loss 1.2072 Time 26.6311531067 sec
-Epoch 14 Loss 1.1760 Time 27.2701179981 sec
-Epoch 15 Loss 1.1446 Time 26.6626930237 sec
-Epoch 16 Loss 1.1088 Time 27.3281960487 sec
-Epoch 17 Loss 1.0784 Time 26.6005680561 sec
-Epoch 18 Loss 1.0506 Time 27.7891709805 sec
-Epoch 19 Loss 1.0239 Time 26.6303539276 sec
-Epoch 20 Loss 0.9983 Time 27.1879489422 sec
-Epoch 1 Loss 0.9771 Time 27.425317049 sec
-Epoch 2 Loss 0.9682 Time 27.2836558819 sec
-Epoch 3 Loss 0.9533 Time 26.4102120399 sec
-Epoch 4 Loss 0.9308 Time 27.4387550354 sec
-Epoch 5 Loss 0.9071 Time 26.6733000278 sec
-Epoch 6 Loss 0.8881 Time 27.3489849567 sec
-Epoch 7 Loss 0.8710 Time 26.5925769806 sec
-Epoch 8 Loss 0.8577 Time 27.2366948128 sec
-Epoch 9 Loss 0.8383 Time 26.5522089005 sec
-Epoch 10 Loss 0.8169 Time 27.2235169411 sec
-Epoch 11 Loss 0.7942 Time 26.5741410255 sec
-Epoch 12 Loss 0.7736 Time 27.3370690346 sec
-Epoch 13 Loss 0.7554 Time 26.6245918274 sec
-Epoch 14 Loss 0.7385 Time 27.2736871243 sec
-Epoch 15 Loss 0.7205 Time 26.5244569778 sec
-Epoch 16 Loss 0.6949 Time 27.3214221001 sec
-Epoch 17 Loss 0.6677 Time 26.5587279797 sec
-Epoch 18 Loss 0.6377 Time 27.6255500317 sec
-Epoch 19 Loss 0.6125 Time 26.5711557865 sec
-Epoch 20 Loss 0.5906 Time 27.4120368958 sec
-Epoch 1 Loss 2.1292 Time 241.995687008 sec
-Epoch 2 Loss 1.8267 Time 27.4189109802 sec
-Epoch 3 Loss 1.7674 Time 27.0850889683 sec
-Epoch 4 Loss 1.6901 Time 27.3073890209 sec
-Epoch 5 Loss 1.5954 Time 26.4122800827 sec
-Epoch 6 Loss 1.5300 Time 27.3395838737 sec
-Epoch 7 Loss 1.4705 Time 26.4983980656 sec
-Epoch 8 Loss 1.4176 Time 27.3222699165 sec
-Epoch 9 Loss 1.3716 Time 26.5834560394 sec
-Epoch 10 Loss 1.3312 Time 27.2223629951 sec
-Epoch 11 Loss 1.2946 Time 26.550948143 sec
-Epoch 12 Loss 1.2532 Time 27.4081149101 sec
-Epoch 13 Loss 1.2206 Time 26.5669310093 sec
-Epoch 14 Loss 1.1903 Time 27.1129341125 sec
-Epoch 15 Loss 1.1670 Time 26.5414149761 sec
-Epoch 16 Loss 1.1354 Time 27.2702310085 sec
-Epoch 17 Loss 1.1064 Time 26.5413329601 sec
-Epoch 18 Loss 1.0821 Time 27.200455904 sec
-Epoch 19 Loss 1.0600 Time 26.5425109863 sec
-Epoch 20 Loss 1.0348 Time 27.3725628853 sec
-Epoch 1 Loss 1.0114 Time 25.8469810486 sec
-Epoch 2 Loss 0.9890 Time 27.4749939442 sec
-Epoch 3 Loss 0.9695 Time 26.7455940247 sec
-Epoch 4 Loss 0.9538 Time 27.1802909374 sec
-Epoch 5 Loss 0.9252 Time 26.6328539848 sec
-Epoch 6 Loss 0.8982 Time 27.5013158321 sec
-Epoch 7 Loss 0.8806 Time 26.6783430576 sec
-Epoch 8 Loss 0.8630 Time 27.379940033 sec
-Epoch 9 Loss 0.8453 Time 26.6453649998 sec
-Epoch 10 Loss 0.8254 Time 27.2844309807 sec
-Epoch 11 Loss 0.8141 Time 26.6499359608 sec
-Epoch 12 Loss 0.8068 Time 27.4510321617 sec
-Epoch 13 Loss 0.7856 Time 26.6222229004 sec
-Epoch 14 Loss 0.7477 Time 27.3662660122 sec
-Epoch 15 Loss 0.7178 Time 26.6641139984 sec
-Epoch 16 Loss 0.6943 Time 27.3366920948 sec
-Epoch 17 Loss 0.6740 Time 26.6342208385 sec
-Epoch 18 Loss 0.6553 Time 27.2636220455 sec
-Epoch 19 Loss 0.6371 Time 26.5575220585 sec
-Epoch 20 Loss 0.6179 Time 27.3196790218 sec
-=======
-Epoch 1 Batch 0 Loss 2.7432
-Epoch 1 Loss 2.1318
-Time taken for 1 epoch 314.43670392 sec
-
-Epoch 2 Batch 0 Loss 1.8939
-Epoch 2 Loss 1.8366
-Time taken for 1 epoch 55.8159179688 sec
-
-Epoch 3 Batch 0 Loss 1.8244
-Epoch 3 Loss 1.7709
-Time taken for 1 epoch 54.994560957 sec
-
-Epoch 4 Batch 0 Loss 1.7355
-Epoch 4 Loss 1.6863
-Time taken for 1 epoch 55.5069220066 sec
-
-Epoch 5 Batch 0 Loss 1.6528
-Epoch 5 Loss 1.6150
-Time taken for 1 epoch 54.9057509899 sec
-
-Epoch 6 Batch 0 Loss 1.5884
-Epoch 6 Loss 1.5553
-Time taken for 1 epoch 55.70155406 sec
-
-Epoch 7 Batch 0 Loss 1.5384
-Epoch 7 Loss 1.5039
-Time taken for 1 epoch 54.749945879 sec
-
-Epoch 8 Batch 0 Loss 1.4884
-Epoch 8 Loss 1.4557
-Time taken for 1 epoch 55.3740530014 sec
-
-Epoch 9 Batch 0 Loss 1.4402
-Epoch 9 Loss 1.4105
-Time taken for 1 epoch 54.5019640923 sec
-
-Epoch 10 Batch 0 Loss 1.3956
-Epoch 10 Loss 1.3652
-Time taken for 1 epoch 55.0468981266 sec
-
-Epoch 11 Batch 0 Loss 1.3511
-Epoch 11 Loss 1.3214
-Time taken for 1 epoch 54.2365779877 sec
-
-Epoch 12 Batch 0 Loss 1.3094
-Epoch 12 Loss 1.2795
-Time taken for 1 epoch 55.5252990723 sec
-
-Epoch 13 Batch 0 Loss 1.2712
-Epoch 13 Loss 1.2416
-Time taken for 1 epoch 54.1889908314 sec
-
-Epoch 14 Batch 0 Loss 1.2413
-Epoch 14 Loss 1.2074
-Time taken for 1 epoch 56.9145648479 sec
-
-Epoch 15 Batch 0 Loss 1.2187
-Epoch 15 Loss 1.1717
-Time taken for 1 epoch 54.1328639984 sec
-
-Epoch 16 Batch 0 Loss 1.1761
-Epoch 16 Loss 1.1411
-Time taken for 1 epoch 54.4991590977 sec
-
-Epoch 17 Batch 0 Loss 1.1388
-Epoch 17 Loss 1.1129
-Time taken for 1 epoch 54.1035330296 sec
-
-Epoch 18 Batch 0 Loss 1.1223
-Epoch 18 Loss 1.0861
-Time taken for 1 epoch 55.079832077 sec
-
-Epoch 19 Batch 0 Loss 1.0952
-Epoch 19 Loss 1.0577
-Time taken for 1 epoch 54.1117179394 sec
-
-Epoch 20 Batch 0 Loss 1.0659
-Epoch 20 Loss 1.0304
-Time taken for 1 epoch 55.9982070923 sec
->>>>>>> 5c2aafcc02546c09adc4d5140636c0c8811cfe44
+Trial 1 Epoch 1 Loss 2.2486 Time 206.922725916 sec
+Trial 1 Epoch 2 Loss 2.4326 Time 3.38390302658 sec
+Trial 1 Epoch 3 Loss 1.8258 Time 2.89600086212 sec
+Trial 1 Epoch 4 Loss 1.7783 Time 3.33898496628 sec
+Trial 1 Epoch 5 Loss 1.7177 Time 2.95429205894 sec
+Trial 1 Epoch 6 Loss 1.6648 Time 3.65857601166 sec
+Trial 1 Epoch 7 Loss 1.6067 Time 2.9684150219 sec
+Trial 1 Epoch 8 Loss 1.5867 Time 3.42180800438 sec
+Trial 1 Epoch 9 Loss 1.5612 Time 2.99532389641 sec
+Trial 1 Epoch 10 Loss 1.5409 Time 3.47019314766 sec
+Trial 1 Epoch 11 Loss 1.5199 Time 3.01493597031 sec
+Trial 1 Epoch 12 Loss 1.4982 Time 3.50012993813 sec
+Trial 1 Epoch 13 Loss 1.4791 Time 3.03184390068 sec
+Trial 1 Epoch 14 Loss 1.4613 Time 3.53297400475 sec
+Trial 1 Epoch 15 Loss 1.4435 Time 3.06081199646 sec
+Trial 1 Epoch 16 Loss 1.4258 Time 3.51504302025 sec
+Trial 1 Epoch 17 Loss 1.4059 Time 3.07425808907 sec
+Trial 1 Epoch 18 Loss 1.3849 Time 3.66095113754 sec
+Trial 1 Epoch 19 Loss 1.3626 Time 3.11591911316 sec
+Trial 1 Epoch 20 Loss 1.3383 Time 3.60048604012 sec
+Trial 1 Epoch 21 Loss 1.3126 Time 3.11108398438 sec
+Trial 1 Epoch 22 Loss 1.2860 Time 3.64729905128 sec
+Trial 1 Epoch 23 Loss 1.2696 Time 3.15640902519 sec
+Trial 1 Epoch 24 Loss 1.2472 Time 3.64538192749 sec
+Trial 1 Epoch 25 Loss 1.2176 Time 3.17059087753 sec
+Trial 1 Epoch 26 Loss 1.1903 Time 4.12994503975 sec
+Trial 1 Epoch 27 Loss 1.1582 Time 3.19604802132 sec
+Trial 1 Epoch 28 Loss 1.1327 Time 3.71095895767 sec
+Trial 1 Epoch 29 Loss 1.1029 Time 3.22290492058 sec
+Trial 1 Epoch 30 Loss 1.0758 Time 3.70546293259 sec
+Trial 1 Epoch 31 Loss 1.0478 Time 3.19177985191 sec
+Trial 1 Epoch 32 Loss 1.0209 Time 3.64816689491 sec
+Trial 1 Epoch 33 Loss 0.9935 Time 3.14798402786 sec
+Trial 1 Epoch 34 Loss 0.9681 Time 3.63613390923 sec
+Trial 1 Epoch 35 Loss 0.9456 Time 3.13334512711 sec
+Trial 1 Epoch 36 Loss 0.9248 Time 3.61854505539 sec
+Trial 1 Epoch 37 Loss 0.9194 Time 3.12686705589 sec
+Trial 1 Epoch 38 Loss 0.8980 Time 3.70067310333 sec
+Trial 1 Epoch 39 Loss 0.8731 Time 3.12188601494 sec
+Trial 1 Epoch 40 Loss 0.8521 Time 3.633934021 sec
+Trial 1 Epoch 41 Loss 0.8321 Time 3.1150829792 sec
+Trial 1 Epoch 42 Loss 0.8140 Time 3.62102603912 sec
+Trial 1 Epoch 43 Loss 0.7943 Time 3.13585996628 sec
+Trial 1 Epoch 44 Loss 0.7769 Time 3.63814997673 sec
+Trial 1 Epoch 45 Loss 0.7588 Time 3.15690612793 sec
+Trial 1 Epoch 46 Loss 0.7411 Time 3.57578396797 sec
+Trial 1 Epoch 47 Loss 0.7229 Time 3.16752195358 sec
+Trial 1 Epoch 48 Loss 0.7070 Time 3.7519569397 sec
+Trial 1 Epoch 49 Loss 0.6908 Time 3.16040492058 sec
+Trial 1 Epoch 50 Loss 0.6774 Time 3.64622116089 sec
+Trial 1 Epoch 51 Loss 0.6645 Time 3.16349887848 sec
+Trial 1 Epoch 52 Loss 0.6620 Time 3.65166807175 sec
+Trial 1 Epoch 53 Loss 0.6556 Time 3.1691699028 sec
+Trial 1 Epoch 54 Loss 0.6336 Time 3.6476020813 sec
+Trial 1 Epoch 55 Loss 0.6202 Time 3.15436601639 sec
+Trial 1 Epoch 56 Loss 0.6034 Time 3.66667795181 sec
+Trial 1 Epoch 57 Loss 0.5869 Time 3.16240310669 sec
+Trial 1 Epoch 58 Loss 0.5722 Time 3.69233107567 sec
+Trial 1 Epoch 59 Loss 0.5580 Time 3.13733577728 sec
+Trial 1 Epoch 60 Loss 0.5436 Time 3.75031495094 sec
+Trial 1 Epoch 61 Loss 0.5313 Time 3.14947891235 sec
+Trial 1 Epoch 62 Loss 0.5189 Time 3.63900303841 sec
+Trial 1 Epoch 63 Loss 0.5050 Time 3.14338302612 sec
+Trial 1 Epoch 64 Loss 0.4948 Time 3.71693181992 sec
+Trial 1 Epoch 65 Loss 0.4880 Time 3.14948296547 sec
+Trial 1 Epoch 66 Loss 0.4966 Time 3.70930290222 sec
+Trial 1 Epoch 67 Loss 0.4803 Time 3.149985075 sec
+Trial 1 Epoch 68 Loss 0.4679 Time 3.72921490669 sec
+Trial 1 Epoch 69 Loss 0.4577 Time 3.14699697495 sec
+Trial 1 Epoch 70 Loss 0.4346 Time 3.74870491028 sec
+Trial 1 Epoch 71 Loss 0.4254 Time 3.14927697182 sec
+Trial 1 Epoch 72 Loss 0.4082 Time 3.86205196381 sec
+Trial 1 Epoch 73 Loss 0.3947 Time 3.1494679451 sec
+Trial 1 Epoch 74 Loss 0.3800 Time 3.69392204285 sec
+Trial 1 Epoch 75 Loss 0.3665 Time 3.15573096275 sec
+Trial 1 Epoch 76 Loss 0.3566 Time 3.66706800461 sec
+Trial 1 Epoch 77 Loss 0.3469 Time 3.15884685516 sec
+Trial 1 Epoch 78 Loss 0.3514 Time 3.61044788361 sec
+Trial 1 Epoch 79 Loss 0.3479 Time 3.16055488586 sec
+Trial 1 Epoch 80 Loss 0.3457 Time 3.62350392342 sec
+Trial 1 Epoch 81 Loss 0.3285 Time 3.13678503036 sec
+Trial 1 Epoch 82 Loss 0.3121 Time 3.6479549408 sec
+Trial 1 Epoch 83 Loss 0.2975 Time 3.14179205894 sec
+Trial 1 Epoch 84 Loss 0.2833 Time 3.63253116608 sec
+Trial 1 Epoch 85 Loss 0.2732 Time 3.15076994896 sec
+Trial 1 Epoch 86 Loss 0.2609 Time 3.67579889297 sec
+Trial 1 Epoch 87 Loss 0.2511 Time 3.13823509216 sec
+Trial 1 Epoch 88 Loss 0.2419 Time 3.64257097244 sec
+Trial 1 Epoch 89 Loss 0.2358 Time 3.13836288452 sec
+Trial 1 Epoch 90 Loss 0.2229 Time 3.67036318779 sec
+Trial 1 Epoch 91 Loss 0.2165 Time 3.15351891518 sec
+Trial 1 Epoch 92 Loss 0.2071 Time 3.60679388046 sec
+Trial 1 Epoch 93 Loss 0.2030 Time 3.15439009666 sec
+Trial 1 Epoch 94 Loss 0.1945 Time 3.91354298592 sec
+Trial 1 Epoch 95 Loss 0.1939 Time 3.13372707367 sec
+Trial 1 Epoch 96 Loss 0.1884 Time 3.7469830513 sec
+Trial 1 Epoch 97 Loss 0.1831 Time 3.1402451992 sec
+Trial 1 Epoch 98 Loss 0.1781 Time 3.70027804375 sec
+Trial 1 Epoch 99 Loss 0.1672 Time 3.13647794724 sec
+Trial 1 Epoch 100 Loss 0.1575 Time 3.75581502914 sec
+Trial 1 Epoch 101 Loss 0.1503 Time 3.13612008095 sec
+Trial 1 Epoch 102 Loss 0.1395 Time 3.74562096596 sec
+Trial 1 Epoch 103 Loss 0.1298 Time 3.21339297295 sec
+Trial 1 Epoch 104 Loss 0.1224 Time 3.62135481834 sec
+Trial 1 Epoch 105 Loss 0.1155 Time 3.14886188507 sec
+Trial 1 Epoch 106 Loss 0.1099 Time 3.62214517593 sec
+Trial 1 Epoch 107 Loss 0.1043 Time 3.14527893066 sec
+Trial 1 Epoch 108 Loss 0.1012 Time 3.56488394737 sec
+Trial 1 Epoch 109 Loss 0.0977 Time 3.12409591675 sec
+Trial 1 Epoch 110 Loss 0.0967 Time 3.62147402763 sec
+Trial 1 Epoch 111 Loss 0.0961 Time 3.13381505013 sec
+Trial 1 Epoch 112 Loss 0.0990 Time 3.65052819252 sec
+Trial 1 Epoch 113 Loss 0.1102 Time 3.15120983124 sec
+Trial 1 Epoch 114 Loss 0.1408 Time 3.70986104012 sec
+Trial 1 Epoch 115 Loss 0.1281 Time 3.12566804886 sec
+Trial 1 Epoch 116 Loss 0.1235 Time 3.84078502655 sec
+Trial 1 Epoch 117 Loss 0.1103 Time 3.15121507645 sec
+Trial 1 Epoch 118 Loss 0.1026 Time 3.60676407814 sec
+Trial 1 Epoch 119 Loss 0.0950 Time 3.14268016815 sec
+Trial 1 Epoch 120 Loss 0.0864 Time 3.57544112206 sec
+Trial 1 Epoch 121 Loss 0.0771 Time 3.15168118477 sec
+Trial 1 Epoch 122 Loss 0.0720 Time 3.62078595161 sec
+Trial 1 Epoch 123 Loss 0.0657 Time 3.13759493828 sec
+Trial 1 Epoch 124 Loss 0.0597 Time 3.55151319504 sec
+Trial 1 Epoch 125 Loss 0.0563 Time 3.12974786758 sec
+Trial 1 Epoch 126 Loss 0.0517 Time 3.6142179966 sec
+Trial 1 Epoch 127 Loss 0.0482 Time 3.13443684578 sec
+Trial 1 Epoch 128 Loss 0.0449 Time 3.58605408669 sec
+Trial 1 Epoch 129 Loss 0.0421 Time 3.14012503624 sec
+Trial 1 Epoch 130 Loss 0.0396 Time 3.59291696548 sec
+Trial 1 Epoch 131 Loss 0.0374 Time 3.14270591736 sec
+Trial 1 Epoch 132 Loss 0.0355 Time 3.59973096848 sec
+Trial 1 Epoch 133 Loss 0.0337 Time 3.12735486031 sec
+Trial 1 Epoch 134 Loss 0.0320 Time 3.69512295723 sec
+Trial 1 Epoch 135 Loss 0.0308 Time 3.12624502182 sec
+Trial 1 Epoch 136 Loss 0.0299 Time 3.56626105309 sec
+Trial 1 Epoch 137 Loss 0.0288 Time 3.13568282127 sec
+Trial 1 Epoch 138 Loss 0.0275 Time 3.59004402161 sec
+Trial 1 Epoch 139 Loss 0.0262 Time 3.14693403244 sec
+Trial 1 Epoch 140 Loss 0.0249 Time 3.56518411636 sec
+Trial 1 Epoch 141 Loss 0.0238 Time 3.12431502342 sec
+Trial 1 Epoch 142 Loss 0.0229 Time 3.5796790123 sec
+Trial 1 Epoch 143 Loss 0.0220 Time 3.13748288155 sec
+Trial 1 Epoch 144 Loss 0.0215 Time 3.61638998985 sec
+Trial 1 Epoch 145 Loss 0.0217 Time 3.13918399811 sec
+Trial 1 Epoch 146 Loss 0.0219 Time 3.69329309464 sec
+Trial 1 Epoch 147 Loss 0.0217 Time 3.13963699341 sec
+Trial 1 Epoch 148 Loss 0.0235 Time 3.57239294052 sec
+Trial 1 Epoch 149 Loss 0.0249 Time 3.13316702843 sec
+Trial 1 Epoch 150 Loss 0.0311 Time 3.59002399445 sec
+Trial 1 Epoch 151 Loss 0.0366 Time 3.12461304665 sec
+Trial 1 Epoch 152 Loss 0.0455 Time 3.5640411377 sec
+Trial 1 Epoch 153 Loss 0.0492 Time 3.14541506767 sec
+Trial 1 Epoch 154 Loss 0.0492 Time 3.55411815643 sec
+Trial 1 Epoch 155 Loss 0.0466 Time 3.13409399986 sec
+Trial 1 Epoch 156 Loss 0.0431 Time 3.57095217705 sec
+Trial 1 Epoch 157 Loss 0.0381 Time 3.13428997993 sec
+Trial 1 Epoch 158 Loss 0.0332 Time 3.70130991936 sec
+Trial 1 Epoch 159 Loss 0.0290 Time 3.12884378433 sec
+Trial 1 Epoch 160 Loss 0.0265 Time 3.61360311508 sec
+Trial 1 Epoch 161 Loss 0.0248 Time 3.14078617096 sec
+Trial 1 Epoch 162 Loss 0.0228 Time 3.61400103569 sec
+Trial 1 Epoch 163 Loss 0.0209 Time 3.13139986992 sec
+Trial 1 Epoch 164 Loss 0.0189 Time 3.5287361145 sec
+Trial 1 Epoch 165 Loss 0.0173 Time 3.12645101547 sec
+Trial 1 Epoch 166 Loss 0.0161 Time 3.55671286583 sec
+Trial 1 Epoch 167 Loss 0.0148 Time 3.12941002846 sec
+Trial 1 Epoch 168 Loss 0.0139 Time 3.60629200935 sec
+Trial 1 Epoch 169 Loss 0.0132 Time 3.12890195847 sec
+Trial 1 Epoch 170 Loss 0.0124 Time 3.71599197388 sec
+Trial 1 Epoch 171 Loss 0.0118 Time 3.14128184319 sec
+Trial 1 Epoch 172 Loss 0.0113 Time 3.52288103104 sec
+Trial 1 Epoch 173 Loss 0.0108 Time 3.11350893974 sec
+Trial 1 Epoch 174 Loss 0.0104 Time 3.56341385841 sec
+Trial 1 Epoch 175 Loss 0.0102 Time 3.11798191071 sec
+Trial 1 Epoch 176 Loss 0.0102 Time 3.54866814613 sec
+Trial 1 Epoch 177 Loss 0.0099 Time 3.11966896057 sec
+Trial 1 Epoch 178 Loss 0.0096 Time 3.6164958477 sec
+Trial 1 Epoch 179 Loss 0.0092 Time 3.13527107239 sec
+Trial 1 Epoch 180 Loss 0.0090 Time 3.5234131813 sec
+Trial 1 Epoch 181 Loss 0.0086 Time 3.14660406113 sec
+Trial 1 Epoch 182 Loss 0.0083 Time 3.55920505524 sec
+Trial 1 Epoch 183 Loss 0.0080 Time 3.14937710762 sec
+Trial 1 Epoch 184 Loss 0.0078 Time 3.58549499512 sec
+Trial 1 Epoch 185 Loss 0.0075 Time 3.14533090591 sec
+Trial 1 Epoch 186 Loss 0.0075 Time 3.57558298111 sec
+Trial 1 Epoch 187 Loss 0.0072 Time 3.14044594765 sec
+Trial 1 Epoch 188 Loss 0.0073 Time 3.60135006905 sec
+Trial 1 Epoch 189 Loss 0.0071 Time 3.11473298073 sec
+Trial 1 Epoch 190 Loss 0.0070 Time 3.59131908417 sec
+Trial 1 Epoch 191 Loss 0.0067 Time 3.12644696236 sec
+Trial 1 Epoch 192 Loss 0.0066 Time 3.61346101761 sec
+Trial 1 Epoch 193 Loss 0.0064 Time 3.12308502197 sec
+Trial 1 Epoch 194 Loss 0.0063 Time 3.55000805855 sec
+Trial 1 Epoch 195 Loss 0.0065 Time 3.11348605156 sec
+Trial 1 Epoch 196 Loss 0.0061 Time 3.59325408936 sec
+Trial 1 Epoch 197 Loss 0.0059 Time 3.12672495842 sec
+Trial 1 Epoch 198 Loss 0.0060 Time 3.58619999886 sec
+Trial 1 Epoch 199 Loss 0.0065 Time 3.14678215981 sec
+Trial 1 Epoch 200 Loss 0.0102 Time 3.59696102142 sec
+Trial 1 Epoch 201 Loss 0.0164 Time 3.13344597816 sec
+Trial 1 Epoch 202 Loss 0.0223 Time 3.56841897964 sec
+Trial 1 Epoch 203 Loss 0.0291 Time 3.15724277496 sec
+Trial 1 Epoch 204 Loss 0.0345 Time 3.64599084854 sec
+Trial 1 Epoch 205 Loss 0.0380 Time 3.14581084251 sec
+Trial 1 Epoch 206 Loss 0.0430 Time 3.57307720184 sec
+Trial 1 Epoch 207 Loss 0.0522 Time 3.12673997879 sec
+Trial 1 Epoch 208 Loss 0.0570 Time 3.6233818531 sec
+Trial 1 Epoch 209 Loss 0.0570 Time 3.1190559864 sec
+Trial 1 Epoch 210 Loss 0.0468 Time 3.58410906792 sec
+Trial 1 Epoch 211 Loss 0.0431 Time 3.13051199913 sec
+Trial 1 Epoch 212 Loss 0.0347 Time 3.715914011 sec
+Trial 1 Epoch 213 Loss 0.0258 Time 3.11146497726 sec
+Trial 1 Epoch 214 Loss 0.0221 Time 3.74007892609 sec
+Trial 1 Epoch 215 Loss 0.0188 Time 3.12970304489 sec
+Trial 1 Epoch 216 Loss 0.0160 Time 3.58201313019 sec
+Trial 1 Epoch 217 Loss 0.0139 Time 3.14430999756 sec
+Trial 1 Epoch 218 Loss 0.0120 Time 3.5875480175 sec
+Trial 1 Epoch 219 Loss 0.0104 Time 3.13460206985 sec
+Trial 1 Epoch 220 Loss 0.0094 Time 3.68617415428 sec
+Trial 1 Epoch 221 Loss 0.0086 Time 3.12801194191 sec
+Trial 1 Epoch 222 Loss 0.0079 Time 3.57743406296 sec
+Trial 1 Epoch 223 Loss 0.0073 Time 3.12815213203 sec
+Trial 1 Epoch 224 Loss 0.0069 Time 3.64859700203 sec
+Trial 1 Epoch 225 Loss 0.0065 Time 3.13857078552 sec
+Trial 1 Epoch 226 Loss 0.0061 Time 3.56230092049 sec
+Trial 1 Epoch 227 Loss 0.0059 Time 3.13896584511 sec
+Trial 1 Epoch 228 Loss 0.0056 Time 3.59108996391 sec
+Trial 1 Epoch 229 Loss 0.0054 Time 3.1392261982 sec
+Trial 1 Epoch 230 Loss 0.0052 Time 3.54877018929 sec
+Trial 1 Epoch 231 Loss 0.0050 Time 3.13618206978 sec
+Trial 1 Epoch 232 Loss 0.0048 Time 3.62666583061 sec
+Trial 1 Epoch 233 Loss 0.0047 Time 3.1219329834 sec
+Trial 1 Epoch 234 Loss 0.0045 Time 3.51345181465 sec
+Trial 1 Epoch 235 Loss 0.0044 Time 3.12616014481 sec
+Trial 1 Epoch 236 Loss 0.0043 Time 3.66272902489 sec
+Trial 1 Epoch 237 Loss 0.0042 Time 3.13439798355 sec
+Trial 1 Epoch 238 Loss 0.0041 Time 3.64320802689 sec
+Trial 1 Epoch 239 Loss 0.0040 Time 3.12104821205 sec
+Trial 1 Epoch 240 Loss 0.0039 Time 3.55734014511 sec
+Trial 1 Epoch 241 Loss 0.0038 Time 3.12821602821 sec
+Trial 1 Epoch 242 Loss 0.0037 Time 3.58084511757 sec
+Trial 1 Epoch 243 Loss 0.0036 Time 3.11602091789 sec
+Trial 1 Epoch 244 Loss 0.0036 Time 3.56919908524 sec
+Trial 1 Epoch 245 Loss 0.0035 Time 3.13208699226 sec
+Trial 1 Epoch 246 Loss 0.0034 Time 3.59731698036 sec
+Trial 1 Epoch 247 Loss 0.0034 Time 3.11823987961 sec
+Trial 1 Epoch 248 Loss 0.0033 Time 4.11092019081 sec
+Trial 1 Epoch 249 Loss 0.0032 Time 3.11714601517 sec
+Trial 1 Epoch 250 Loss 0.0032 Time 3.68925309181 sec
+Trial 1 Epoch 251 Loss 0.0031 Time 3.11966919899 sec
+Trial 1 Epoch 252 Loss 0.0031 Time 3.61665797234 sec
+Trial 1 Epoch 253 Loss 0.0033 Time 3.139772892 sec
+Trial 1 Epoch 254 Loss 0.0037 Time 3.58290505409 sec
+Trial 1 Epoch 255 Loss 0.0040 Time 3.1294939518 sec
+Trial 1 Epoch 256 Loss 0.0039 Time 3.60324501991 sec
+Trial 1 Epoch 257 Loss 0.0042 Time 3.13562703133 sec
+Trial 1 Epoch 258 Loss 0.0046 Time 3.61416101456 sec
+Trial 1 Epoch 259 Loss 0.0042 Time 3.14074707031 sec
+Trial 1 Epoch 260 Loss 0.0043 Time 3.54494309425 sec
+Trial 1 Epoch 261 Loss 0.0042 Time 3.13462805748 sec
+Trial 1 Epoch 262 Loss 0.0043 Time 3.53143191338 sec
+Trial 1 Epoch 263 Loss 0.0042 Time 3.1188480854 sec
+Trial 1 Epoch 264 Loss 0.0040 Time 3.62873387337 sec
+Trial 1 Epoch 265 Loss 0.0036 Time 3.13026690483 sec
+Trial 1 Epoch 266 Loss 0.0034 Time 3.5608561039 sec
+Trial 1 Epoch 267 Loss 0.0033 Time 3.12237811089 sec
+Trial 1 Epoch 268 Loss 0.0031 Time 3.62398815155 sec
+Trial 1 Epoch 269 Loss 0.0030 Time 3.13597488403 sec
+Trial 1 Epoch 270 Loss 0.0029 Time 3.55881905556 sec
+Trial 1 Epoch 271 Loss 0.0028 Time 3.11418581009 sec
+Trial 1 Epoch 272 Loss 0.0027 Time 3.5874569416 sec
+Trial 1 Epoch 273 Loss 0.0026 Time 3.11851406097 sec
+Trial 1 Epoch 274 Loss 0.0025 Time 3.54330205917 sec
+Trial 1 Epoch 275 Loss 0.0025 Time 3.11273288727 sec
+Trial 1 Epoch 276 Loss 0.0024 Time 3.56230688095 sec
+Trial 1 Epoch 277 Loss 0.0024 Time 3.12639284134 sec
+Trial 1 Epoch 278 Loss 0.0024 Time 3.61012506485 sec
+Trial 1 Epoch 279 Loss 0.0023 Time 3.13275408745 sec
+Trial 1 Epoch 280 Loss 0.0023 Time 3.6767680645 sec
+Trial 1 Epoch 281 Loss 0.0022 Time 3.14551687241 sec
+Trial 1 Epoch 282 Loss 0.0022 Time 3.60982990265 sec
+Trial 1 Epoch 283 Loss 0.0022 Time 3.14173793793 sec
+Trial 1 Epoch 284 Loss 0.0021 Time 3.70075702667 sec
+Trial 1 Epoch 285 Loss 0.0021 Time 3.13940596581 sec
+Trial 1 Epoch 286 Loss 0.0021 Time 3.58798193932 sec
+Trial 1 Epoch 287 Loss 0.0021 Time 3.14655303955 sec
+Trial 1 Epoch 288 Loss 0.0020 Time 3.60362100601 sec
+Trial 1 Epoch 289 Loss 0.0020 Time 3.13388586044 sec
+Trial 1 Epoch 290 Loss 0.0020 Time 3.67905402184 sec
+Trial 1 Epoch 291 Loss 0.0019 Time 3.1341779232 sec
+Trial 1 Epoch 292 Loss 0.0019 Time 3.56289196014 sec
+Trial 1 Epoch 293 Loss 0.0019 Time 3.13098216057 sec
+Trial 1 Epoch 294 Loss 0.0022 Time 3.84310388565 sec
+Trial 1 Epoch 295 Loss 0.0021 Time 3.14653992653 sec
+Trial 1 Epoch 296 Loss 0.0020 Time 3.56896901131 sec
+Trial 1 Epoch 297 Loss 0.0020 Time 3.12891578674 sec
+Trial 1 Epoch 298 Loss 0.0019 Time 3.53337979317 sec
+Trial 1 Epoch 299 Loss 0.0019 Time 3.13365483284 sec
+Trial 1 Epoch 300 Loss 0.0019 Time 3.60597705841 sec
+Trial 1 Epoch 301 Loss 0.0018 Time 3.13949489594 sec
+Trial 1 Epoch 302 Loss 0.0018 Time 3.61185979843 sec
+Trial 1 Epoch 303 Loss 0.0018 Time 3.13098812103 sec
+Trial 1 Epoch 304 Loss 0.0017 Time 3.6071228981 sec
+Trial 1 Epoch 305 Loss 0.0017 Time 3.12030315399 sec
+Trial 1 Epoch 306 Loss 0.0018 Time 3.72167897224 sec
+Trial 1 Epoch 307 Loss 0.0017 Time 3.13152003288 sec
+Trial 1 Epoch 308 Loss 0.0018 Time 3.59418511391 sec
+Trial 1 Epoch 309 Loss 0.0017 Time 3.13357305527 sec
+Trial 1 Epoch 310 Loss 0.0018 Time 3.57916593552 sec
+Trial 1 Epoch 311 Loss 0.0017 Time 3.12719297409 sec
+Trial 1 Epoch 312 Loss 0.0017 Time 3.57179093361 sec
+Trial 1 Epoch 313 Loss 0.0017 Time 3.13267087936 sec
+Trial 1 Epoch 314 Loss 0.0016 Time 3.51663899422 sec
+Trial 1 Epoch 315 Loss 0.0016 Time 3.14283204079 sec
+Trial 1 Epoch 316 Loss 0.0016 Time 3.63064718246 sec
+Trial 1 Epoch 317 Loss 0.0016 Time 3.13002896309 sec
+Trial 1 Epoch 318 Loss 0.0015 Time 3.70110917091 sec
+Trial 1 Epoch 319 Loss 0.0015 Time 3.12320613861 sec
+Trial 1 Epoch 320 Loss 0.0015 Time 3.57164406776 sec
+Trial 1 Epoch 321 Loss 0.0015 Time 3.12213397026 sec
+Trial 1 Epoch 322 Loss 0.0015 Time 3.58877086639 sec
+Trial 1 Epoch 323 Loss 0.0014 Time 3.13042092323 sec
+Trial 1 Epoch 324 Loss 0.0014 Time 3.62244701385 sec
+Trial 1 Epoch 325 Loss 0.0014 Time 3.14403676987 sec
+Trial 1 Epoch 326 Loss 0.0014 Time 3.56790709496 sec
+Trial 1 Epoch 327 Loss 0.0014 Time 3.14235496521 sec
+Trial 1 Epoch 328 Loss 0.0014 Time 3.59768080711 sec
+Trial 1 Epoch 329 Loss 0.0013 Time 3.13950991631 sec
+Trial 1 Epoch 330 Loss 0.0013 Time 3.6059088707 sec
+Trial 1 Epoch 331 Loss 0.0013 Time 3.13713598251 sec
+Trial 1 Epoch 332 Loss 0.0013 Time 3.60365819931 sec
+Trial 1 Epoch 333 Loss 0.0013 Time 3.13023400307 sec
+Trial 1 Epoch 334 Loss 0.0013 Time 3.71675181389 sec
+Trial 1 Epoch 335 Loss 0.0012 Time 3.12592792511 sec
+Trial 1 Epoch 336 Loss 0.0013 Time 3.63890099525 sec
+Trial 1 Epoch 337 Loss 0.0015 Time 3.12962913513 sec
+Trial 1 Epoch 338 Loss 0.0031 Time 3.62940907478 sec
+Trial 1 Epoch 339 Loss 0.0030 Time 3.12942409515 sec
+Trial 1 Epoch 340 Loss 0.0070 Time 3.63973999023 sec
+Trial 1 Epoch 341 Loss 0.0099 Time 3.12585306168 sec
+Trial 1 Epoch 342 Loss 0.0149 Time 3.58226203918 sec
+Trial 1 Epoch 343 Loss 0.0251 Time 3.13463997841 sec
+Trial 1 Epoch 344 Loss 0.0385 Time 3.61568117142 sec
+Trial 1 Epoch 345 Loss 0.0548 Time 3.1433839798 sec
+Trial 1 Epoch 346 Loss 0.0677 Time 3.57538509369 sec
+Trial 1 Epoch 347 Loss 0.0644 Time 3.13111782074 sec
+Trial 1 Epoch 348 Loss 0.0852 Time 3.62336087227 sec
+Trial 1 Epoch 349 Loss 0.0773 Time 3.13292598724 sec
+Trial 1 Epoch 350 Loss 0.0808 Time 3.58064508438 sec
+Trial 1 Epoch 351 Loss 0.0647 Time 3.14961218834 sec
+Trial 1 Epoch 352 Loss 0.0613 Time 3.5637447834 sec
+Trial 1 Epoch 353 Loss 0.0464 Time 3.12500905991 sec
+Trial 1 Epoch 354 Loss 0.0397 Time 3.69587898254 sec
+Trial 1 Epoch 355 Loss 0.0338 Time 3.11267709732 sec
+Trial 1 Epoch 356 Loss 0.0230 Time 3.64833211899 sec
+Trial 1 Epoch 357 Loss 0.0191 Time 3.12276911736 sec
+Trial 1 Epoch 358 Loss 0.0143 Time 3.69723391533 sec
+Trial 1 Epoch 359 Loss 0.0116 Time 3.1301651001 sec
+Trial 1 Epoch 360 Loss 0.0099 Time 3.64067697525 sec
+Trial 1 Epoch 361 Loss 0.0080 Time 3.11509108543 sec
+Trial 1 Epoch 362 Loss 0.0069 Time 3.51311397552 sec
+Trial 1 Epoch 363 Loss 0.0060 Time 3.13282203674 sec
+Trial 1 Epoch 364 Loss 0.0055 Time 3.58703112602 sec
+Trial 1 Epoch 365 Loss 0.0048 Time 3.12613892555 sec
+Trial 1 Epoch 366 Loss 0.0044 Time 3.57603287697 sec
+Trial 1 Epoch 367 Loss 0.0041 Time 3.11426591873 sec
+Trial 1 Epoch 368 Loss 0.0038 Time 3.62414503098 sec
+Trial 1 Epoch 369 Loss 0.0035 Time 3.13621401787 sec
+Trial 1 Epoch 370 Loss 0.0033 Time 3.59789299965 sec
+Trial 1 Epoch 371 Loss 0.0032 Time 3.12787890434 sec
+Trial 1 Epoch 372 Loss 0.0031 Time 3.67235589027 sec
+Trial 1 Epoch 373 Loss 0.0029 Time 3.14149403572 sec
+Trial 1 Epoch 374 Loss 0.0028 Time 3.55684709549 sec
+Trial 1 Epoch 375 Loss 0.0027 Time 3.13360595703 sec
+Trial 1 Epoch 376 Loss 0.0026 Time 3.72385001183 sec
+Trial 1 Epoch 377 Loss 0.0025 Time 3.1410009861 sec
+Trial 1 Epoch 378 Loss 0.0025 Time 3.62672305107 sec
+Trial 1 Epoch 379 Loss 0.0024 Time 3.15091300011 sec
+Trial 1 Epoch 380 Loss 0.0023 Time 3.6637108326 sec
+Trial 1 Epoch 381 Loss 0.0023 Time 3.14030909538 sec
+Trial 1 Epoch 382 Loss 0.0022 Time 3.70079302788 sec
+Trial 1 Epoch 383 Loss 0.0021 Time 3.13936805725 sec
+Trial 1 Epoch 384 Loss 0.0021 Time 3.63809514046 sec
+Trial 1 Epoch 385 Loss 0.0020 Time 3.12026190758 sec
+Trial 1 Epoch 386 Loss 0.0020 Time 3.95666599274 sec
+Trial 1 Epoch 387 Loss 0.0019 Time 3.1099050045 sec
+Trial 1 Epoch 388 Loss 0.0018 Time 3.58928585052 sec
+Trial 1 Epoch 389 Loss 0.0018 Time 3.11392998695 sec
+Trial 1 Epoch 390 Loss 0.0018 Time 3.57195401192 sec
+Trial 1 Epoch 391 Loss 0.0017 Time 3.12578201294 sec
+Trial 1 Epoch 392 Loss 0.0017 Time 3.55632185936 sec
+Trial 1 Epoch 393 Loss 0.0020 Time 3.12271404266 sec
+Trial 1 Epoch 394 Loss 0.0018 Time 3.52926588058 sec
+Trial 1 Epoch 395 Loss 0.0018 Time 3.13555908203 sec
+Trial 1 Epoch 396 Loss 0.0017 Time 3.6134250164 sec
+Trial 1 Epoch 397 Loss 0.0017 Time 3.13709115982 sec
+Trial 1 Epoch 398 Loss 0.0016 Time 3.61542987823 sec
+Trial 1 Epoch 399 Loss 0.0016 Time 3.15477705002 sec
+Trial 1 Epoch 400 Loss 0.0016 Time 3.59454798698 sec
+Trial 1 Epoch 401 Loss 0.0016 Time 3.12750101089 sec
+Trial 1 Epoch 402 Loss 0.0015 Time 3.55444693565 sec
+Trial 1 Epoch 403 Loss 0.0015 Time 3.12352609634 sec
+Trial 1 Epoch 404 Loss 0.0015 Time 3.57265400887 sec
+Trial 1 Epoch 405 Loss 0.0015 Time 3.1181230545 sec
+Trial 1 Epoch 406 Loss 0.0015 Time 3.59118485451 sec
+Trial 1 Epoch 407 Loss 0.0014 Time 3.12048196793 sec
+Trial 1 Epoch 408 Loss 0.0014 Time 3.60339307785 sec
+Trial 1 Epoch 409 Loss 0.0014 Time 3.1132619381 sec
+Trial 1 Epoch 410 Loss 0.0014 Time 3.58802390099 sec
+Trial 1 Epoch 411 Loss 0.0013 Time 3.10527706146 sec
+Trial 1 Epoch 412 Loss 0.0013 Time 3.52173280716 sec
+Trial 1 Epoch 413 Loss 0.0013 Time 3.13173079491 sec
+Trial 1 Epoch 414 Loss 0.0013 Time 3.54658508301 sec
+Trial 1 Epoch 415 Loss 0.0012 Time 3.12729382515 sec
+Trial 1 Epoch 416 Loss 0.0012 Time 3.59140014648 sec
+Trial 1 Epoch 417 Loss 0.0012 Time 3.15565490723 sec
+Trial 1 Epoch 418 Loss 0.0012 Time 3.60092520714 sec
+Trial 1 Epoch 419 Loss 0.0012 Time 3.14873790741 sec
+Trial 1 Epoch 420 Loss 0.0011 Time 3.58963894844 sec
+Trial 1 Epoch 421 Loss 0.0011 Time 3.13700795174 sec
+Trial 1 Epoch 422 Loss 0.0011 Time 3.62173700333 sec
+Trial 1 Epoch 423 Loss 0.0011 Time 3.1320669651 sec
+Trial 1 Epoch 424 Loss 0.0011 Time 3.5653450489 sec
+Trial 1 Epoch 425 Loss 0.0010 Time 3.13523411751 sec
+Trial 1 Epoch 426 Loss 0.0010 Time 3.63972306252 sec
+Trial 1 Epoch 427 Loss 0.0010 Time 3.11976194382 sec
+Trial 1 Epoch 428 Loss 0.0010 Time 3.64812707901 sec
+Trial 1 Epoch 429 Loss 0.0010 Time 3.11224389076 sec
+Trial 1 Epoch 430 Loss 0.0010 Time 3.6581761837 sec
+Trial 1 Epoch 431 Loss 0.0010 Time 3.11690592766 sec
+Trial 1 Epoch 432 Loss 0.0009 Time 3.67742300034 sec
+Trial 1 Epoch 433 Loss 0.0009 Time 3.12857317924 sec
+Trial 1 Epoch 434 Loss 0.0009 Time 3.69202899933 sec
+Trial 1 Epoch 435 Loss 0.0009 Time 3.15972113609 sec
+Trial 1 Epoch 436 Loss 0.0009 Time 3.57621192932 sec
+Trial 1 Epoch 437 Loss 0.0009 Time 3.13159704208 sec
+Trial 1 Epoch 438 Loss 0.0009 Time 3.58014678955 sec
+Trial 1 Epoch 439 Loss 0.0009 Time 3.12316298485 sec
+Trial 1 Epoch 440 Loss 0.0009 Time 3.60605597496 sec
+Trial 1 Epoch 441 Loss 0.0009 Time 3.12723612785 sec
+Trial 1 Epoch 442 Loss 0.0009 Time 3.63000011444 sec
+Trial 1 Epoch 443 Loss 0.0008 Time 3.1135430336 sec
+Trial 1 Epoch 444 Loss 0.0008 Time 3.59775590897 sec
+Trial 1 Epoch 445 Loss 0.0008 Time 3.13528800011 sec
+Trial 1 Epoch 446 Loss 0.0008 Time 3.58907604218 sec
+Trial 1 Epoch 447 Loss 0.0008 Time 3.12202501297 sec
+Trial 1 Epoch 448 Loss 0.0008 Time 3.61665296555 sec
+Trial 1 Epoch 449 Loss 0.0008 Time 3.11877989769 sec
+Trial 1 Epoch 450 Loss 0.0008 Time 3.59908294678 sec
+Trial 1 Epoch 451 Loss 0.0008 Time 3.14690303802 sec
+Trial 1 Epoch 452 Loss 0.0008 Time 3.58855009079 sec
+Trial 1 Epoch 453 Loss 0.0008 Time 3.12543797493 sec
+Trial 1 Epoch 454 Loss 0.0008 Time 3.60882401466 sec
+Trial 1 Epoch 455 Loss 0.0008 Time 3.13205885887 sec
+Trial 1 Epoch 456 Loss 0.0008 Time 3.71266388893 sec
+Trial 1 Epoch 457 Loss 0.0007 Time 3.13456583023 sec
+Trial 1 Epoch 458 Loss 0.0007 Time 3.69233489037 sec
+Trial 1 Epoch 459 Loss 0.0007 Time 3.156924963 sec
+Trial 1 Epoch 460 Loss 0.0007 Time 3.57485103607 sec
+Trial 1 Epoch 461 Loss 0.0007 Time 3.14323210716 sec
+Trial 1 Epoch 462 Loss 0.0007 Time 3.69159603119 sec
+Trial 1 Epoch 463 Loss 0.0007 Time 3.13474297523 sec
+Trial 1 Epoch 464 Loss 0.0007 Time 3.54796290398 sec
+Trial 1 Epoch 465 Loss 0.0010 Time 3.1357960701 sec
+Trial 1 Epoch 466 Loss 0.0008 Time 3.60982394218 sec
+Trial 1 Epoch 467 Loss 0.0010 Time 3.12928199768 sec
+Trial 1 Epoch 468 Loss 0.0011 Time 3.58598184586 sec
+Trial 1 Epoch 469 Loss 0.0021 Time 3.13119888306 sec
+Trial 1 Epoch 470 Loss 0.0094 Time 3.59277582169 sec
+Trial 1 Epoch 471 Loss 0.0104 Time 3.13661503792 sec
+Trial 1 Epoch 472 Loss 0.0108 Time 3.62742304802 sec
+Trial 1 Epoch 473 Loss 0.0092 Time 3.12046694756 sec
+Trial 1 Epoch 474 Loss 0.0101 Time 3.61281299591 sec
+Trial 1 Epoch 475 Loss 0.0082 Time 3.12997889519 sec
+Trial 1 Epoch 476 Loss 0.0070 Time 3.71510004997 sec
+Trial 1 Epoch 477 Loss 0.0088 Time 3.11577892303 sec
+Trial 1 Epoch 478 Loss 0.0092 Time 3.60762405396 sec
+Trial 1 Epoch 479 Loss 0.0099 Time 3.13073301315 sec
+Trial 1 Epoch 480 Loss 0.0129 Time 3.54366493225 sec
+Trial 1 Epoch 481 Loss 0.0086 Time 3.12371206284 sec
+Trial 1 Epoch 482 Loss 0.0087 Time 3.59560108185 sec
+Trial 1 Epoch 483 Loss 0.0066 Time 3.1322619915 sec
+Trial 1 Epoch 484 Loss 0.0060 Time 3.62812519073 sec
+Trial 1 Epoch 485 Loss 0.0047 Time 3.12664699554 sec
+Trial 1 Epoch 486 Loss 0.0039 Time 3.5734629631 sec
+Trial 1 Epoch 487 Loss 0.0032 Time 3.13594794273 sec
+Trial 1 Epoch 488 Loss 0.0027 Time 3.64146089554 sec
+Trial 1 Epoch 489 Loss 0.0024 Time 3.132625103 sec
+Trial 1 Epoch 490 Loss 0.0021 Time 3.57108807564 sec
+Trial 1 Epoch 491 Loss 0.0020 Time 3.11823105812 sec
+Trial 1 Epoch 492 Loss 0.0018 Time 3.53576898575 sec
+Trial 1 Epoch 493 Loss 0.0016 Time 3.12884521484 sec
+Trial 1 Epoch 494 Loss 0.0015 Time 3.56512594223 sec
+Trial 1 Epoch 495 Loss 0.0014 Time 3.14616394043 sec
+Trial 1 Epoch 496 Loss 0.0014 Time 3.61486196518 sec
+Trial 1 Epoch 497 Loss 0.0013 Time 3.12499499321 sec
+Trial 1 Epoch 498 Loss 0.0013 Time 3.65826892853 sec
+Trial 1 Epoch 499 Loss 0.0012 Time 3.13835692406 sec
+Trial 1 Epoch 500 Loss 0.0011 Time 3.56096100807 sec
+Trial 1 Epoch 501 Loss 0.0011 Time 3.1140267849 sec
+Trial 1 Epoch 502 Loss 0.0013 Time 3.53075098991 sec
+Trial 1 Epoch 503 Loss 0.0011 Time 3.12957191467 sec
+Trial 1 Epoch 504 Loss 0.0012 Time 3.60040807724 sec
+Trial 1 Epoch 505 Loss 0.0011 Time 3.14232993126 sec
+Trial 1 Epoch 506 Loss 0.0011 Time 3.62041401863 sec
+Trial 1 Epoch 507 Loss 0.0010 Time 3.13057589531 sec
+Trial 1 Epoch 508 Loss 0.0010 Time 3.59402799606 sec
+Trial 1 Epoch 509 Loss 0.0010 Time 3.1322581768 sec
+Trial 1 Epoch 510 Loss 0.0009 Time 3.69594788551 sec
+Trial 1 Epoch 511 Loss 0.0009 Time 3.1378660202 sec
+Trial 1 Epoch 512 Loss 0.0009 Time 3.75909900665 sec
+Trial 1 Epoch 513 Loss 0.0009 Time 3.13878703117 sec
+Trial 1 Epoch 514 Loss 0.0010 Time 3.5566649437 sec
+Trial 1 Epoch 515 Loss 0.0017 Time 3.12722301483 sec
+Trial 1 Epoch 516 Loss 0.0016 Time 3.64477205276 sec
+Trial 1 Epoch 517 Loss 0.0021 Time 3.12312197685 sec
+Trial 1 Epoch 518 Loss 0.0017 Time 3.58214592934 sec
+Trial 1 Epoch 519 Loss 0.0015 Time 3.12363004684 sec
+Trial 1 Epoch 520 Loss 0.0016 Time 3.72638082504 sec
+Trial 1 Epoch 521 Loss 0.0018 Time 3.12192511559 sec
+Trial 1 Epoch 522 Loss 0.0017 Time 3.56540703773 sec
+Trial 1 Epoch 523 Loss 0.0015 Time 3.12546610832 sec
+Trial 1 Epoch 524 Loss 0.0013 Time 3.62876796722 sec
+Trial 1 Epoch 525 Loss 0.0015 Time 3.1213350296 sec
+Trial 1 Epoch 526 Loss 0.0013 Time 3.59916806221 sec
+Trial 1 Epoch 527 Loss 0.0014 Time 3.12744307518 sec
+Trial 1 Epoch 528 Loss 0.0012 Time 3.66896700859 sec
+Trial 1 Epoch 529 Loss 0.0012 Time 3.12946605682 sec
+Trial 1 Epoch 530 Loss 0.0011 Time 3.77438402176 sec
+Trial 1 Epoch 531 Loss 0.0011 Time 3.14142203331 sec
+Trial 1 Epoch 532 Loss 0.0010 Time 3.59314513206 sec
+Trial 1 Epoch 533 Loss 0.0010 Time 3.12675094604 sec
+Trial 1 Epoch 534 Loss 0.0010 Time 3.55402898788 sec
+Trial 1 Epoch 535 Loss 0.0010 Time 3.14461994171 sec
+Trial 1 Epoch 536 Loss 0.0010 Time 3.72161698341 sec
+Trial 1 Epoch 537 Loss 0.0009 Time 3.13009595871 sec
+Trial 1 Epoch 538 Loss 0.0009 Time 3.625426054 sec
+Trial 1 Epoch 539 Loss 0.0009 Time 3.13582110405 sec
+Trial 1 Epoch 540 Loss 0.0009 Time 3.57742786407 sec
+Trial 1 Epoch 541 Loss 0.0009 Time 3.12415909767 sec
+Trial 1 Epoch 542 Loss 0.0008 Time 3.59374213219 sec
+Trial 1 Epoch 543 Loss 0.0008 Time 3.12891197205 sec
+Trial 1 Epoch 544 Loss 0.0008 Time 3.72561693192 sec
+Trial 1 Epoch 545 Loss 0.0008 Time 3.12263703346 sec
+Trial 1 Epoch 546 Loss 0.0008 Time 3.61371898651 sec
+Trial 1 Epoch 547 Loss 0.0007 Time 3.11737394333 sec
+Trial 1 Epoch 548 Loss 0.0007 Time 3.57001900673 sec
+Trial 1 Epoch 549 Loss 0.0007 Time 3.11383795738 sec
+Trial 1 Epoch 550 Loss 0.0007 Time 3.53914403915 sec
+Trial 1 Epoch 551 Loss 0.0007 Time 3.12828803062 sec
+Trial 1 Epoch 552 Loss 0.0007 Time 3.62585783005 sec
+Trial 1 Epoch 553 Loss 0.0006 Time 3.1210000515 sec
+Trial 1 Epoch 554 Loss 0.0006 Time 3.58660793304 sec
+Trial 1 Epoch 555 Loss 0.0006 Time 3.11284708977 sec
+Trial 1 Epoch 556 Loss 0.0006 Time 3.59341001511 sec
+Trial 1 Epoch 557 Loss 0.0006 Time 3.12833690643 sec
+Trial 1 Epoch 558 Loss 0.0006 Time 3.66727805138 sec
+Trial 1 Epoch 559 Loss 0.0006 Time 3.11884903908 sec
+Trial 1 Epoch 560 Loss 0.0006 Time 3.79340314865 sec
+Trial 1 Epoch 561 Loss 0.0006 Time 3.13493800163 sec
+Trial 1 Epoch 562 Loss 0.0006 Time 3.56678509712 sec
+Trial 1 Epoch 563 Loss 0.0006 Time 3.12163186073 sec
+Trial 1 Epoch 564 Loss 0.0006 Time 3.57825303078 sec
+Trial 1 Epoch 565 Loss 0.0006 Time 3.12542104721 sec
+Trial 1 Epoch 566 Loss 0.0006 Time 3.71272397041 sec
+Trial 1 Epoch 567 Loss 0.0006 Time 3.12337112427 sec
+Trial 1 Epoch 568 Loss 0.0006 Time 3.7457511425 sec
+Trial 1 Epoch 569 Loss 0.0005 Time 3.10649490356 sec
+Trial 1 Epoch 570 Loss 0.0005 Time 3.58532691002 sec
+Trial 1 Epoch 571 Loss 0.0005 Time 3.11765408516 sec
+Trial 1 Epoch 572 Loss 0.0005 Time 3.5717010498 sec
+Trial 1 Epoch 573 Loss 0.0005 Time 3.12170600891 sec
+Trial 1 Epoch 574 Loss 0.0005 Time 3.56994390488 sec
+Trial 1 Epoch 575 Loss 0.0005 Time 3.10653805733 sec
+Trial 1 Epoch 576 Loss 0.0005 Time 3.57195496559 sec
+Trial 1 Epoch 577 Loss 0.0005 Time 3.12922000885 sec
+Trial 1 Epoch 578 Loss 0.0005 Time 3.62811803818 sec
+Trial 1 Epoch 579 Loss 0.0005 Time 3.11591911316 sec
+Trial 1 Epoch 580 Loss 0.0005 Time 3.62555789948 sec
+Trial 1 Epoch 581 Loss 0.0005 Time 3.12189483643 sec
+Trial 1 Epoch 582 Loss 0.0005 Time 3.55050206184 sec
+Trial 1 Epoch 583 Loss 0.0005 Time 3.12854599953 sec
+Trial 1 Epoch 584 Loss 0.0005 Time 3.56988406181 sec
+Trial 1 Epoch 585 Loss 0.0005 Time 3.12906002998 sec
+Trial 1 Epoch 586 Loss 0.0005 Time 3.61172294617 sec
+Trial 1 Epoch 587 Loss 0.0005 Time 3.13291788101 sec
+Trial 1 Epoch 588 Loss 0.0005 Time 3.69570493698 sec
+Trial 1 Epoch 589 Loss 0.0005 Time 3.13037610054 sec
+Trial 1 Epoch 590 Loss 0.0005 Time 3.7423620224 sec
+Trial 1 Epoch 591 Loss 0.0005 Time 3.12023091316 sec
+Trial 1 Epoch 592 Loss 0.0005 Time 3.61744999886 sec
+Trial 1 Epoch 593 Loss 0.0005 Time 3.1377518177 sec
+Trial 1 Epoch 594 Loss 0.0005 Time 3.65576100349 sec
+Trial 1 Epoch 595 Loss 0.0005 Time 3.13485789299 sec
+Trial 1 Epoch 596 Loss 0.0005 Time 3.72595500946 sec
+Trial 1 Epoch 597 Loss 0.0005 Time 3.13475608826 sec
+Trial 1 Epoch 598 Loss 0.0005 Time 3.59440016747 sec
+Trial 1 Epoch 599 Loss 0.0005 Time 3.11617898941 sec
+Trial 1 Epoch 600 Loss 0.0005 Time 3.60144090652 sec
+Trial 1 Epoch 601 Loss 0.0005 Time 3.12241601944 sec
+Trial 1 Epoch 602 Loss 0.0005 Time 3.58681797981 sec
+Trial 1 Epoch 603 Loss 0.0005 Time 3.13147711754 sec
+Trial 1 Epoch 604 Loss 0.0005 Time 3.63009095192 sec
+Trial 1 Epoch 605 Loss 0.0004 Time 3.13266992569 sec
+Trial 1 Epoch 606 Loss 0.0004 Time 3.69091010094 sec
+Trial 1 Epoch 607 Loss 0.0004 Time 3.15879702568 sec
+Trial 1 Epoch 608 Loss 0.0004 Time 3.57925796509 sec
+Trial 1 Epoch 609 Loss 0.0004 Time 3.13091611862 sec
+Trial 1 Epoch 610 Loss 0.0004 Time 3.60828208923 sec
+Trial 1 Epoch 611 Loss 0.0004 Time 3.13840603828 sec
+Trial 1 Epoch 612 Loss 0.0004 Time 3.60232901573 sec
+Trial 1 Epoch 613 Loss 0.0004 Time 3.12186312675 sec
+Trial 1 Epoch 614 Loss 0.0004 Time 3.7089908123 sec
+Trial 1 Epoch 615 Loss 0.0004 Time 3.13710403442 sec
+Trial 1 Epoch 616 Loss 0.0004 Time 3.62835788727 sec
+Trial 1 Epoch 617 Loss 0.0004 Time 3.12792992592 sec
+Trial 1 Epoch 618 Loss 0.0004 Time 3.60570216179 sec
+Trial 1 Epoch 619 Loss 0.0004 Time 3.13841700554 sec
+Trial 1 Epoch 620 Loss 0.0004 Time 3.55310916901 sec
+Trial 1 Epoch 621 Loss 0.0004 Time 3.11890721321 sec
+Trial 1 Epoch 622 Loss 0.0004 Time 3.74076414108 sec
+Trial 1 Epoch 623 Loss 0.0004 Time 3.12750482559 sec
+Trial 1 Epoch 624 Loss 0.0004 Time 3.72445607185 sec
+Trial 1 Epoch 625 Loss 0.0004 Time 3.11749792099 sec
+Trial 1 Epoch 626 Loss 0.0004 Time 3.52988195419 sec
+Trial 1 Epoch 627 Loss 0.0004 Time 3.12475204468 sec
+Trial 1 Epoch 628 Loss 0.0004 Time 3.66308999062 sec
+Trial 1 Epoch 629 Loss 0.0004 Time 3.11795401573 sec
+Trial 1 Epoch 630 Loss 0.0004 Time 3.56763696671 sec
+Trial 1 Epoch 631 Loss 0.0004 Time 3.124532938 sec
+Trial 1 Epoch 632 Loss 0.0004 Time 3.61757898331 sec
+Trial 1 Epoch 633 Loss 0.0004 Time 3.12500715256 sec
+Trial 1 Epoch 634 Loss 0.0004 Time 3.6435251236 sec
+Trial 1 Epoch 635 Loss 0.0004 Time 3.14224100113 sec
+Trial 1 Epoch 636 Loss 0.0004 Time 3.54645991325 sec
+Trial 1 Epoch 637 Loss 0.0004 Time 3.14101004601 sec
+Trial 1 Epoch 638 Loss 0.0004 Time 3.53526687622 sec
+Trial 1 Epoch 639 Loss 0.0004 Time 3.1402258873 sec
+Trial 1 Epoch 640 Loss 0.0004 Time 3.71418905258 sec
+Trial 1 Epoch 641 Loss 0.0004 Time 3.12431812286 sec
+Trial 1 Epoch 642 Loss 0.0004 Time 3.63068509102 sec
+Trial 1 Epoch 643 Loss 0.0004 Time 3.11534905434 sec
+Trial 1 Epoch 644 Loss 0.0004 Time 3.67535996437 sec
+Trial 1 Epoch 645 Loss 0.0004 Time 3.15040898323 sec
+Trial 1 Epoch 646 Loss 0.0004 Time 3.72479701042 sec
+Trial 1 Epoch 647 Loss 0.0004 Time 3.11322617531 sec
+Trial 1 Epoch 648 Loss 0.0004 Time 3.54654598236 sec
+Trial 1 Epoch 649 Loss 0.0004 Time 3.13206195831 sec
+Trial 1 Epoch 650 Loss 0.0003 Time 3.51592206955 sec
+Trial 1 Epoch 651 Loss 0.0003 Time 3.12220311165 sec
+Trial 1 Epoch 652 Loss 0.0003 Time 3.583122015 sec
+Trial 1 Epoch 653 Loss 0.0003 Time 3.12326693535 sec
+Trial 1 Epoch 654 Loss 0.0003 Time 3.62318897247 sec
+Trial 1 Epoch 655 Loss 0.0003 Time 3.13064908981 sec
+Trial 1 Epoch 656 Loss 0.0003 Time 3.60524106026 sec
+Trial 1 Epoch 657 Loss 0.0003 Time 3.12252998352 sec
+Trial 1 Epoch 658 Loss 0.0003 Time 3.57131814957 sec
+Trial 1 Epoch 659 Loss 0.0006 Time 3.1359770298 sec
+Trial 1 Epoch 660 Loss 0.0004 Time 3.56671595573 sec
+Trial 1 Epoch 661 Loss 0.0005 Time 3.13155603409 sec
+Trial 1 Epoch 662 Loss 0.0004 Time 3.60211491585 sec
+Trial 1 Epoch 663 Loss 0.0006 Time 3.126308918 sec
+Trial 1 Epoch 664 Loss 0.0010 Time 3.71038913727 sec
+Trial 1 Epoch 665 Loss 0.0022 Time 3.11309409142 sec
+Trial 1 Epoch 666 Loss 0.0056 Time 3.73612999916 sec
+Trial 1 Epoch 667 Loss 0.0084 Time 3.12892913818 sec
+Trial 1 Epoch 668 Loss 0.0148 Time 3.62024784088 sec
+Trial 1 Epoch 669 Loss 0.0243 Time 3.1282980442 sec
+Trial 1 Epoch 670 Loss 0.0399 Time 3.55954194069 sec
+Trial 1 Epoch 671 Loss 0.0616 Time 3.12173509598 sec
+Trial 1 Epoch 672 Loss 0.0814 Time 3.60061788559 sec
+Trial 1 Epoch 673 Loss 0.1042 Time 3.12984395027 sec
+Trial 1 Epoch 674 Loss 0.1309 Time 3.55156707764 sec
+Trial 1 Epoch 675 Loss 0.1422 Time 3.12983608246 sec
+Trial 1 Epoch 676 Loss 0.1358 Time 3.63430809975 sec
+Trial 1 Epoch 677 Loss 0.1223 Time 3.11886620522 sec
+Trial 1 Epoch 678 Loss 0.1006 Time 3.62495517731 sec
+Trial 1 Epoch 679 Loss 0.0693 Time 3.13812994957 sec
+Trial 1 Epoch 680 Loss 0.0511 Time 3.63962697983 sec
+Trial 1 Epoch 681 Loss 0.0367 Time 3.11329913139 sec
+Trial 1 Epoch 682 Loss 0.0262 Time 3.6134698391 sec
+Trial 1 Epoch 683 Loss 0.0186 Time 3.10914492607 sec
+Trial 1 Epoch 684 Loss 0.0132 Time 3.60598111153 sec
+Trial 1 Epoch 685 Loss 0.0101 Time 3.11395311356 sec
+Trial 1 Epoch 686 Loss 0.0074 Time 3.72533011436 sec
+Trial 1 Epoch 687 Loss 0.0060 Time 3.10955286026 sec
+Trial 1 Epoch 688 Loss 0.0050 Time 3.71155905724 sec
+Trial 1 Epoch 689 Loss 0.0042 Time 3.10225987434 sec
+Trial 1 Epoch 690 Loss 0.0037 Time 3.55990099907 sec
+Trial 1 Epoch 691 Loss 0.0033 Time 3.10875701904 sec
+Trial 1 Epoch 692 Loss 0.0029 Time 3.54230093956 sec
+Trial 1 Epoch 693 Loss 0.0026 Time 3.12299609184 sec
+Trial 1 Epoch 694 Loss 0.0024 Time 3.63573098183 sec
+Trial 1 Epoch 695 Loss 0.0022 Time 3.1210539341 sec
+Trial 1 Epoch 696 Loss 0.0020 Time 3.69657087326 sec
+Trial 1 Epoch 697 Loss 0.0019 Time 3.12383389473 sec
+Trial 1 Epoch 698 Loss 0.0018 Time 3.74084591866 sec
+Trial 1 Epoch 699 Loss 0.0017 Time 3.13425207138 sec
+Trial 1 Epoch 700 Loss 0.0016 Time 3.63360214233 sec
+Trial 1 Epoch 701 Loss 0.0015 Time 3.12342905998 sec
+Trial 1 Epoch 702 Loss 0.0014 Time 3.62797808647 sec
+Trial 1 Epoch 703 Loss 0.0014 Time 3.154088974 sec
+Trial 1 Epoch 704 Loss 0.0013 Time 3.66596698761 sec
+Trial 1 Epoch 705 Loss 0.0012 Time 3.12516593933 sec
+Trial 1 Epoch 706 Loss 0.0012 Time 3.55956196785 sec
+Trial 1 Epoch 707 Loss 0.0011 Time 3.13303208351 sec
+Trial 1 Epoch 708 Loss 0.0011 Time 3.59217596054 sec
+Trial 1 Epoch 709 Loss 0.0011 Time 3.12791895866 sec
+Trial 1 Epoch 710 Loss 0.0010 Time 3.58335399628 sec
+Trial 1 Epoch 711 Loss 0.0012 Time 3.13154006004 sec
+Trial 1 Epoch 712 Loss 0.0014 Time 3.63243579865 sec
+Trial 1 Epoch 713 Loss 0.0013 Time 3.12808513641 sec
+Trial 1 Epoch 714 Loss 0.0012 Time 3.73114395142 sec
+Trial 1 Epoch 715 Loss 0.0014 Time 3.11082386971 sec
+Trial 1 Epoch 716 Loss 0.0013 Time 3.78008317947 sec
+Trial 1 Epoch 717 Loss 0.0012 Time 3.12486004829 sec
+Trial 1 Epoch 718 Loss 0.0012 Time 3.71048808098 sec
+Trial 1 Epoch 719 Loss 0.0011 Time 3.11569809914 sec
+Trial 1 Epoch 720 Loss 0.0011 Time 3.61846494675 sec
+Trial 1 Epoch 721 Loss 0.0011 Time 3.13639187813 sec
+Trial 1 Epoch 722 Loss 0.0010 Time 3.58263301849 sec
+Trial 1 Epoch 723 Loss 0.0010 Time 3.12487578392 sec
+Trial 1 Epoch 724 Loss 0.0010 Time 3.54401993752 sec
+Trial 1 Epoch 725 Loss 0.0009 Time 3.12247610092 sec
+Trial 1 Epoch 726 Loss 0.0009 Time 3.56346917152 sec
+Trial 1 Epoch 727 Loss 0.0009 Time 3.12851810455 sec
+Trial 1 Epoch 728 Loss 0.0009 Time 3.61132192612 sec
+Trial 1 Epoch 729 Loss 0.0009 Time 3.13091611862 sec
+Trial 1 Epoch 730 Loss 0.0009 Time 3.59597015381 sec
+Trial 1 Epoch 731 Loss 0.0008 Time 3.11893510818 sec
+Trial 1 Epoch 732 Loss 0.0008 Time 3.68297791481 sec
+Trial 1 Epoch 733 Loss 0.0008 Time 3.13128495216 sec
+Trial 1 Epoch 734 Loss 0.0008 Time 3.63646912575 sec
+Trial 1 Epoch 735 Loss 0.0008 Time 3.13458395004 sec
+Trial 1 Epoch 736 Loss 0.0008 Time 3.58635902405 sec
+Trial 1 Epoch 737 Loss 0.0008 Time 3.12899112701 sec
+Trial 1 Epoch 738 Loss 0.0007 Time 3.70233106613 sec
+Trial 1 Epoch 739 Loss 0.0007 Time 3.11518502235 sec
+Trial 1 Epoch 740 Loss 0.0007 Time 3.76909613609 sec
+Trial 1 Epoch 741 Loss 0.0007 Time 3.13196182251 sec
+Trial 1 Epoch 742 Loss 0.0007 Time 3.60594010353 sec
+Trial 1 Epoch 743 Loss 0.0007 Time 3.1257610321 sec
+Trial 1 Epoch 744 Loss 0.0007 Time 3.61380696297 sec
+Trial 1 Epoch 745 Loss 0.0007 Time 3.13181900978 sec
+Trial 1 Epoch 746 Loss 0.0006 Time 3.73068118095 sec
+Trial 1 Epoch 747 Loss 0.0006 Time 3.12212610245 sec
+Trial 1 Epoch 748 Loss 0.0006 Time 3.60852098465 sec
+Trial 1 Epoch 749 Loss 0.0006 Time 3.11476492882 sec
+Trial 1 Epoch 750 Loss 0.0006 Time 3.59548282623 sec
+Trial 1 Epoch 751 Loss 0.0006 Time 3.12727499008 sec
+Trial 1 Epoch 752 Loss 0.0006 Time 3.58368206024 sec
+Trial 1 Epoch 753 Loss 0.0006 Time 3.1288599968 sec
+Trial 1 Epoch 754 Loss 0.0006 Time 3.67603588104 sec
+Trial 1 Epoch 755 Loss 0.0006 Time 3.1231110096 sec
+Trial 1 Epoch 756 Loss 0.0006 Time 3.68968009949 sec
+Trial 1 Epoch 757 Loss 0.0006 Time 3.10491204262 sec
+Trial 1 Epoch 758 Loss 0.0006 Time 3.63684606552 sec
+Trial 1 Epoch 759 Loss 0.0006 Time 3.11623597145 sec
+Trial 1 Epoch 760 Loss 0.0005 Time 3.69549703598 sec
+Trial 1 Epoch 761 Loss 0.0007 Time 3.11424994469 sec
+Trial 1 Epoch 762 Loss 0.0010 Time 3.51311588287 sec
+Trial 1 Epoch 763 Loss 0.0009 Time 3.12019205093 sec
+Trial 1 Epoch 764 Loss 0.0015 Time 3.56836009026 sec
+Trial 1 Epoch 765 Loss 0.0026 Time 3.1221280098 sec
+Trial 1 Epoch 766 Loss 0.0032 Time 3.56440901756 sec
+Trial 1 Epoch 767 Loss 0.0028 Time 3.12203717232 sec
+Trial 1 Epoch 768 Loss 0.0031 Time 3.64891600609 sec
+Trial 1 Epoch 769 Loss 0.0030 Time 3.11308312416 sec
+Trial 1 Epoch 770 Loss 0.0028 Time 3.56896805763 sec
+Trial 1 Epoch 771 Loss 0.0028 Time 3.12728691101 sec
+Trial 1 Epoch 772 Loss 0.0028 Time 3.6055059433 sec
+Trial 1 Epoch 773 Loss 0.0023 Time 3.12582707405 sec
+Trial 1 Epoch 774 Loss 0.0018 Time 3.61863613129 sec
+Trial 1 Epoch 775 Loss 0.0020 Time 3.12817502022 sec
+Trial 1 Epoch 776 Loss 0.0018 Time 3.57215809822 sec
+Trial 1 Epoch 777 Loss 0.0023 Time 3.13912701607 sec
+Trial 1 Epoch 778 Loss 0.0023 Time 3.60098791122 sec
+Trial 1 Epoch 779 Loss 0.0021 Time 3.11383295059 sec
+Trial 1 Epoch 780 Loss 0.0017 Time 3.74617218971 sec
+Trial 1 Epoch 781 Loss 0.0021 Time 3.13502120972 sec
+Trial 1 Epoch 782 Loss 0.0024 Time 3.6054251194 sec
+Trial 1 Epoch 783 Loss 0.0018 Time 3.12894797325 sec
+Trial 1 Epoch 784 Loss 0.0017 Time 3.6151471138 sec
+Trial 1 Epoch 785 Loss 0.0018 Time 3.10974407196 sec
+Trial 1 Epoch 786 Loss 0.0015 Time 3.6157310009 sec
+Trial 1 Epoch 787 Loss 0.0014 Time 3.11647701263 sec
+Trial 1 Epoch 788 Loss 0.0012 Time 3.60247993469 sec
+Trial 1 Epoch 789 Loss 0.0011 Time 3.13094687462 sec
+Trial 1 Epoch 790 Loss 0.0010 Time 3.73860692978 sec
+Trial 1 Epoch 791 Loss 0.0009 Time 3.13284492493 sec
+Trial 1 Epoch 792 Loss 0.0008 Time 3.65363502502 sec
+Trial 1 Epoch 793 Loss 0.0008 Time 3.11510300636 sec
+Trial 1 Epoch 794 Loss 0.0008 Time 3.57987904549 sec
+Trial 1 Epoch 795 Loss 0.0007 Time 3.10946893692 sec
+Trial 1 Epoch 796 Loss 0.0007 Time 3.61423993111 sec
+Trial 1 Epoch 797 Loss 0.0007 Time 3.12610697746 sec
+Trial 1 Epoch 798 Loss 0.0006 Time 3.70833802223 sec
+Trial 1 Epoch 799 Loss 0.0006 Time 3.11437320709 sec
+Trial 1 Epoch 800 Loss 0.0006 Time 3.77674484253 sec
+Trial 1 Epoch 801 Loss 0.0006 Time 3.13582801819 sec
+Trial 1 Epoch 802 Loss 0.0006 Time 3.61519217491 sec
+Trial 1 Epoch 803 Loss 0.0005 Time 3.10310912132 sec
+Trial 1 Epoch 804 Loss 0.0005 Time 3.52821588516 sec
+Trial 1 Epoch 805 Loss 0.0005 Time 3.11448693275 sec
+Trial 1 Epoch 806 Loss 0.0005 Time 3.60336995125 sec
+Trial 1 Epoch 807 Loss 0.0005 Time 3.11779093742 sec
+Trial 1 Epoch 808 Loss 0.0005 Time 3.65250396729 sec
+Trial 1 Epoch 809 Loss 0.0005 Time 3.11598610878 sec
+Trial 1 Epoch 810 Loss 0.0005 Time 3.60363602638 sec
+Trial 1 Epoch 811 Loss 0.0005 Time 3.12177610397 sec
+Trial 1 Epoch 812 Loss 0.0005 Time 3.7151889801 sec
+Trial 1 Epoch 813 Loss 0.0005 Time 3.11806488037 sec
+Trial 1 Epoch 814 Loss 0.0005 Time 3.6167140007 sec
+Trial 1 Epoch 815 Loss 0.0005 Time 3.11827898026 sec
+Trial 1 Epoch 816 Loss 0.0005 Time 3.69058799744 sec
+Trial 1 Epoch 817 Loss 0.0004 Time 3.11686110497 sec
+Trial 1 Epoch 818 Loss 0.0004 Time 3.72233891487 sec
+Trial 1 Epoch 819 Loss 0.0004 Time 3.14126992226 sec
+Trial 1 Epoch 820 Loss 0.0004 Time 3.7265329361 sec
+Trial 1 Epoch 821 Loss 0.0004 Time 3.13191008568 sec
+Trial 1 Epoch 822 Loss 0.0004 Time 3.74911189079 sec
+Trial 1 Epoch 823 Loss 0.0004 Time 3.14308309555 sec
+Trial 1 Epoch 824 Loss 0.0004 Time 3.56430697441 sec
+Trial 1 Epoch 825 Loss 0.0004 Time 3.13305878639 sec
+Trial 1 Epoch 826 Loss 0.0004 Time 3.62835216522 sec
+Trial 1 Epoch 827 Loss 0.0004 Time 3.12532997131 sec
+Trial 1 Epoch 828 Loss 0.0004 Time 3.64382910728 sec
+Trial 1 Epoch 829 Loss 0.0004 Time 3.14034795761 sec
+Trial 1 Epoch 830 Loss 0.0003 Time 3.69368195534 sec
+Trial 1 Epoch 831 Loss 0.0003 Time 3.12727499008 sec
+Trial 1 Epoch 832 Loss 0.0003 Time 3.65092587471 sec
+Trial 1 Epoch 833 Loss 0.0003 Time 3.13046693802 sec
+Trial 1 Epoch 834 Loss 0.0003 Time 3.55681705475 sec
+Trial 1 Epoch 835 Loss 0.0003 Time 3.1249499321 sec
+Trial 1 Epoch 836 Loss 0.0003 Time 3.63134694099 sec
+Trial 1 Epoch 837 Loss 0.0003 Time 3.1148879528 sec
+Trial 1 Epoch 838 Loss 0.0003 Time 3.59441995621 sec
+Trial 1 Epoch 839 Loss 0.0003 Time 3.12728786469 sec
+Trial 1 Epoch 840 Loss 0.0003 Time 3.62789702415 sec
+Trial 1 Epoch 841 Loss 0.0003 Time 3.13657307625 sec
+Trial 1 Epoch 842 Loss 0.0003 Time 3.71929812431 sec
+Trial 1 Epoch 843 Loss 0.0003 Time 3.13083004951 sec
+Trial 1 Epoch 844 Loss 0.0003 Time 3.69321393967 sec
+Trial 1 Epoch 845 Loss 0.0003 Time 3.11881494522 sec
+Trial 1 Epoch 846 Loss 0.0003 Time 3.63990616798 sec
+Trial 1 Epoch 847 Loss 0.0003 Time 3.12689614296 sec
+Trial 1 Epoch 848 Loss 0.0003 Time 3.61472892761 sec
+Trial 1 Epoch 849 Loss 0.0003 Time 3.13078689575 sec
+Trial 1 Epoch 850 Loss 0.0003 Time 3.61514782906 sec
+Trial 1 Epoch 851 Loss 0.0003 Time 3.12328982353 sec
+Trial 1 Epoch 852 Loss 0.0003 Time 3.58764791489 sec
+Trial 1 Epoch 853 Loss 0.0003 Time 3.14702510834 sec
+Trial 1 Epoch 854 Loss 0.0003 Time 3.54491090775 sec
+Trial 1 Epoch 855 Loss 0.0003 Time 3.11305403709 sec
+Trial 1 Epoch 856 Loss 0.0003 Time 3.59947013855 sec
+Trial 1 Epoch 857 Loss 0.0003 Time 3.12171602249 sec
+Trial 1 Epoch 858 Loss 0.0003 Time 3.57659506798 sec
+Trial 1 Epoch 859 Loss 0.0003 Time 3.12099909782 sec
+Trial 1 Epoch 860 Loss 0.0003 Time 3.74678301811 sec
+Trial 1 Epoch 861 Loss 0.0003 Time 3.12375807762 sec
+Trial 1 Epoch 862 Loss 0.0003 Time 3.69398593903 sec
+Trial 1 Epoch 863 Loss 0.0003 Time 3.11889100075 sec
+Trial 1 Epoch 864 Loss 0.0003 Time 3.6886279583 sec
+Trial 1 Epoch 865 Loss 0.0003 Time 3.14432191849 sec
+Trial 1 Epoch 866 Loss 0.0003 Time 3.62451100349 sec
+Trial 1 Epoch 867 Loss 0.0003 Time 3.1244430542 sec
+Trial 1 Epoch 868 Loss 0.0003 Time 3.72707700729 sec
+Trial 1 Epoch 869 Loss 0.0002 Time 3.12762880325 sec
+Trial 1 Epoch 870 Loss 0.0002 Time 3.6103618145 sec
+Trial 1 Epoch 871 Loss 0.0002 Time 3.12873411179 sec
+Trial 1 Epoch 872 Loss 0.0002 Time 3.61816310883 sec
+Trial 1 Epoch 873 Loss 0.0002 Time 3.12603616714 sec
+Trial 1 Epoch 874 Loss 0.0002 Time 3.52740097046 sec
+Trial 1 Epoch 875 Loss 0.0002 Time 3.14164805412 sec
+Trial 1 Epoch 876 Loss 0.0002 Time 3.66755700111 sec
+Trial 1 Epoch 877 Loss 0.0002 Time 3.12976002693 sec
+Trial 1 Epoch 878 Loss 0.0002 Time 3.78153395653 sec
+Trial 1 Epoch 879 Loss 0.0002 Time 3.12239003181 sec
+Trial 1 Epoch 880 Loss 0.0002 Time 3.68883895874 sec
+Trial 1 Epoch 881 Loss 0.0002 Time 3.11936807632 sec
+Trial 1 Epoch 882 Loss 0.0002 Time 3.78079485893 sec
+Trial 1 Epoch 883 Loss 0.0002 Time 3.11944890022 sec
+Trial 1 Epoch 884 Loss 0.0002 Time 3.68532109261 sec
+Trial 1 Epoch 885 Loss 0.0002 Time 3.13454389572 sec
+Trial 1 Epoch 886 Loss 0.0002 Time 3.76604199409 sec
+Trial 1 Epoch 887 Loss 0.0002 Time 3.11585092545 sec
+Trial 1 Epoch 888 Loss 0.0002 Time 3.58357810974 sec
+Trial 1 Epoch 889 Loss 0.0002 Time 3.11253499985 sec
+Trial 1 Epoch 890 Loss 0.0002 Time 3.62721800804 sec
+Trial 1 Epoch 891 Loss 0.0002 Time 3.12379384041 sec
+Trial 1 Epoch 892 Loss 0.0002 Time 3.69996714592 sec
+Trial 1 Epoch 893 Loss 0.0002 Time 3.11827707291 sec
+Trial 1 Epoch 894 Loss 0.0002 Time 3.59979391098 sec
+Trial 1 Epoch 895 Loss 0.0002 Time 3.1244058609 sec
+Trial 1 Epoch 896 Loss 0.0002 Time 3.56284499168 sec
+Trial 1 Epoch 897 Loss 0.0002 Time 3.12306904793 sec
+Trial 1 Epoch 898 Loss 0.0002 Time 3.57906103134 sec
+Trial 1 Epoch 899 Loss 0.0002 Time 3.12615394592 sec
+Trial 1 Epoch 900 Loss 0.0002 Time 3.58384203911 sec
+Trial 1 Epoch 901 Loss 0.0002 Time 3.14269995689 sec
+Trial 1 Epoch 902 Loss 0.0002 Time 3.54129505157 sec
+Trial 1 Epoch 903 Loss 0.0002 Time 3.13250207901 sec
+Trial 1 Epoch 904 Loss 0.0002 Time 3.58823204041 sec
+Trial 1 Epoch 905 Loss 0.0002 Time 3.12105894089 sec
+Trial 1 Epoch 906 Loss 0.0002 Time 3.68045210838 sec
+Trial 1 Epoch 907 Loss 0.0002 Time 3.1296877861 sec
+Trial 1 Epoch 908 Loss 0.0002 Time 3.58764004707 sec
+Trial 1 Epoch 909 Loss 0.0002 Time 3.12515497208 sec
+Trial 1 Epoch 910 Loss 0.0002 Time 3.65141296387 sec
+Trial 1 Epoch 911 Loss 0.0002 Time 3.12487387657 sec
+Trial 1 Epoch 912 Loss 0.0002 Time 3.60958600044 sec
+Trial 1 Epoch 913 Loss 0.0002 Time 3.13471603394 sec
+Trial 1 Epoch 914 Loss 0.0002 Time 3.63106584549 sec
+Trial 1 Epoch 915 Loss 0.0002 Time 3.13239407539 sec
+Trial 1 Epoch 916 Loss 0.0002 Time 3.59301304817 sec
+Trial 1 Epoch 917 Loss 0.0002 Time 3.10448598862 sec
+Trial 1 Epoch 918 Loss 0.0002 Time 3.63999795914 sec
+Trial 1 Epoch 919 Loss 0.0002 Time 3.12999415398 sec
+Trial 1 Epoch 920 Loss 0.0002 Time 3.67549705505 sec
+Trial 1 Epoch 921 Loss 0.0002 Time 3.12024903297 sec
+Trial 1 Epoch 922 Loss 0.0002 Time 3.54396986961 sec
+Trial 1 Epoch 923 Loss 0.0002 Time 3.13724684715 sec
+Trial 1 Epoch 924 Loss 0.0002 Time 3.69806694984 sec
+Trial 1 Epoch 925 Loss 0.0002 Time 3.11853909492 sec
+Trial 1 Epoch 926 Loss 0.0002 Time 3.93591499329 sec
+Trial 1 Epoch 927 Loss 0.0002 Time 3.11050510406 sec
+Trial 1 Epoch 928 Loss 0.0002 Time 3.77047514915 sec
+Trial 1 Epoch 929 Loss 0.0002 Time 3.13753414154 sec
+Trial 1 Epoch 930 Loss 0.0002 Time 3.71363782883 sec
+Trial 1 Epoch 931 Loss 0.0002 Time 3.1298968792 sec
+Trial 1 Epoch 932 Loss 0.0002 Time 3.61588788033 sec
+Trial 1 Epoch 933 Loss 0.0002 Time 3.12810301781 sec
+Trial 1 Epoch 934 Loss 0.0002 Time 3.65658998489 sec
+Trial 1 Epoch 935 Loss 0.0002 Time 3.11929106712 sec
+Trial 1 Epoch 936 Loss 0.0002 Time 3.67839789391 sec
+Trial 1 Epoch 937 Loss 0.0002 Time 3.12048602104 sec
+Trial 1 Epoch 938 Loss 0.0002 Time 3.68902516365 sec
+Trial 1 Epoch 939 Loss 0.0002 Time 3.11846709251 sec
+Trial 1 Epoch 940 Loss 0.0002 Time 3.56612896919 sec
+Trial 1 Epoch 941 Loss 0.0002 Time 3.12544989586 sec
+Trial 1 Epoch 942 Loss 0.0002 Time 3.56280708313 sec
+Trial 1 Epoch 943 Loss 0.0002 Time 3.12926411629 sec
+Trial 1 Epoch 944 Loss 0.0002 Time 3.58003616333 sec
+Trial 1 Epoch 945 Loss 0.0002 Time 3.12276911736 sec
+Trial 1 Epoch 946 Loss 0.0002 Time 3.59148192406 sec
+Trial 1 Epoch 947 Loss 0.0002 Time 3.11325001717 sec
+Trial 1 Epoch 948 Loss 0.0002 Time 3.69546198845 sec
+Trial 1 Epoch 949 Loss 0.0002 Time 3.1218290329 sec
+Trial 1 Epoch 950 Loss 0.0002 Time 3.60714101791 sec
+Trial 1 Epoch 951 Loss 0.0002 Time 3.12424707413 sec
+Trial 1 Epoch 952 Loss 0.0002 Time 3.57184910774 sec
+Trial 1 Epoch 953 Loss 0.0002 Time 3.113063097 sec
+Trial 1 Epoch 954 Loss 0.0002 Time 3.64336895943 sec
+Trial 1 Epoch 955 Loss 0.0002 Time 3.12820410728 sec
+Trial 1 Epoch 956 Loss 0.0002 Time 3.61822986603 sec
+Trial 1 Epoch 957 Loss 0.0002 Time 3.10763597488 sec
+Trial 1 Epoch 958 Loss 0.0002 Time 3.66273283958 sec
+Trial 1 Epoch 959 Loss 0.0002 Time 3.12459397316 sec
+Trial 1 Epoch 960 Loss 0.0002 Time 3.60111618042 sec
+Trial 1 Epoch 961 Loss 0.0002 Time 3.12903308868 sec
+Trial 1 Epoch 962 Loss 0.0002 Time 3.64100193977 sec
+Trial 1 Epoch 963 Loss 0.0002 Time 3.13124704361 sec
+Trial 1 Epoch 964 Loss 0.0002 Time 3.53185296059 sec
+Trial 1 Epoch 965 Loss 0.0002 Time 3.10885095596 sec
+Trial 1 Epoch 966 Loss 0.0002 Time 3.6208281517 sec
+Trial 1 Epoch 967 Loss 0.0002 Time 3.11809706688 sec
+Trial 1 Epoch 968 Loss 0.0002 Time 3.6004049778 sec
+Trial 1 Epoch 969 Loss 0.0002 Time 3.13461208344 sec
+Trial 1 Epoch 970 Loss 0.0002 Time 3.76056718826 sec
