@@ -1,12 +1,34 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import re
 
-guarani = pd.read_csv('raw_data/guarani.csv', encoding='utf-8')
-pt_br = pd.read_csv('raw_data/portugues.csv', encoding='utf-8')
 
-guarani = guarani['Scripture']
-pt_br = pt_br['Scripture']
+def reading_data(names=[]):
+  
+  datasets = []
+  path = 'raw_data/'
+  for name in names:
+    path = path+name+'.csv'
+    dataset = pd.read_csv(path, encoding='utf-8')
+    dataset = dataset.replace(to_replace='<.*?>*<.*?>', value='', regex=True)
+    dataset = dataset.replace(to_replace='<.*?>', value='', regex=True)
+    datasets.append(dataset)
+    path = re.sub(name+'.csv','',path)
+    
 
+  return datasets
+
+def save_dataframe(names, dataframes=[]):
+  path = 'raw_data/'
+  for name, dataframe in zip(names, dataframes):
+    path = path+name+'.csv'
+    dataframe.to_csv(path, index=False)
+    path = path.replace(name+'.csv','')
+
+
+datasets = reading_data(['guarani', 'karaja', 'portugues', 'tukano', 'xavante'])
+
+save_dataframe(['guarani', 'karaja', 'portugues', 'tukano', 'xavante'], datasets )
 
 def to_translation_format(raw_1, raw_2):
 
@@ -30,10 +52,20 @@ def to_file(data, path='gu-pt_v1.txt'):
 
     file.close()
 
+def calculate_time(results = {}):
+      
+  time_taken = 0
 
-data = to_translation_format(guarani, pt_br)
+  for t in results['time']:
+    time_taken += t
 
-to_file(data)
+  print("Total time taken: {} sec {} hs".format(time_taken,time_taken/3600))
+
+  print("Epoch necessárias para 2hs: {} ".format(970*7200/time_taken))
+
+#data = to_translation_format(guarani, pt_br)
+
+#to_file(data)
 
 def obtain_results(file_name, param = []):
 
@@ -59,15 +91,8 @@ def obtain_results(file_name, param = []):
 
     return results
 
-results = obtain_results('raw_data/results.txt', ['time'])
+#results = obtain_results('raw_data/results.txt', ['time'])
 
-time_taken = 0
-
-for t in results['time']:
-      time_taken += t
-
-print(time_taken/3600)
-print("Epoch necessárias: {} ".format(400/(time_taken/3600)))
 
 def plot_results(results, param1, param2, xlabel, ylabel, title):
 
