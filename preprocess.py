@@ -26,10 +26,6 @@ def save_dataframe(names, dataframes=[]):
     path = path.replace(name+'.csv','')
 
 
-datasets = reading_data(['guarani', 'karaja', 'portugues', 'tukano', 'xavante'])
-
-save_dataframe(['guarani', 'karaja', 'portugues', 'tukano', 'xavante'], datasets )
-
 def to_translation_format(raw_1, raw_2):
 
     filter_text = []
@@ -63,9 +59,6 @@ def calculate_time(results = {}):
 
   print("Epoch necessárias para 2hs: {} ".format(970*7200/time_taken))
 
-#data = to_translation_format(guarani, pt_br)
-
-#to_file(data)
 
 def obtain_results(file_name, param = []):
 
@@ -90,9 +83,6 @@ def obtain_results(file_name, param = []):
     file.close()
 
     return results
-
-#results = obtain_results('raw_data/results.txt', ['time'])
-
 
 def plot_results(results, param1, param2, xlabel, ylabel, title):
 
