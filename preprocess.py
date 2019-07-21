@@ -18,8 +18,8 @@ def clean_data(path = 'raw_data/', names=[]):
 
   return datasets
 
-def save_dataframe(names, dataframes=[]):
-  path = 'raw_data/'
+def save_dataframe(names, dataframes=[], path = 'raw_data/'):
+ 
   for name, dataframe in zip(names, dataframes):
     path = path+name+'.csv'
     dataframe.to_csv(path, index=False)
@@ -57,7 +57,7 @@ def calculate_time(results = {}):
 
   print("Total time taken: {} sec {} hs".format(time_taken,time_taken/3600))
 
-  print("Epoch necessárias para 2hs: {} ".format(970*7200/time_taken))
+
 
 
 def obtain_results(file_name, param = []):
