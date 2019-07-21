@@ -50,7 +50,7 @@ Atualmente as redes neurais são comumente utilizados para diversas finalidades,
 
 \section{Introdução} 
 
-~~~~~~~~~~O Brasil possui muitas riquezas culturais isso inclui a cultura indígena. O Brasil possui 305, dos 826 povos indígenas presentes na América latina \cite{povos_indigenas}. O tupi, ou tupi antigo era a língua falada pelas tribos de povos do grupo tupi, que habitavam a maior parte do litoral brasileiro \cite{Dicionario_Tupi_Antigo}.
+~~~~~~~~O Brasil possui muitas riquezas culturais isso inclui a cultura indígena. O Brasil possui 305, dos 826 povos indígenas presentes na América latina \cite{povos_indigenas}. O tupi, ou tupi antigo era a língua falada pelas tribos de povos do grupo tupi, que habitavam a maior parte do litoral brasileiro \cite{Dicionario_Tupi_Antigo}.
 
 O tupi antigo se tornou a língua franca do Brasil Colonia nos seculos XVI e XVII, quando os emigrantes portugueses e seus descendentes aprenderam e o difundiram, mais tarde as expedições bandeirantes levaram, antes restrito aos litorais, para todo o território brasileiro \cite{Tupi_Antigo}.
 
@@ -64,52 +64,20 @@ Na tentativa de criamos um tradutor nós implementamos um algoritmo de \textit{D
 ~~~~~~~~~~As línguas humanas consistem em morfologia (o modo com que as palavras são montadas a partir de pequenas unidades de sentido), sintaxe (o modo em que as frases são estruturadas) e semântica (o sentido das palavras e/ou frases).
 A TA (tradução automática) é uma subseção da linguística computacional, é o processo automático de tradução de um idioma original para outro, através do uso de programas de computador. TA não é algo trivial, pois as línguas consistem mais de exceções do que de regras.
 
-\section{Tradução por substituição}
-
-~~~~~~~~~~O método mais simples de implementar um tradutor automático é dividir todas as palavras do texto, traduzir individualmente e substituir pelo texto original, pois tudo o que se precisa é um dicionario.
-
-\subsection{Prós}
-
-- Muito fácil de implementar.\newline
-- Não exige muito processamento.
-
-\subsection{Contras}
-
--Confiabilidade extremamente baixa, uma vez que ignora o contexto de cada palavra.\newline
--não leva em consideração a sintaxe da língua.
 
 \section{Tradução por regras de sintaxe}
 
-Primeiros sistemas de traduções automática, mais sofisticado que a tradução por substituição, pois depois de substituir as palavras por suas traduções aplicavam regras se sintaxe e semântica, para trocar as ordens das palavras adicionar conectivos, quando necessário, e as vezes até substituição da palavra por uma tradução que ofereça um resultado melhor.
+~~~~~~~~~~Primeiros sistemas de traduções automática, mais sofisticado que a tradução por substituição. O texto precisa de um pre-processamento para passar por uma analise morfológica, onde será verificado o sentido sentido da palavra. Em seguida existe uma analise de casos, onde as regras de sintaxes são aplicadas, leva-se em conta sintaxe da língua para se estabelecer conexões entre verbos, substantivos e nomes e suas estruturas e assim conseguir uma tradução mais fiel, a partir do caso na língua nativa é feito um mapeamento para um caso semelhante na outra língua e as sentenças são formadas\cite{6516319}. 
 
-\subsection{Prós}
-
-- Leva em consideração o contexto e as regras de sintaxe\newline
-- Pode ter regras adicionadas e atualizadas.\newline
-- Tradução coerente e com boa confiabilidade para textos bem formatados e polidos.
-
-\subsection{Contras}
-
-- Custo extremamente elevado, pois cada língua possui milhares de regras próprias e com ainda mais exceções\newline
-- Não consegue bons resultados se houver o menor desvio da linguagem culta.\newline
-- Não leva em consideração o uso popular da língua.
+A traduções baseadas em regras é ótima para línguas em que domina-se a sintaxe, mas necessita bons linguistas parar codificar as inúmeras regras de sintaxe e possíveis mapeamento entre as línguas, o que pode levar anos para que seja feito\cite{SMT}.
 
 \section{\textit{Statistical machine translation}}
 
-~~~~~~~~~~A SMT (\textit{statistical machine translation}, ou máquina de tradução estatística) é uma abordagem diferente, que ao invés de regras de sintaxe usa estatística para traduzir e para isso utiliza uma grande de quantidade de textos possuindo a exata tradução para ambas as linguagens, essa coleção é chamada de corpora paralela. Esta foi a abordagem escolhida para este projeto.
+~~~~~~~~~~A \textit{SMT} (\textit{statistical machine translation}, ou máquina de tradução estatística) é uma abordagem diferente, que ao invés de regras de sintaxe usa estatística para traduzir e para isso utiliza uma grande de quantidade de textos possuindo a exata tradução para ambas as linguagens, essa coleção é chamada de corpora paralela. Esta foi a abordagem escolhida para este projeto\cite{Geitgey:16}.
 
-Na SMT o textos não é dividido palavra a palavra, mas em trechos menores, mas que ainda possuam contextos. Em seguida é listado todas as possíveis traduções para cada, não apenas as que estão no dicionario, mas também lista traduções feitas por tradutores reais para aumentar as possibilidades de tradução, cada uma dessa possibilidades ganha uma pontuação baseada na frequência que essa tradução aparece. Milhares de combinações são geradas e a melhor tradução é escolhida baseada em sua pontuação e que seja considerada ``mais humana".
+Na \textit{SMT} o textos não é dividido palavra a palavra, mas em trechos menores, mas que ainda possuam contextos. Em seguida é listado todas as possíveis traduções para cada, não apenas as que estão no dicionario, mas também lista traduções feitas por tradutores reais para aumentar as possibilidades de tradução, cada uma dessa possibilidades ganha uma pontuação baseada na frequência que essa tradução aparece. Milhares de combinações são geradas e a melhor tradução é escolhida baseada em sua pontuação e que seja considerada ``mais humana"\cite{Geitgey:16}.
 
-\subsection{Prós}
-
-- Não fica restritos apenas as traduções do dicionário.\newline
-- Leva em consideração o uso popular da língua.\newline
-- Gera resultados que são mais facilmente entendidos.
-
-\subsection{Contras}
-
-- Necessita de grande base dados\newline
-- Necessita de pré-processamento, pois precisa comparar verso a verso.
+As principais vantagens da \textit{SMT} é que com treino intensivo e repetitivo a tradução pode ficar cada vez mais precisa, diferente das demais abordagens e justamente por não haver necessidade de conhecimento da linguagem, esta abordagem pode ser usadas para línguas pouco conhecidas. A \textit{SMT} possui desvantagens como problemas com línguas que exigem um conhecimento linguístico extremamente altas como chinês e requer computadores poderosos para lidar com esse intenso treinamento \cite{SMT}
 
 \section{Materiais}
 
