@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import re
 
 
-def reading_data(names=[]):
+def clean_data(path = 'raw_data/', names=[]):
   
   datasets = []
-  path = 'raw_data/'
+  
   for name in names:
     path = path+name+'.csv'
     dataset = pd.read_csv(path, encoding='utf-8')
@@ -28,19 +28,19 @@ def save_dataframe(names, dataframes=[]):
 
 def to_translation_format(raw_1, raw_2):
 
-    filter_text = []
+  filted_text = []
 
-    for r_1, r_2 in zip(raw_1, raw_2):
+  for r_1, r_2 in zip(raw_1, raw_2):
+ 
+    r_1 = ' '.join(str(r_1).split())
+    r_2 = ' '.join(str(r_2).split())
 
-        r_1 = ' '.join(r_1.split())
-        r_2 = ' '.join(r_2.split())
-
-        filter_text.append(r_1 + '\t' + r_2 + '\n')
-        
-    return filter_text
+    filted_text.append(r_1 + '\t' + r_2 + '\n')
+    
+  return filted_text
 
 
-def to_file(data, path='gu-pt_v1.txt'):
+def to_file(data, path='data.txt'):
     file = open(path, 'w', encoding="utf-8")
 
     for line in data:
@@ -97,4 +97,3 @@ title = "Evolução da precisão"
 xlabel = 'Quantidade exemplos usados para teste'
 ylabel = 'Precisão utilizando 1 - distância de Hamming'
 
-#plot_results(results, 'test', 'acc', xlabel, ylabel, title)
