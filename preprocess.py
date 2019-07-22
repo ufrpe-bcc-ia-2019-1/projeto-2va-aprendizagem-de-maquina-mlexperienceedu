@@ -92,8 +92,3 @@ def plot_results(results, param1, param2, xlabel, ylabel, title):
     plt.title(title)
     plt.show()
    
-
-title = "Evolução da precisão"
-xlabel = 'Quantidade exemplos usados para teste'
-ylabel = 'Precisão utilizando 1 - distância de Hamming'
-
