@@ -358,7 +358,7 @@ def save_epoch_results(part_1, part_2):
 
 
 #%%
-EPOCHS = 2000
+EPOCHS = 1258
 
 
 for epoch in range(EPOCHS):
