@@ -1,0 +1,3 @@
+Dataset ka-pt Train 1200	Test 300	Acc 0.19674979811155635
+Dataset tu-pt	Train 1200	Test 300	Acc 0.18710158230410626
+Dataset gu-pt	Train 1200	Test 300	Acc 0.1507587261559016
