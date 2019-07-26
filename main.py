@@ -8,5 +8,3 @@ data = to_translation_format(bible_1['Scripture'], bible_2['Scripture'])
 to_file(data, path='raw_data/gu-pt.txt')
 
 results = obtain_results('results.txt', ['time'])
-
-calculate_time(results=results)
