@@ -3,15 +3,18 @@ import matplotlib.pyplot as plt
 import re
 
 
-def clean_data(path = 'raw_data/', names=[]):
+def clean_data(path = 'raw_data/', regex=[], names=[]):
   
   datasets = []
   
   for name in names:
     path = path+name+'.csv'
     dataset = pd.read_csv(path, encoding='utf-8')
-    dataset = dataset.replace(to_replace='<.*?>*<.*?>', value='', regex=True)
-    dataset = dataset.replace(to_replace='<.*?>', value='', regex=True)
+
+    for ex in regex:
+      print(ex)
+      dataset = dataset.replace(to_replace=ex, value='', regex=True)
+  
     datasets.append(dataset)
     path = re.sub(name+'.csv','',path)
     
