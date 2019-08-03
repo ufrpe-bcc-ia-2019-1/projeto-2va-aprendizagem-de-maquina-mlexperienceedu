@@ -1,0 +1,14 @@
+{
+    "id": "tiagoblima/translator",
+    "id_no": 18280753,
+    "title": "Translator",
+    "code_file": "main.py",
+    "language": "python",
+    "kernel_type": "script",
+    "is_private": "true",
+    "enable_gpu": "true",
+    "enable_internet": "false",
+    "dataset_sources": ["raw_data/guarani.csv","raw_data/portugues.csv" ],
+    "competition_sources": [],
+    "kernel_sources": []
+  }

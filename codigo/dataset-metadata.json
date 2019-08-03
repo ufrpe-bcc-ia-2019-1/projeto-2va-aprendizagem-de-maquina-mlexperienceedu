@@ -1,0 +1,10 @@
+{
+  "title": "Guarani",
+  "id": "tiagoblima/guarani",
+  "path": "guarani.csv",
+  "licenses": [
+    {
+      "name": "CC0-1.0"
+    }
+  ]
+}

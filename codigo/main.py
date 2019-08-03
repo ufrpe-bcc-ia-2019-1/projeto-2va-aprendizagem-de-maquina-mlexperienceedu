@@ -1,4 +1,4 @@
-from preprocess import prepData
+from util import prepData
 import matplotlib.pyplot as plt
 import numpy as np 
 
@@ -8,4 +8,12 @@ noise = [
     
 ]
 
-prep = prepData(['guarani', 'karaja', 'xavante'])
+prep = prepData(['guarani', 'karaja', 'xavante', 'portugues'])
+
+prep.set_prefix('raw_data/')
+prep.set_sufix('.csv')
+
+datasets = prep.clean_data(regex=noise)
+
+pair = prep.to_pair_format(datasets['portugues'], datasets['guarani'], 'Scripture')
+
