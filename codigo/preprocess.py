@@ -2,9 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import re
 
-
-def clean_data(path = 'raw_data/', regex=[], names=[]):
-  
+      
   datasets = []
   
   for name in names:
@@ -15,16 +13,14 @@ def clean_data(path = 'raw_data/', regex=[], names=[]):
       print(ex)
       dataset = dataset.replace(to_replace=ex, value='', regex=True)
   
-    datasets.append(dataset)
-    path = re.sub(name+'.csv','',path)
-    
+  def save_pairs(self, file_name=[], texts=[]):
+        
+  def save_pairs(self, file_names=[], texts=[]):
 
   return datasets
 
-def save_dataframe(names, dataframes=[], path = 'raw_data/'):
- 
-  for name, dataframe in zip(names, dataframes):
-    path = path+name+'.csv'
+    for name, dataframe in zip(data_names, data):
+      path = self.prefix + name + self.sufix
     dataframe.to_csv(path, index=False)
     path = path.replace(name+'.csv','')
 
@@ -42,14 +38,10 @@ def to_translation_format(raw_1, raw_2):
     
   return filted_text
 
+    return pair_text
 
-def to_file(data, path='data.txt'):
-    file = open(path, 'w', encoding="utf-8")
 
-    for line in data:
-       file.write(line)
 
-    file.close()
 
 def calculate_time(results = {}):
       
