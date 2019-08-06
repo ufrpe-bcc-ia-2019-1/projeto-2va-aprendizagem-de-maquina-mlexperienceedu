@@ -30,6 +30,20 @@ class prepData():
 
   def get_sufix(self, file_sufix):
     return self.sufix 
+  
+  def read_all(self, regex=[]):
+              
+    for name in self.datasets_names:
+          
+      path = self.prefix + name + self.sufix
+      
+      try:
+        dataset = pd.read_csv(path, encoding='utf-8')
+        self.datasets[name] = dataset
+      except:
+        return "The path " + path + " was not found."
+
+    return self.datasets
 
   def clean_data(self, regex=[]):
             
