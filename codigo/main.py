@@ -15,5 +15,3 @@ prep.set_sufix('.csv')
 datasets = prep.clean_data(regex=noise)
 
 pair = prep.to_pair_format(datasets['portugues'], datasets['guarani'], 'Scripture')
-
-prep.save_all_datasets()
