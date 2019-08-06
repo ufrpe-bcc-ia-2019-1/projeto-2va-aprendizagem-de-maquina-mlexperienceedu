@@ -40,7 +40,7 @@ class prepData():
       try:
         dataset = pd.read_csv(path, encoding='utf-8')
       except:
-        return "The path " + path + "was not found."
+        return "The path " + path + " was not found."
 
       for exp in regex:
         dataset = dataset.replace(to_replace=exp, value='', regex=True)
@@ -62,12 +62,12 @@ class prepData():
       
       file.close()
 
-  def save_all_dataframes(self):
+  def save_all_datasets(self):
         
-    for name, data in zip(self.datasets_names, self.datasets):
+    for name, data in zip(self.datasets_names, self.datasets.values()):
       path = self.prefix + name + self.sufix
-      dataframe = pd.DataFrame({data})
-      dataframe.to_csv(path, index=False)
+      
+      data.to_csv(path, index=False)
       path = path.replace(name + self.sufix,'')
 
   def to_pair_format(self, raw_1, raw_2, data_index):
