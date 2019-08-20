@@ -1,0 +1,14 @@
+{
+  "id": "tiagoblima/translator",
+  "id_no": 18280753,
+  "title": "Translator",
+  "code_file": "tradutor.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "false",
+  "dataset_sources": ["tiagoblima/guarani-pt"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

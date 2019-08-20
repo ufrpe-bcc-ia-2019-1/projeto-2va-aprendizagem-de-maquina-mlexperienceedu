@@ -1,7 +1,7 @@
 {
   "title": "Guarani",
-  "id": "tiagoblima/guarani",
-  "path": "guarani.csv",
+  "id": "tiagoblima/guarani-pt",
+  "path": "raw_data/pairs/gu-pt.txt",
   "licenses": [
     {
       "name": "CC0-1.0"

@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import re
 
+#--- Tirando referências -----
 livros = []
 penta = ['Gênesis', 'Êxodo', 'Levítico', 'Números', 'Deuteronômio']
 

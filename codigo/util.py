@@ -99,20 +99,18 @@ class prepData():
 
 
 
-
-def calculate_time(results = {}):
+class result():
       
-  time_taken = 0
+  def calculate_time(self, results = {}):
+        
+    time_taken = 0
 
-  for t in results['time']:
-    time_taken += t
+    for t in results['time']:
+      time_taken += t
 
-  print("Total time taken: {} sec {} hs".format(time_taken,time_taken/3600))
+    print("Total time taken: {} sec {} hs".format(time_taken,time_taken/3600))
 
-
-
-
-def obtain_results(file_name, param = []):
+  def obtain_results(self, file_name, param = []):
 
     results = {}
 
@@ -120,7 +118,7 @@ def obtain_results(file_name, param = []):
         results[p] = []
 
     file = open(file_name, 'r')
-   
+  
     line = file.readline()
     while line:
       
@@ -136,12 +134,26 @@ def obtain_results(file_name, param = []):
 
     return results
 
-def plot_results(results, param1, param2, xlabel, ylabel, title):
+  def plot_results(self, results, param1, param2, xlabel, ylabel, title):
 
     plt.plot(results[param1], results[param2])
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
     plt.show()
-   
+  
+  def save_epoch_results(self, epoch, loss, time):
+    
+    file = open('results.txt', 'a')
+    file.write('epoch ' + epoch + ' loss ' + loss + ' time ' + time )
+    file.close()
+
+  def saving_result(self, treino, teste, acc):
+    path = "raw_data/results/"
+    file = open(path+"test_result.txt", 'a')
+
+    file.write('Train ' + str(treino) + '\tTest ' + str(teste) + '\tAcc ' + str(acc) + '\n')
+
+    file.close()
+    
 

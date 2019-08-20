@@ -4,11 +4,11 @@
     "title": "Translator",
     "code_file": "main.py",
     "language": "python",
-    "kernel_type": "script",
+    "kernel_type": "notebook",
     "is_private": "true",
     "enable_gpu": "true",
     "enable_internet": "false",
-    "dataset_sources": ["raw_data/guarani.csv","raw_data/portugues.csv" ],
+    "dataset_sources": ["raw_data/pairs/gu-pt.txt"],
     "competition_sources": [],
     "kernel_sources": []
   }
