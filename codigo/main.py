@@ -27,18 +27,19 @@ livros.extend(cartas)
 
 noise = []
 for livro in livros:
-    livro = livro + ' [0-9]*.[0-9]*'
+    livro += ' [0-9]*.[0-9]*'
     livro = livro.replace('1 e 2', '[0-9]')
     livro = livro.replace('1 a 3', '[0-9]')
     noise.append(livro)
+noise.append('<.*?>|<.*?>.*?<.*?>')
+prep = prepData(['guarani', 'karaja', 'xavante', 'tukano', 'portugues'])
 
-prep = prepData(['guarani', 'karaja', 'xavante', 'tukano','portugues'])
-
-prep.set_prefix('raw_data/')
+prep.set_prefix('../datasets/')
 
 prep.set_sufix('.csv')
 
-datasets = prep.read_all()
+datasets = prep.clean_data(noise)
+prep.save_all_datasets()
 
 gu_pt = prep.to_pair_format(datasets['guarani'], datasets['portugues'], 'Scripture')
 ka_pt = prep.to_pair_format(datasets['karaja'], datasets['portugues'], 'Scripture')
@@ -47,6 +48,6 @@ tu_pt = prep.to_pair_format(datasets['tukano'], datasets['portugues'], 'Scriptur
 
 names = ['gu-pt', 'ka-pt', 'xa-pt', 'tu-pt']
 pairs = [gu_pt, ka_pt, xa_pt, tu_pt]
-prep.set_prefix('raw_data/pairs/')
+prep.set_prefix('../datasets/pairs/')
 prep.set_sufix('.txt')
 prep.save_pairs(names, pairs)
