@@ -106,9 +106,8 @@ for k, b in zip(bibles.keys(), bibles.values()):
 
             if search is not None:
                 ind = Index(scrip).get_loc(verse)
-
-                reference = b.loc[ind, :]
-                #print(reference)
+                reference = b.loc[ind,:]
+                print(reference)
                 file.write(reference.to_string())
                 collapse_verses(bibles, reference)
 
