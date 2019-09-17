@@ -3,153 +3,193 @@ import matplotlib.pyplot as plt
 import random
 
 
-class prepData():
-  datasets = None
-  datasets_names = []
-  prefix = ''
-  sufix = ''
+def get_noise():
+    livros = []
+    penta = ['Gênesis', 'Êxodo', 'Levítico', 'Números', 'Deuteronômio']
 
-  def __init__(self, datasets_names=[]):
-    self.datasets_names = datasets_names
-    self.datasets = {}.fromkeys(datasets_names)
+    history = ['Josué', 'Juízes', 'Rute', '1 e 2 Samuel', '1 e 2 Reis', '1 e 2 Crônicas', 'Esdras', 'Neemias',
+               'Tobias',
+               'Judite', 'Ester', '1 e 2 Macabeus']
 
-  def set_prefix(self, path_prefix):
-    self.prefix = path_prefix
+    poete = ['Jó', 'Salmo', 'Provérbios', 'Eclesiastes', 'Cântico dos Cânticos', 'Sabedoria', 'Eclesiástico']
 
-  def set_dataset_names(self, datasets_names):
-    self.datasets_names = datasets_names
+    profe = ['Isaías', 'Jeremias', 'Lamentações', 'Baruc', 'Ezequiel', 'Daniel', 'Oséias', 'Joel', 'Amós', 'Abdias',
+             'Jonas', 'Miquéias', 'Naum', 'Habacuque', 'Sofonias', 'Ageu', 'Zacarias', 'Malaquias']
 
-  def set_sufix(self, file_sufix):
-    self.sufix = file_sufix
+    evan = ['Mateus', 'Marcos', 'Lucas', 'João']
 
-  def get_prefix(self, path_prefix):
-    return self.prefix
+    cartas = ['Atos', 'Romanos', '1 e 2 Coríntios', 'Gálatas', 'Efésios', 'Filipenses', 'Colossenses',
+              '1 e 2 Tessalonicenses', '1 e 2 Timóteo', 'Tito', 'Filemon', 'Hebreus', 'Tiago', '1 e 2 Pedro',
+              '1 a 3 João',
+              'Judas', 'Apocalipse']
 
-  def get_dataset_names(self, datasets_names):
-    return self.datasets_names
+    livros.extend(penta)
+    livros.extend(history)
+    livros.extend(poete)
+    livros.extend(profe)
+    livros.extend(evan)
+    livros.extend(cartas)
+    noise = []
 
-  def get_sufix(self, file_sufix):
-    return self.sufix
+    for livro in livros:
+        livro += ' [0-9]*.[0-9]*'
+        livro = livro.replace('1 e 2', '[0-9]')
+        livro = livro.replace('1 a 3', '[0-9]')
+        noise.append(livro)
+    noise.append('<.*?>|<.*?>.*?<.*?>')
 
-  def read_all(self, regex=[]):
+    return noise
 
-    for name in self.datasets_names:
 
-      path = self.prefix + name + self.sufix
+class PrepData:
+    datasets = None
+    datasets_names = []
+    prefix = ''
+    sufix = ''
 
-      try:
-        dataset = pd.read_csv(path, encoding='utf-8')
-        self.datasets[name] = dataset
-      except:
-        return "The path " + path + " was not found."
+    def __init__(self, datasets_names):
+        self.datasets_names = datasets_names
+        self.datasets = {}.fromkeys(datasets_names)
 
-    return self.datasets
+    def set_prefix(self, path_prefix):
+        self.prefix = path_prefix
 
-  def clean_data(self, regex=[]):
+    def set_dataset_names(self, datasets_names):
+        self.datasets_names = datasets_names
 
-    for name in self.datasets_names:
+    def set_sufix(self, file_sufix):
+        self.sufix = file_sufix
 
-      path = self.prefix + name + self.sufix
+    def get_prefix(self, path_prefix):
+        return self.prefix
 
-      try:
-        dataset = pd.read_csv(path, encoding='utf-8')
-      except:
-        return "The path " + path + " was not found."
+    def get_dataset_names(self, datasets_names):
+        return self.datasets_names
 
-      for exp in regex:
-        dataset = dataset.replace(to_replace=exp, value='', regex=True)
+    def get_sufix(self, file_sufix):
+        return self.sufix
 
-      self.datasets[name] = dataset
-      path = path.replace(name + self.sufix, '')
+    def read_all(self, regex=[]):
 
-    return self.datasets
+        for name in self.datasets_names:
 
-  def save_pairs(self, file_names=[], texts=[]):
+            path = self.prefix + name + self.sufix
 
-    for file_name, text in zip(file_names, texts):
-      path = self.prefix + file_name + self.sufix
+            try:
+                dataset = pd.read_csv(path, encoding='utf-8')
+                self.datasets[name] = dataset
+            except:
+                return "The path " + path + " was not found."
 
-      file = open(path, 'w', encoding='utf-8')
+        return self.datasets
 
-      for line in text:
-        file.write(line)
+    def clean_data(self, regex=[]):
 
-      file.close()
+        for name in self.datasets_names:
 
-  def save_all_datasets(self):
+            path = self.prefix + name + self.sufix
 
-    for name, data in zip(self.datasets_names, self.datasets.values()):
-      path = self.prefix + name + self.sufix
+            try:
+                dataset = pd.read_csv(path, encoding='utf-8')
+            except:
+                return "The path " + path + " was not found."
 
-      data.to_csv(path, index=False)
-      path = path.replace(name + self.sufix, '')
+            for exp in regex:
+                dataset = dataset.replace(to_replace=exp, value='', regex=True)
 
-  def to_pair_format(self, raw_1, raw_2, data_index='Scripture'):
+            self.datasets[name] = dataset
+            path = path.replace(name + self.sufix, '')
 
-    pair_text = []
+        return self.datasets
 
-    for r_1, r_2 in zip(raw_1[data_index], raw_2[data_index]):
-      r_1 = ' '.join(str(r_1).split())
-      r_2 = ' '.join(str(r_2).split())
-      pair_text.append(r_1 + '\t' + r_2 + '\n')
+    def save_pairs(self, file_names=[], texts=[]):
 
-    random.shuffle(pair_text)
-    return pair_text
+        for file_name, text in zip(file_names, texts):
+            path = self.prefix + file_name + self.sufix
+
+            file = open(path, 'w', encoding='utf-8')
+
+            for line in text:
+                file.write(line)
+
+            file.close()
+
+    def save_all_datasets(self):
+
+        for name, data in zip(self.datasets.keys(), self.datasets.values()):
+            path = self.prefix + name + self.sufix
+
+            data.to_csv(path, index=False)
+            path = path.replace(name + self.sufix, '')
+
+    def to_pair_format(self, pairs):
+
+        pair_text = []
+        data_pairs = []
+        for p in pairs:
+            for r_1, r_2 in zip(self.datasets[p[0]]['Scripture'], self.datasets[p[1]]['Scripture']):
+                r_1 = ' '.join(str(r_1).split())
+                r_2 = ' '.join(str(r_2).split())
+                pair_text.append(r_1 + '\t' + r_2 + '\n')
+                random.shuffle(pair_text)
+            data_pairs.append(pair_text)
+
+        return data_pairs
 
 
 class Result:
 
-  def calculate_time(self, results={}):
+    def calculate_time(self, results={}):
 
-    time_taken = 0
+        time_taken = 0
 
-    for t in results['time']:
-      time_taken += t
+        for t in results['time']:
+            time_taken += t
 
-    print("Total time taken: {} sec {} hs".format(time_taken, time_taken / 3600))
+        print("Total time taken: {} sec {} hs".format(time_taken, time_taken / 3600))
 
-  def obtain_results(self, file_name, param=[]):
+    def obtain_results(self, file_name, param=[]):
 
-    results = {}
+        results = {}
 
-    for p in param:
-      results[p] = []
+        for p in param:
+            results[p] = []
 
-    file = open(file_name, 'r')
+        file = open(file_name, 'r')
 
-    line = file.readline()
-    while line:
+        line = file.readline()
+        while line:
 
-      data = line.lower().split()
+            data = line.lower().split()
 
-      for p in param:
-        index = data.index(p)
-        results[p].append(float(data[index + 1]))
+            for p in param:
+                index = data.index(p)
+                results[p].append(float(data[index + 1]))
 
-      line = file.readline()
+            line = file.readline()
 
-    file.close()
+        file.close()
 
-    return results
+        return results
 
-  def plot_results(self, results, param1, param2, xlabel, ylabel, title):
+    def plot_results(self, results, param1, param2, xlabel, ylabel, title):
 
-    plt.plot(results[param1], results[param2])
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.title(title)
-    plt.show()
+        plt.plot(results[param1], results[param2])
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        plt.title(title)
+        plt.show()
 
-  def save_epoch_results(self, epoch, loss, time):
+    def save_epoch_results(self, epoch, loss, time):
 
-    file = open('results.txt', 'a')
-    file.write('epoch ' + epoch + ' loss ' + loss + ' time ' + time)
-    file.close()
+        file = open('results.txt', 'a')
+        file.write('epoch ' + epoch + ' loss ' + loss + ' time ' + time)
+        file.close()
 
-  def saving_result(self, treino, teste, acc):
-    path = "raw_data/results/"
-    file = open(path + "test_result.txt", 'a')
+    def saving_result(self, treino, teste, acc):
+        path = "raw_data/results/"
+        file = open(path + "test_result.txt", 'a')
 
-    file.write('Train ' + str(treino) + '\tTest ' + str(teste) + '\tAcc ' + str(acc) + '\n')
+        file.write('Train ' + str(treino) + '\tTest ' + str(teste) + '\tAcc ' + str(acc) + '\n')
 
-    file.close()
+        file.close()

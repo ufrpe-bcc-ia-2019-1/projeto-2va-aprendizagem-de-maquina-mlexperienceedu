@@ -1,57 +1,89 @@
-from util import prepData
+import textwrap
+
+from pandas import Index
+from util import PrepData
+from util import get_noise
+from itertools import permutations
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import re
+import os
 
 # --- Tirando referências -----
-livros = []
-penta = ['Gênesis', 'Êxodo', 'Levítico', 'Números', 'Deuteronômio']
 
-history = ['Josué', 'Juízes', 'Rute', '1 e 2 Samuel', '1 e 2 Reis', '1 e 2 Crônicas', 'Esdras', 'Neemias', 'Tobias',
-           'Judite', 'Ester', '1 e 2 Macabeus']
+path = '../datasets/Bíblia Completa/'
 
-poete = ['Jó', 'Salmo', 'Provérbios', 'Eclesiastes', 'Cântico dos Cânticos', 'Sabedoria', 'Eclesiástico']
+data_list = os.listdir(path)
 
-profe = ['Isaías', 'Jeremias', 'Lamentações', 'Baruc', 'Ezequiel', 'Daniel', 'Oséias', 'Joel', 'Amós', 'Abdias',
-         'Jonas', 'Miquéias', 'Naum', 'Habacuque', 'Sofonias', 'Ageu', 'Zacarias', 'Malaquias']
+prep = PrepData(data_list)
+prep.set_prefix(path)
+# prep.set_sufix('.csv')
 
-evan = ['Mateus', 'Marcos', 'Lucas', 'João']
 
-cartas = ['Atos', 'Romanos', '1 e 2 Coríntios', 'Gálatas', 'Efésios', 'Filipenses', 'Colossenses',
-          '1 e 2 Tessalonicenses', '1 e 2 Timóteo', 'Tito', 'Filemon', 'Hebreus', 'Tiago', '1 e 2 Pedro', '1 a 3 João',
-          'Judas', 'Apocalipse']
+noise = get_noise()
+# datasets = prep.clean_data(noise)
 
-livros.extend(penta)
-livros.extend(history)
-livros.extend(poete)
-livros.extend(profe)
-livros.extend(evan)
-livros.extend(cartas)
+# prep.save_all_datasets()
+pairs = permutations(data_list, 2)
 
-noise = []
-for livro in livros:
-	livro += ' [0-9]*.[0-9]*'
-	livro = livro.replace('1 e 2', '[0-9]')
-	livro = livro.replace('1 a 3', '[0-9]')
-	noise.append(livro)
-noise.append('<.*?>|<.*?>.*?<.*?>')
-prep = prepData(['guarani', 'karaja', 'xavante', 'tukano', 'portugues'])
+# data_pairs = prep.to_pair_format(pairs)
+pd.set_option('display.max_colwidth', -1)
+bibles = {}
 
-prep.set_prefix('../datasets/')
+for b in data_list:
+    bibles[b] = pd.read_csv(path + b)
 
-prep.set_sufix('.csv')
+new_bibles = {}.fromkeys(data_list)
 
-datasets = prep.clean_data(noise)
-prep.save_all_datasets()
 
-gu_pt = prep.to_pair_format(datasets['guarani'], datasets['portugues'])
-ka_pt = prep.to_pair_format(datasets['karaja'], datasets['portugues'])
-xa_pt = prep.to_pair_format(datasets['xavante'], datasets['portugues'])
-tu_pt = prep.to_pair_format(datasets['tukano'], datasets['portugues'])
-print()
-names = ['gu-pt', 'ka-pt', 'xa-pt', 'tu-pt']
-pairs = [gu_pt, ka_pt, xa_pt, tu_pt]
-prep.set_prefix('../datasets/pairs/')
-prep.set_sufix('.txt')
-prep.save_pairs(names, pairs)
+def collapse_verses(bibles, ref):
+    path = '../datasets/Bíblia Completa/'
+    for key, bible in zip(bibles.keys(), bibles.values()):
+        verse_1 = bible.loc[
+            (bible['Book'] == ref['Book']) &
+            (bible['Chapter'] == ref['Chapter']) &
+            (bible['Verse'] == ref['Verse'])
+            ]['Scripture'].to_string().replace(str(ind), '')
+
+        verse_2 = bible.loc[
+            (bible['Book'] == ref['Book']) &
+            (bible['Chapter'] == ref['Chapter']) &
+            (bible['Verse'] == ref['Verse'] + 1)
+            ]['Scripture'].to_string()
+
+        verse_1 = ' '.join(verse_1.split())
+        verse_2 = ' '.join(verse_2.replace(str(ind + 1), '').split())
+        new_verse = verse_1 + verse_2
+
+        bible.replace(to_replace=verse_1, value=new_verse, regex=True, inplace=True)
+
+        bible = bible.drop(index=ind + 1)
+
+        bible.to_csv(path+key, index=False)
+
+
+for k, b in zip(bibles.keys(), bibles.values()):
+
+    scrip = b['Scripture']
+
+    for verse in scrip:
+        search = re.search('(?<=(<sup>))[(][0-9]*[-][0-9]*[)]', verse)
+
+        if search is not None:
+
+            ind = Index(scrip).get_loc(verse)
+            print(ind)
+            reference = b.loc[ind, :]
+            print(reference)
+            collapse_verses(bibles, reference)
+
+    else:
+        search = re.search('[(]\s[0-9]*\s[-]\s[0-9]*\s[)]', verse)
+
+        if search is not None:
+            ind = Index(scrip).get_loc(verse)
+            print(ind)
+            reference = b.loc[ind, :]
+            print(reference)
+            collapse_verses(bibles, reference)
