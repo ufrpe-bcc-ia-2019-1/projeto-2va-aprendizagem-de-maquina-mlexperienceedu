@@ -27,10 +27,11 @@ pairs = permutations(data_list, 2)
 
 # data_pairs = prep.to_pair_format(pairs)
 pd.set_option('display.max_colwidth', -1)
-bibles = {}
 
+bibles = {}
+file = open('collapsed.txt', 'w', encoding='utf-8')
 for b in data_list:
-    bibles[b] = pd.read_csv(path + b, encoding="utf-8").drop_duplicates().reset_index(drop=True)
+    bibles[b] = pd.read_csv(path + b, encoding="utf-8").drop_duplicates()
 
 new_bibles = {}.fromkeys(data_list)
 
@@ -44,21 +45,24 @@ def collapse_verses(bibles, ref, verses_seq):
                 (bible['Book'] == ref['Book']) &
                 (bible['Chapter'] == ref['Chapter']) &
                 (bible['Verse'] == v_seq)
-                ]['Scripture'].to_string()
+                ]['Scripture'].to_string(index=False)
 
             verse_1 = ' '.join(verse_1.split())
             script_seq.append(verse_1)
 
         new_verse = ' '.join(script_seq)
-
+        file.write('\n' + key + '\n' + new_verse + '\n')
         bible.replace(to_replace=script_seq[0], value=new_verse, regex=True, inplace=True)
+        for v_seq in verses_seq[1:]:
+            ind = bible.loc[
+                (bible['Book'] == ref['Book']) &
+                (bible['Chapter'] == ref['Chapter']) &
+                (bible['Verse'] == v_seq)
+                ]['Scripture'].index.values.astype(int)
+            bible.drop(index=ind, inplace=True)
 
         bible.to_csv(path + key, index=False)
 
-        return bibles
-
-
-file = open('collapsed.txt', 'w', encoding='utf-8')
 
 for k, b in zip(bibles.keys(), bibles.values()):
 
@@ -68,16 +72,16 @@ for k, b in zip(bibles.keys(), bibles.values()):
         search = re.search(r'(?<=(<sup>))[(][0-9]*[-][0-9]*[)]', verse)
 
         try:
-            if search is not None:
-                first = re.search(r'(?<=([(]))[0-9]*', search.group(0)).group(0)
-                last = re.search(r'(?<=([-]))[0-9]*', search.group(0)).group(0)
-                verses = np.arange(int(first), int(last))
-                ind = Index(scrip).get_loc(verse)
-                reference = b.loc[ind, :]
-                print(reference)
-                file.write(reference.to_string() + '\n')
 
-                collapse_verses(bibles, reference, verses)
+            first = re.search(r'(?<=([(]))[0-9]*', search.group(0)).group(0)
+            last = re.search(r'(?<=([-]))[0-9]*', search.group(0)).group(0)
+            verses = np.arange(int(first), int(last) + 1)
+            ind = Index(scrip).get_loc(verse)
+            reference = b.loc[ind, :]
+            print(reference)
+            file.write(reference.to_string() + '\n')
+
+            collapse_verses(bibles, reference, verses)
 
         except AttributeError:
 
@@ -90,13 +94,12 @@ for k, b in zip(bibles.keys(), bibles.values()):
                     last = re.search(r'(?<=([-]\s))[0-9]*', verse)
                     if last is not None:
                         last = last.group(0)
-                        verses = np.arange(int(first), int(last))
+                        verses = np.arange(int(first), int(last) + 1)
                         ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
-                        print(ind)
                         reference = b.loc[ind, :]
                         print(reference)
                         file.write(reference.to_string())
-                        bibles = collapse_verses(bibles, reference, verses)
+                        collapse_verses(bibles, reference, verses)
             except Exception:
                 file.write(Exception.__traceback__.__str__())
 
