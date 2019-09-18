@@ -52,14 +52,20 @@ def collapse_verses(bibles, ref, verses_seq):
 
         new_verse = ' '.join(script_seq)
         file.write('\n' + key + '\n' + new_verse + '\n')
-        bible.replace(to_replace=script_seq[0], value=new_verse, regex=True, inplace=True)
-        for v_seq in verses_seq[1:]:
-            ind = bible.loc[
+
+        d_start = 1
+        try:
+            bible.replace(to_replace=script_seq[0], value=new_verse, regex=True, inplace=True)
+        except re.error:
+            d_start = 0
+
+        for v_seq in verses_seq[d_start:]:
+            i = bible.loc[
                 (bible['Book'] == ref['Book']) &
                 (bible['Chapter'] == ref['Chapter']) &
                 (bible['Verse'] == v_seq)
                 ]['Scripture'].index.values.astype(int)
-            bible.drop(index=ind, inplace=True)
+            bible.drop(index=i, inplace=True)
 
         bible.to_csv(path + key, index=False)
 
