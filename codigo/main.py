@@ -3,7 +3,7 @@ from base64 import encode
 
 from pandas import Index
 from util import PrepData
-from util import get_noise
+from util import align_verses
 from itertools import permutations
 import matplotlib.pyplot as plt
 import numpy as np
@@ -13,12 +13,10 @@ import os
 
 # --- Tirando referências -----
 
-path = '../datasets/Bíblia Completa/'
+path = '../datasets/Novo Testamento/'
 
-text = open('../datasets/pairs/(\'Português - Bíblia Completa.csv\', \'Guarani Mbyá - Bíblia Completa.csv\').txt', 'r', encoding='utf-8')
+prep = PrepData(path)
+bibles = prep.get_datasets()
+align_verses(bibles, path)
 
-file = open('gu-pt.txt', 'w', encoding='utf-8')
-for line in text:
-    line = re.sub(r'[0-9]*[-][0-9]*[;]*', '', line)
-    file.write(line)
-file.close()
+prep.clear_data(prep.get_noise(), True)

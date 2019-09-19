@@ -1,3 +1,5 @@
+from aifc import Error
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import random
@@ -5,6 +7,7 @@ import re
 import numpy as np
 from numpy.random.mtrand import shuffle
 from pandas import Series
+import os
 
 
 def get_noise():
@@ -36,7 +39,7 @@ def get_noise():
     noise = []
 
     for livro in livros:
-        livro += ' [0-9]*.*[0-9]*[-]*[0-9]*[;]'
+        livro += ' [0-9]*[.]*[0-9]*[-]*[0-9]*[;]*'
         livro = livro.replace('1 e 2', '[0-9]')
         livro = livro.replace('1 a 3', '[0-9]')
         noise.append(livro)
@@ -44,59 +47,17 @@ def get_noise():
     noise.append(r'[(]\s[0-9]*\s[-]\s[0-9]*\s[)]')
     noise.append('Veja verso [0-9]*')
     noise.append(r'Series[(] \[ \], [)]')
-
+    noise.append(r'[\]')
+    noise.append(r'[0-9]*[-][0-9]*[;]*')
     return noise
 
 
-def evaluate(bibles):
-    for k, b in zip(bibles.keys(), bibles.values()):
-
-        file = open('collapsed.txt', 'w', encoding='utf-8')
-        scrip = b['Scripture']
-        file.write(k + '\n')
-        for verse in scrip:
-
-            try:
-                search = re.search(r'(?<=(<sup>))[(][0-9]*[-][0-9]*[)]', verse)
-                first = re.search(r'(?<=([(]))[0-9]*', search.group(0)).group(0)
-                last = re.search(r'(?<=([-]))[0-9]*', search.group(0)).group(0)
-                verses = np.arange(int(first), int(last) + 1)
-
-                if search is not None:
-                    ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
-                    reference = b.loc[ind, :]
-                    print(reference)
-                    file.write(reference.to_string() + '\n')
-
-                    collapse_verses(bibles, reference, verses)
-
-            except AttributeError:
-
-                try:
-                    search = re.search(r'((?<=[(]\s))[0-9]*', verse)
-
-                    if search is not None:
-                        print(verse)
-                        first = search.group(0)
-                        last = re.search(r'(?<=([-]\s))[0-9]*', verse)
-                        if last is not None:
-                            last = last.group(0)
-                            verses = np.arange(int(first), int(last) + 1)
-                            ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
-                            reference = b.loc[ind, :]
-                            print(reference)
-                            file.write(reference.to_string())
-                            collapse_verses(bibles, reference, verses)
-                except Exception:
-                    file.write(Exception.__traceback__.__str__())
-        file.close()
-
-
-def collapse_verses(bibles, ref, verses_seq):
-    path = '../datasets/Bíblia Completa/'
-    file = open('collapsed.txt', 'w', encoding='utf-8')
+def collapse_verses(bibles, ref, verses_seq, path):
 
     for key, bible in zip(bibles.keys(), bibles.values()):
+
+
+
         script_seq = []
         for v_seq in verses_seq:
             verse_1 = bible.loc[
@@ -112,10 +73,21 @@ def collapse_verses(bibles, ref, verses_seq):
         file.write('\n' + key + '\n' + new_verse + '\n')
 
         d_start = 1
+
         try:
+            regexs = [r'[)]', r'[(]', r'[\[]', r'[\]]', r'[\{ ]', r'[\}]']
+            to_str = [r'\)', r'\(', r'\]', r'\]', r'\{', r'\}']
+
+            for res, to_str in zip(regexs, to_str):
+                new_verse = re.sub(res, to_str, new_verse)
+                script_seq[0] = re.sub(res, to_str, script_seq[0])
+
             bible.replace(to_replace=script_seq[0], value=new_verse, regex=True, inplace=True)
+
         except re.error:
+            print('Error: ')
             print(script_seq[0])
+            breakpoint()
             d_start = 0
 
         for v_seq in verses_seq[d_start:]:
@@ -129,91 +101,125 @@ def collapse_verses(bibles, ref, verses_seq):
         bible.to_csv(path + key, index=False)
 
 
+def align_verses(bibles, path):
+    pd.set_option('display.max_colwidth', -1)
+
+    for k, b in zip(bibles.keys(), bibles.values()):
+
+        file = open('report/collapsing: ' + k + '.txt', 'w', encoding='utf-8')
+        scrip = b['Scripture']
+        file.write(k + '\n')
+        print(k)
+        for verse in scrip:
+
+            try:
+                search = re.search(r'(?<=(<sup>))[(][0-9]*[-][0-9]*[)]', verse)
+
+                if search is not None:
+
+                    first = re.search(r'(?<=([(]))[0-9]*', search.group(0)).group(0)
+                    last = re.search(r'(?<=([-]))[0-9]*', search.group(0)).group(0)
+                    verses = np.arange(int(first), int(last) + 1)
+
+                    ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
+                    reference = b.loc[ind, :]
+                    print(reference)
+                    file.write(reference.to_string() + '\n')
+
+                    collapse_verses(bibles, reference, verses, path)
+                else:
+                    search = re.search(r'((?<=[(]\s))[0-9]*', verse)
+
+                    if search is not None:
+                        print(verse)
+                        first = search.group(0)
+                        last = re.search(r'(?<=([-]\s))[0-9]*', verse)
+                        if last is not None:
+                            last = last.group(0)
+                            verses = np.arange(int(first), int(last) + 1)
+                            ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
+                            reference = b.loc[ind, :]
+                            print(reference)
+                            file.write(reference.to_string())
+                            collapse_verses(bibles, reference, verses, path)
+            except IndexError:
+                print(IndexError)
+                file.write(Exception.__traceback__.__str__())
+
+        file.close()
+
+
+def save_pairs(data_pairs, dir_path):
+    for key, text in zip(data_pairs.keys(), data_pairs.values()):
+
+        path = dir_path + key
+
+        file = open(path, 'w', encoding='utf-8')
+
+        for line in text:
+            file.write(line)
+
+        file.close()
+
+
 class PrepData:
     datasets = None
-    datasets_names = []
-    prefix = ''
-    sufix = ''
+    datasets_list = []
+    root_dir = ''
 
-    def __init__(self, datasets_names):
-        self.datasets_names = datasets_names
-        self.datasets = {}.fromkeys(datasets_names)
+    def __init__(self, dir_path):
+        self.root_dir = dir_path
+        self.datasets_list = os.listdir(dir_path)
+        self.datasets = {}.fromkeys(self.datasets_list)
 
-    def set_prefix(self, path_prefix):
-        self.prefix = path_prefix
-
-    def set_dataset_names(self, datasets_names):
-        self.datasets_names = datasets_names
-
-    def set_sufix(self, file_sufix):
-        self.sufix = file_sufix
+    def set_root_dir(self, path_prefix):
+        self.root_dir = path_prefix
 
     def get_prefix(self, path_prefix):
-        return self.prefix
+        return self.root_dir
 
-    def get_dataset_names(self, datasets_names):
-        return self.datasets_names
-
-    def get_sufix(self, file_sufix):
-        return self.sufix
+    def get_dataset_list(self):
+        return self.datasets_list
 
     def set_datasets(self, datasets):
         self.datasets = datasets
 
-    def read_all(self, regex=[]):
+    def get_datasets(self):
 
-        for name in self.datasets_names:
+        for name in self.datasets_list:
 
-            path = self.prefix + name + self.sufix
+            path = self.root_dir + name
 
             try:
-                dataset = pd.read_csv(path, encoding='utf-8')
-                self.datasets[name] = dataset
-            except:
+                self.datasets[name] = pd.read_csv(path, encoding='utf-8')
+
+            except FileNotFoundError:
                 return "The path " + path + " was not found."
 
         return self.datasets
 
-    def clean_data(self, regex=[]):
+    def clean_data(self, regex=None, auto_save=False):
 
-        for name in self.datasets_names:
+        if regex is None:
+            regex = []
+        for name in self.datasets_list:
 
-            path = self.prefix + name + self.sufix
+            path = self.root_dir + name
 
             try:
                 dataset = pd.read_csv(path, encoding='utf-8')
-            except:
+            except FileNotFoundError:
                 return "The path " + path + " was not found."
 
             for exp in regex:
                 dataset = dataset.replace(to_replace=exp, value='', regex=True)
 
             self.datasets[name] = dataset
-            path = path.replace(name + self.sufix, '')
+
+            if auto_save is True:
+                dataset.to_csv(path)
 
         return self.datasets
-
-    def save_pairs(self, data_pairs):
-
-        for file_name, text in zip(data_pairs.keys(), data_pairs.values()):
-
-            path = self.prefix + str(file_name) + self.sufix
-
-            file = open(path, 'w', encoding='utf-8')
-
-            for line in text:
-
-                file.write(line)
-
-            file.close()
-
-    def save_all_datasets(self):
-
-        for name, data in zip(self.datasets.keys(), self.datasets.values()):
-            path = self.prefix + name + self.sufix
-
-            data.to_csv(path, index=False)
-            path = path.replace(name + self.sufix, '')
 
     def to_pair_format(self, pairs):
 
@@ -221,71 +227,18 @@ class PrepData:
         data_pairs = {}.fromkeys(pairs)
 
         for p in pairs:
-            print(str(p[0]))
-            self.datasets['Português - Bíblia Completa.csv']['Scripture'].align(self.datasets['Guarani Mbyá - Bíblia Completa.csv']['Scripture'])
+            print()
+            self.datasets[p[0].encode('utf-8')]['Scripture'].align(
+                self.datasets[p[1].encode('utf-8')]['Scripture'])
 
-            for r_1, r_2 in zip(Series(self.datasets['Português - Bíblia Completa.csv']['Scripture']), Series(self.datasets['Guarani Mbyá - Bíblia Completa.csv']['Scripture'])):
-
+            for r_1, r_2 in zip(Series(self.datasets[p[0].encode('utf-8')]['Scripture']),
+                                Series(self.datasets[p[1].encode('utf-8')]['Scripture'])):
                 pair_text.append(' '.join(r_1.split()) + '\t' + ' '.join(r_2.split()) + '\n')
             shuffle(pair_text)
-            data_pairs[p] = pair_text
+            key = re.sub(r'[(] | [)]', '', str(p))
+            key = re.sub(r'[,]', '-', key)
+            data_pairs[key] = pair_text
 
         return data_pairs
 
 
-class Result:
-
-    def calculate_time(self, results={}):
-
-        time_taken = 0
-
-        for t in results['time']:
-            time_taken += t
-
-        print("Total time taken: {} sec {} hs".format(time_taken, time_taken / 3600))
-
-    def obtain_results(self, file_name, param=[]):
-
-        results = {}
-
-        for p in param:
-            results[p] = []
-
-        file = open(file_name, 'r')
-
-        line = file.readline()
-        while line:
-
-            data = line.lower().split()
-
-            for p in param:
-                index = data.index(p)
-                results[p].append(float(data[index + 1]))
-
-            line = file.readline()
-
-        file.close()
-
-        return results
-
-    def plot_results(self, results, param1, param2, xlabel, ylabel, title):
-
-        plt.plot(results[param1], results[param2])
-        plt.xlabel(xlabel)
-        plt.ylabel(ylabel)
-        plt.title(title)
-        plt.show()
-
-    def save_epoch_results(self, epoch, loss, time):
-
-        file = open('results.txt', 'a')
-        file.write('epoch ' + epoch + ' loss ' + loss + ' time ' + time)
-        file.close()
-
-    def saving_result(self, treino, teste, acc):
-        path = "raw_data/results/"
-        file = open(path + "test_result.txt", 'a')
-
-        file.write('Train ' + str(treino) + '\tTest ' + str(teste) + '\tAcc ' + str(acc) + '\n')
-
-        file.close()
