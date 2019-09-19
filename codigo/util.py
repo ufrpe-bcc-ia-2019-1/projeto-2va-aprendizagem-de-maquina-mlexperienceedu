@@ -1,6 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import random
+import re
+import numpy as np
+from numpy.random.mtrand import shuffle
+from pandas import Series
 
 
 def get_noise():
@@ -32,13 +36,97 @@ def get_noise():
     noise = []
 
     for livro in livros:
-        livro += ' [0-9]*.[0-9]*'
+        livro += ' [0-9]*.*[0-9]*[-]*[0-9]*[;]'
         livro = livro.replace('1 e 2', '[0-9]')
         livro = livro.replace('1 a 3', '[0-9]')
         noise.append(livro)
     noise.append('<.*?>|<.*?>.*?<.*?>')
+    noise.append(r'[(]\s[0-9]*\s[-]\s[0-9]*\s[)]')
+    noise.append('Veja verso [0-9]*')
+    noise.append(r'Series[(] \[ \], [)]')
 
     return noise
+
+
+def evaluate(bibles):
+    for k, b in zip(bibles.keys(), bibles.values()):
+
+        file = open('collapsed.txt', 'w', encoding='utf-8')
+        scrip = b['Scripture']
+        file.write(k + '\n')
+        for verse in scrip:
+
+            try:
+                search = re.search(r'(?<=(<sup>))[(][0-9]*[-][0-9]*[)]', verse)
+                first = re.search(r'(?<=([(]))[0-9]*', search.group(0)).group(0)
+                last = re.search(r'(?<=([-]))[0-9]*', search.group(0)).group(0)
+                verses = np.arange(int(first), int(last) + 1)
+
+                if search is not None:
+                    ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
+                    reference = b.loc[ind, :]
+                    print(reference)
+                    file.write(reference.to_string() + '\n')
+
+                    collapse_verses(bibles, reference, verses)
+
+            except AttributeError:
+
+                try:
+                    search = re.search(r'((?<=[(]\s))[0-9]*', verse)
+
+                    if search is not None:
+                        print(verse)
+                        first = search.group(0)
+                        last = re.search(r'(?<=([-]\s))[0-9]*', verse)
+                        if last is not None:
+                            last = last.group(0)
+                            verses = np.arange(int(first), int(last) + 1)
+                            ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
+                            reference = b.loc[ind, :]
+                            print(reference)
+                            file.write(reference.to_string())
+                            collapse_verses(bibles, reference, verses)
+                except Exception:
+                    file.write(Exception.__traceback__.__str__())
+        file.close()
+
+
+def collapse_verses(bibles, ref, verses_seq):
+    path = '../datasets/Bíblia Completa/'
+    file = open('collapsed.txt', 'w', encoding='utf-8')
+
+    for key, bible in zip(bibles.keys(), bibles.values()):
+        script_seq = []
+        for v_seq in verses_seq:
+            verse_1 = bible.loc[
+                (bible['Book'] == ref['Book']) &
+                (bible['Chapter'] == ref['Chapter']) &
+                (bible['Verse'] == v_seq)
+                ]['Scripture'].to_string(index=False)
+
+            verse_1 = ' '.join(verse_1.split())
+            script_seq.append(verse_1)
+
+        new_verse = ' '.join(script_seq)
+        file.write('\n' + key + '\n' + new_verse + '\n')
+
+        d_start = 1
+        try:
+            bible.replace(to_replace=script_seq[0], value=new_verse, regex=True, inplace=True)
+        except re.error:
+            print(script_seq[0])
+            d_start = 0
+
+        for v_seq in verses_seq[d_start:]:
+            i = bible.loc[
+                (bible['Book'] == ref['Book']) &
+                (bible['Chapter'] == ref['Chapter']) &
+                (bible['Verse'] == v_seq)
+                ]['Scripture'].index.values.astype(int)
+            bible.drop(index=i, inplace=True)
+
+        bible.to_csv(path + key, index=False)
 
 
 class PrepData:
@@ -68,6 +156,9 @@ class PrepData:
 
     def get_sufix(self, file_sufix):
         return self.sufix
+
+    def set_datasets(self, datasets):
+        self.datasets = datasets
 
     def read_all(self, regex=[]):
 
@@ -102,14 +193,16 @@ class PrepData:
 
         return self.datasets
 
-    def save_pairs(self, file_names=[], texts=[]):
+    def save_pairs(self, data_pairs):
 
-        for file_name, text in zip(file_names, texts):
-            path = self.prefix + file_name + self.sufix
+        for file_name, text in zip(data_pairs.keys(), data_pairs.values()):
+
+            path = self.prefix + str(file_name) + self.sufix
 
             file = open(path, 'w', encoding='utf-8')
 
             for line in text:
+
                 file.write(line)
 
             file.close()
@@ -125,14 +218,17 @@ class PrepData:
     def to_pair_format(self, pairs):
 
         pair_text = []
-        data_pairs = []
+        data_pairs = {}.fromkeys(pairs)
+
         for p in pairs:
-            for r_1, r_2 in zip(self.datasets[p[0]]['Scripture'], self.datasets[p[1]]['Scripture']):
-                r_1 = ' '.join(str(r_1).split())
-                r_2 = ' '.join(str(r_2).split())
-                pair_text.append(r_1 + '\t' + r_2 + '\n')
-                random.shuffle(pair_text)
-            data_pairs.append(pair_text)
+            print(str(p[0]))
+            self.datasets['Português - Bíblia Completa.csv']['Scripture'].align(self.datasets['Guarani Mbyá - Bíblia Completa.csv']['Scripture'])
+
+            for r_1, r_2 in zip(Series(self.datasets['Português - Bíblia Completa.csv']['Scripture']), Series(self.datasets['Guarani Mbyá - Bíblia Completa.csv']['Scripture'])):
+
+                pair_text.append(' '.join(r_1.split()) + '\t' + ' '.join(r_2.split()) + '\n')
+            shuffle(pair_text)
+            data_pairs[p] = pair_text
 
         return data_pairs
 
