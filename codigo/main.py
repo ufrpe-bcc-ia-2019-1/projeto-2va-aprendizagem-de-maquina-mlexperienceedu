@@ -3,6 +3,7 @@ from base64 import encode
 
 from pandas import Index
 from util import PrepData
+from util import get_noise
 from util import align_verses
 from itertools import permutations
 import matplotlib.pyplot as plt
@@ -13,10 +14,14 @@ import os
 
 # --- Tirando referências -----
 
-path = '../datasets/Novo Testamento/'
+
+path = '../datasets/Bíblia Completa/'
 
 prep = PrepData(path)
-bibles = prep.get_datasets()
-align_verses(bibles, path)
+align_verses(prep.get_datasets(), path)
+prep.clean_data(get_noise(), True)
 
-prep.clear_data(prep.get_noise(), True)
+path = '../datasets/Novo Testamento/'
+prep = PrepData(path)
+align_verses(prep.get_datasets(), path)
+prep.clean_data(get_noise(), True)

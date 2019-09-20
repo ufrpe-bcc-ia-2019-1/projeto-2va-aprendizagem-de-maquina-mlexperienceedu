@@ -46,18 +46,17 @@ def get_noise():
     noise.append('<.*?>|<.*?>.*?<.*?>')
     noise.append(r'[(]\s[0-9]*\s[-]\s[0-9]*\s[)]')
     noise.append('Veja verso [0-9]*')
-    noise.append(r'Series[(] \[ \], [)]')
-    noise.append(r'[\]')
-    noise.append(r'[0-9]*[-][0-9]*[;]*')
+    noise.append(r'Series[(]\s\[\s\],\s[)]')
+    noise.append(r'\\\\')
+    noise.append(r'\(*\)')
+    noise.append(r'\[*\]')
+    noise.append(r'\{*\}')
     return noise
 
 
 def collapse_verses(bibles, ref, verses_seq, path):
-
     for key, bible in zip(bibles.keys(), bibles.values()):
-
-
-
+        file = open('report/' + key, 'a', encoding='utf-8')
         script_seq = []
         for v_seq in verses_seq:
             verse_1 = bible.loc[
@@ -74,23 +73,19 @@ def collapse_verses(bibles, ref, verses_seq, path):
 
         d_start = 1
 
+        new_verse = re.sub(r'<sup>[(][0-9]*[-][0-9]*[)]<[/]sup>', '', new_verse)
+        regexs = [r'[)]', r'[(]', r'[\[]', r'[\]]', r'[\{]', r'[\}]']
+        to_str = [r'\)', r'\(', r'\]', r'\]', r'\{', r'\}']
+
+        for res, to_str in zip(regexs, to_str):
+            script_seq[0] = re.sub(res, to_str, script_seq[0])
+        print(script_seq[0])
         try:
-            regexs = [r'[)]', r'[(]', r'[\[]', r'[\]]', r'[\{ ]', r'[\}]']
-            to_str = [r'\)', r'\(', r'\]', r'\]', r'\{', r'\}']
-
-            for res, to_str in zip(regexs, to_str):
-                new_verse = re.sub(res, to_str, new_verse)
-                script_seq[0] = re.sub(res, to_str, script_seq[0])
-
             bible.replace(to_replace=script_seq[0], value=new_verse, regex=True, inplace=True)
-
         except re.error:
-            print('Error: ')
-            print(script_seq[0])
             breakpoint()
-            d_start = 0
 
-        for v_seq in verses_seq[d_start:]:
+        for v_seq in verses_seq[1:]:
             i = bible.loc[
                 (bible['Book'] == ref['Book']) &
                 (bible['Chapter'] == ref['Chapter']) &
@@ -106,7 +101,7 @@ def align_verses(bibles, path):
 
     for k, b in zip(bibles.keys(), bibles.values()):
 
-        file = open('report/collapsing: ' + k + '.txt', 'w', encoding='utf-8')
+        file = open('report/collapsing ' + k, 'a', encoding='utf-8')
         scrip = b['Scripture']
         file.write(k + '\n')
         print(k)
@@ -117,29 +112,27 @@ def align_verses(bibles, path):
 
                 if search is not None:
 
-                    first = re.search(r'(?<=([(]))[0-9]*', search.group(0)).group(0)
-                    last = re.search(r'(?<=([-]))[0-9]*', search.group(0)).group(0)
+                    first = re.search(r'(?<=([(]))[0-9][0-9]*', search.group(0)).group(0)
+                    last = re.search(r'(?<=([-]))[0-9][0-9]*', search.group(0)).group(0)
                     verses = np.arange(int(first), int(last) + 1)
 
                     ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
                     reference = b.loc[ind, :]
-                    print(reference)
                     file.write(reference.to_string() + '\n')
 
                     collapse_verses(bibles, reference, verses, path)
                 else:
-                    search = re.search(r'((?<=[(]\s))[0-9]*', verse)
+                    search = re.search(r'((?<=[(]\s))[0-9][0-9]*', verse)
 
                     if search is not None:
                         print(verse)
                         first = search.group(0)
-                        last = re.search(r'(?<=([-]\s))[0-9]*', verse)
+                        last = re.search(r'(?<=([-]\s))[0-9][0-9]*', verse)
                         if last is not None:
                             last = last.group(0)
                             verses = np.arange(int(first), int(last) + 1)
                             ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
                             reference = b.loc[ind, :]
-                            print(reference)
                             file.write(reference.to_string())
                             collapse_verses(bibles, reference, verses, path)
             except IndexError:
@@ -191,7 +184,7 @@ class PrepData:
             path = self.root_dir + name
 
             try:
-                self.datasets[name] = pd.read_csv(path, encoding='utf-8')
+                self.datasets[name] = pd.read_csv(path, encoding='utf-8').drop_duplicates(subset='Scripture')
 
             except FileNotFoundError:
                 return "The path " + path + " was not found."
@@ -217,7 +210,7 @@ class PrepData:
             self.datasets[name] = dataset
 
             if auto_save is True:
-                dataset.to_csv(path)
+                dataset.to_csv(path, index=False)
 
         return self.datasets
 
@@ -240,5 +233,3 @@ class PrepData:
             data_pairs[key] = pair_text
 
         return data_pairs
-
-
