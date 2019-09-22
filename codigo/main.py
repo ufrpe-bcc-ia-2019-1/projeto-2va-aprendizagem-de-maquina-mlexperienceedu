@@ -14,14 +14,14 @@ import os
 
 # --- Tirando referências -----
 
-
-path = '../datasets/Bíblia Completa/'
-
+path = '../datasets/Full Bible/'
 prep = PrepData(path)
 align_verses(prep.get_datasets(), path)
 prep.clean_data(get_noise(), True)
 
-path = '../datasets/Novo Testamento/'
+path = '../datasets/New Testament/'
 prep = PrepData(path)
 align_verses(prep.get_datasets(), path)
 prep.clean_data(get_noise(), True)
+
+print('\nFinished !')

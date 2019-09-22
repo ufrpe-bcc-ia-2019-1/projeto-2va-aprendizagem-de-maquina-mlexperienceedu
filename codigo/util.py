@@ -43,103 +43,144 @@ def get_noise():
         livro = livro.replace('1 e 2', '[0-9]')
         livro = livro.replace('1 a 3', '[0-9]')
         noise.append(livro)
-    noise.append('<.*?>|<.*?>.*?<.*?>')
+
+    noise.append(r'<sup>[(][0-9]*[-][0-9]*[)]<[/]sup>')
+    noise.append(r'<.*?>\w+\s[0-9]*[.][0-9]*[-][0-9]*<.*?>')
+    noise.append(r'<.*?>[0-9]*[.][0-9]*[-][0-9]*<.*?>[,;]*')
+    noise.append(r'<.*?>[0-9][0-9]*[-][0-9][0-9]*<.*?>')
+    noise.append(r'\w+\s[0-9][0-9]*[.][0-9][0-9]*')
+    noise.append(r'<.*?>\w*[0-9]*[.]*[0-9]*[-]*[0-9]*[,;]*<.*?>')
+    noise.append(r'<.*?>[,;]*')
+    noise.append(r'[;]\s[)]')
+    noise.append(r'[()]')
+    noise.append(r'Series[(,\s)],\s[()]')
     noise.append(r'[(]\s[0-9]*\s[-]\s[0-9]*\s[)]')
     noise.append('Veja verso [0-9]*')
-    noise.append(r'Series[(]\s\[\s\],\s[)]')
+    noise.append(r'Series\(\[\], \)')
     noise.append(r'\\\\')
-    noise.append(r'\(*\)')
     noise.append(r'\[*\]')
     noise.append(r'\{*\}')
+
     return noise
 
 
 def collapse_verses(bibles, ref, verses_seq, path):
     for key, bible in zip(bibles.keys(), bibles.values()):
-        file = open('report/' + key, 'a', encoding='utf-8')
+        file = open('report/logs.txt', 'a', encoding='utf-8')
         script_seq = []
         for v_seq in verses_seq:
+            check = bible.loc[
+                (bible['Book'] == ref['Book']) &
+                (bible['Chapter'] == ref['Chapter']) &
+                (bible['Verse'] == v_seq)
+                ]['Scripture'].empty
+
             verse_1 = bible.loc[
                 (bible['Book'] == ref['Book']) &
                 (bible['Chapter'] == ref['Chapter']) &
                 (bible['Verse'] == v_seq)
                 ]['Scripture'].to_string(index=False)
 
-            verse_1 = ' '.join(verse_1.split())
-            script_seq.append(verse_1)
+            if check is not True:
+                verse_1 = ' '.join(verse_1.split())
+                script_seq.append(verse_1)
 
-        new_verse = ' '.join(script_seq)
-        file.write('\n' + key + '\n' + new_verse + '\n')
+        if len(script_seq) > 0:
 
-        d_start = 1
+            new_verse = ' '.join(script_seq)
 
-        new_verse = re.sub(r'<sup>[(][0-9]*[-][0-9]*[)]<[/]sup>', '', new_verse)
-        regexs = [r'[)]', r'[(]', r'[\[]', r'[\]]', r'[\{]', r'[\}]']
-        to_str = [r'\)', r'\(', r'\]', r'\]', r'\{', r'\}']
 
-        for res, to_str in zip(regexs, to_str):
-            script_seq[0] = re.sub(res, to_str, script_seq[0])
-        print(script_seq[0])
-        try:
-            bible.replace(to_replace=script_seq[0], value=new_verse, regex=True, inplace=True)
-        except re.error:
-            breakpoint()
+            d_start = 1
 
-        for v_seq in verses_seq[1:]:
-            i = bible.loc[
-                (bible['Book'] == ref['Book']) &
-                (bible['Chapter'] == ref['Chapter']) &
-                (bible['Verse'] == v_seq)
-                ]['Scripture'].index.values.astype(int)
-            bible.drop(index=i, inplace=True)
+            new_verse = re.sub(r'<sup>[(][0-9]*[-][0-9]*[)]<[/]sup>', '', new_verse)
+            regexs = [r'[)]', r'[(]', r'[\[]', r'[\]]', r'[\{]', r'[\}]']
+            to_str = [r'\)', r'\(', r'\]', r'\]', r'\{', r'\}']
 
-        bible.to_csv(path + key, index=False)
+            for res, to_str in zip(regexs, to_str):
+                script_seq[0] = re.sub(res, to_str, script_seq[0])
+
+            try:
+                bible.replace(to_replace=script_seq[0], value=new_verse, regex=True, inplace=True)
+            except re.error:
+                file.write(script_seq[0])
+                print(script_seq[0])
+                breakpoint()
+
+            for v_seq in verses_seq[1:]:
+                try:
+                    i = bible.loc[
+                        (bible['Book'] == ref['Book']) &
+                        (bible['Chapter'] == ref['Chapter']) &
+                        (bible['Verse'] == v_seq)
+                        ]['Scripture'].index.values.astype(int)
+                    bible.drop(index=i, inplace=True)
+                except IndexError:
+                    file.write(str(IndexError))
+                    file.write(ref)
+                    print(ref)
+                    pass
+
+            bible.to_csv(path + key, index=False)
 
 
 def align_verses(bibles, path):
+    global reference
+
     pd.set_option('display.max_colwidth', -1)
 
     for k, b in zip(bibles.keys(), bibles.values()):
 
-        file = open('report/collapsing ' + k, 'a', encoding='utf-8')
-        scrip = b['Scripture']
-        file.write(k + '\n')
-        print(k)
-        for verse in scrip:
+        print('\nCollapsing verses : ', k, '...')
+        print('\nProgress: #', end='')
+        for verse, ind in zip(b['Scripture'], b['Scripture'].index.values.astype(int)):
 
             try:
-                search = re.search(r'(?<=(<sup>))[(][0-9]*[-][0-9]*[)]', verse)
+                search = re.search(r'(?<=<sup>)[(][0-9]*[-][0-9]*[)]', verse)
+                first = re.search(r'(?<=([(]))[0-9][0-9]*', search.group(0)).group(0)
+                last = re.search(r'(?<=([-]))[0-9][0-9]*', search.group(0)).group(0)
+                verses = np.arange(int(first), int(last) + 1)
 
-                if search is not None:
+                reference = b.loc[ind, :]
+                print('#', end='')
 
-                    first = re.search(r'(?<=([(]))[0-9][0-9]*', search.group(0)).group(0)
-                    last = re.search(r'(?<=([-]))[0-9][0-9]*', search.group(0)).group(0)
+                collapse_verses(bibles, reference, verses, path)
+            except AttributeError:
+
+                try:
+
+                    range = re.search(r'(?<=[(]\s)[0-9][0-9]*[-][0-9][0-9]*', verse).group(0)
+
+                    first = re.search(r'[0-9][0-9]*', range).group(0)
+                    last = re.search(r'(?<=-)[0-9][0-9]*', range).group(0)
+
                     verses = np.arange(int(first), int(last) + 1)
+                    print('#', end='')
 
-                    ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
                     reference = b.loc[ind, :]
-                    file.write(reference.to_string() + '\n')
 
                     collapse_verses(bibles, reference, verses, path)
-                else:
-                    search = re.search(r'((?<=[(]\s))[0-9][0-9]*', verse)
+                except AttributeError:
+                    pass
 
-                    if search is not None:
-                        print(verse)
-                        first = search.group(0)
-                        last = re.search(r'(?<=([-]\s))[0-9][0-9]*', verse)
-                        if last is not None:
-                            last = last.group(0)
-                            verses = np.arange(int(first), int(last) + 1)
-                            ind = b.loc[b['Scripture'] == verse].index.values.astype(int)[0]
-                            reference = b.loc[ind, :]
-                            file.write(reference.to_string())
-                            collapse_verses(bibles, reference, verses, path)
+                except IndexError:
+                    print(IndexError)
+                    file = open('report/logs.txt', 'a', encoding='utf-8')
+                    file.write(k + '\n')
+                    file.write(reference)
+                    file.write('Pattern: ' + r'((?<=[(]\s))[0-9][0-9]*[-][0-9][0-9]*(?<=(\s[)]))')
+                    file.close()
+                    pass
+
             except IndexError:
                 print(IndexError)
-                file.write(Exception.__traceback__.__str__())
+                file = open('report/.logs ', 'a', encoding='utf-8')
+                file.write(k + '\n')
+                file.write(reference)
+                file.write('Pattern: ' + r'(?<=(<sup>[(]))[0-9][0-9]*')
+                file.close()
+                pass
 
-        file.close()
+        print('\nFinished Successfully!')
 
 
 def save_pairs(data_pairs, dir_path):
@@ -195,8 +236,10 @@ class PrepData:
 
         if regex is None:
             regex = []
-        for name in self.datasets_list:
 
+        for name in self.datasets_list:
+            print('\nCleaning: ', name)
+            print('Progress: #', end='')
             path = self.root_dir + name
 
             try:
@@ -205,6 +248,7 @@ class PrepData:
                 return "The path " + path + " was not found."
 
             for exp in regex:
+                print('#', end='')
                 dataset = dataset.replace(to_replace=exp, value='', regex=True)
 
             self.datasets[name] = dataset
