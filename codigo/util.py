@@ -44,10 +44,10 @@ def get_noise():
         livro = livro.replace('1 a 3', '[0-9]')
         noise.append(livro)
 
+    noise.append(r'[-][0-9][0-9]*')
     noise.append(r'<sup>[(][0-9]*[-][0-9]*[)]<[/]sup>')
-    noise.append(r'<.*?>\w+\s[0-9]*[.][0-9]*[-][0-9]*<.*?>')
-    noise.append(r'<.*?>[0-9]*[.][0-9]*[-][0-9]*<.*?>[,;]*')
-    noise.append(r'<.*?>[0-9][0-9]*[-][0-9][0-9]*<.*?>')
+    noise.append(r'<.*?>\w+\s[0-9]*[.][0-9]*[-]*[0-9]*<.*?>[,;]*')
+    noise.append(r'<.*?>[0-9]*[.][0-9]*[-]*[0-9]*<.*?>[,;]*')
     noise.append(r'\w+\s[0-9][0-9]*[.][0-9][0-9]*')
     noise.append(r'<.*?>\w*[0-9]*[.]*[0-9]*[-]*[0-9]*[,;]*<.*?>')
     noise.append(r'<.*?>[,;]*')
@@ -61,12 +61,13 @@ def get_noise():
     noise.append(r'\[*\]')
     noise.append(r'\{*\}')
 
+
     return noise
 
 
 def collapse_verses(bibles, ref, verses_seq, path):
     for key, bible in zip(bibles.keys(), bibles.values()):
-        file = open('report/logs.txt', 'a', encoding='utf-8')
+
         script_seq = []
         for v_seq in verses_seq:
             check = bible.loc[
@@ -89,7 +90,6 @@ def collapse_verses(bibles, ref, verses_seq, path):
 
             new_verse = ' '.join(script_seq)
 
-
             d_start = 1
 
             new_verse = re.sub(r'<sup>[(][0-9]*[-][0-9]*[)]<[/]sup>', '', new_verse)
@@ -102,6 +102,7 @@ def collapse_verses(bibles, ref, verses_seq, path):
             try:
                 bible.replace(to_replace=script_seq[0], value=new_verse, regex=True, inplace=True)
             except re.error:
+                file = open('report/logs.txt', 'a', encoding='utf-8')
                 file.write(script_seq[0])
                 print(script_seq[0])
                 breakpoint()
@@ -162,23 +163,21 @@ def align_verses(bibles, path):
                 except AttributeError:
                     pass
 
-                except IndexError:
-                    print(IndexError)
-                    file = open('report/logs.txt', 'a', encoding='utf-8')
-                    file.write(k + '\n')
-                    file.write(reference)
-                    file.write('Pattern: ' + r'((?<=[(]\s))[0-9][0-9]*[-][0-9][0-9]*(?<=(\s[)]))')
-                    file.close()
-                    pass
-
             except IndexError:
                 print(IndexError)
-                file = open('report/.logs ', 'a', encoding='utf-8')
+                file = open('report/logs.txt', 'a', encoding='utf-8')
                 file.write(k + '\n')
-                file.write(reference)
+                file.write(str(b[b['Scripture'] == verse]))
                 file.write('Pattern: ' + r'(?<=(<sup>[(]))[0-9][0-9]*')
                 file.close()
                 pass
+            except TypeError:
+                print(TypeError)
+                file = open('report/logs.txt ', 'a', encoding='utf-8')
+                file.write(k + '\n')
+                file.write(str(b[b['Scripture'] == verse]))
+                file.write('Pattern: ' + r'(?<=(<sup>[(]))[0-9][0-9]*')
+                file.close()
 
         print('\nFinished Successfully!')
 
