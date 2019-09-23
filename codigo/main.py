@@ -15,12 +15,13 @@ import os
 # --- Tirando referências -----
 path = '../datasets/Full Bible/'
 prep = PrepData(path)
-#align_verses(prep.get_datasets(), path)
+align_verses(prep.get_datasets(), path)
 prep.clean_data(get_noise(), True)
-
 
 path = '../datasets/New Testament/'
 prep = PrepData(path)
-#align_verses(prep.get_datasets(), path)
+align_verses(prep.get_datasets(), path)
 prep.clean_data(get_noise(), True)
 print('\nFinished !')
+
+

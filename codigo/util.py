@@ -27,8 +27,7 @@ def get_noise():
 
     cartas = ['Atos', 'Romanos', '1 e 2 Coríntios', 'Gálatas', 'Efésios', 'Filipenses', 'Colossenses',
               '1 e 2 Tessalonicenses', '1 e 2 Timóteo', 'Tito', 'Filemon', 'Hebreus', 'Tiago', '1 e 2 Pedro',
-              '1 a 3 João',
-              'Judas', 'Apocalipse']
+              '1 a 3 João', 'Judas', 'Apocalipse']
 
     livros.extend(penta)
     livros.extend(history)
@@ -44,7 +43,9 @@ def get_noise():
         livro = livro.replace('1 a 3', '[0-9]')
         noise.append(livro)
 
+    noise.append(r'[0-9][0-9]*\s[-]\s[0-9][0-9]*')
     noise.append(r'[-][0-9][0-9]*')
+    noise.append(r'[0-9][0-9]*[-][0-9][0-9]*')
     noise.append(r'<sup>[(][0-9]*[-][0-9]*[)]<[/]sup>')
     noise.append(r'<.*?>\w+\s[0-9]*[.][0-9]*[-]*[0-9]*<.*?>[,;]*')
     noise.append(r'<.*?>[0-9]*[.][0-9]*[-]*[0-9]*<.*?>[,;]*')
@@ -60,7 +61,6 @@ def get_noise():
     noise.append(r'\\\\')
     noise.append(r'\[*\]')
     noise.append(r'\{*\}')
-
 
     return noise
 
@@ -116,6 +116,7 @@ def collapse_verses(bibles, ref, verses_seq, path):
                         ]['Scripture'].index.values.astype(int)
                     bible.drop(index=i, inplace=True)
                 except IndexError:
+                    file = open('report/logs.txt', 'a', encoding='utf-8')
                     file.write(str(IndexError))
                     file.write(ref)
                     print(ref)
@@ -149,10 +150,8 @@ def align_verses(bibles, path):
 
                 try:
 
-                    range = re.search(r'(?<=[(]\s)[0-9][0-9]*[-][0-9][0-9]*', verse).group(0)
-
-                    first = re.search(r'[0-9][0-9]*', range).group(0)
-                    last = re.search(r'(?<=-)[0-9][0-9]*', range).group(0)
+                    first = re.search(r'(?<=([(]\s))[0-9][0-9]*', verse).group(0)
+                    last = re.search(r'(?<=-\s)[0-9][0-9]*', verse).group(0)
 
                     verses = np.arange(int(first), int(last) + 1)
                     print('#', end='')
