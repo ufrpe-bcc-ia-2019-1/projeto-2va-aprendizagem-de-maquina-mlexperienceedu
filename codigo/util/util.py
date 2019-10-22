@@ -11,7 +11,9 @@ from pandas import Series
 import os
 
 
-def get_noise(new=[]):
+def get_noise(new=None):
+    if new is None:
+        new = []
     livros = []
     penta = ['Gênesis', 'Êxodo', 'Levítico', 'Números', 'Deuteronômio']
 
