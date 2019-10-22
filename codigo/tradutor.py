@@ -4,20 +4,15 @@
 '''
 
 # %%
-#!/usr/bin/env python
+# !/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 
 # %%
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-try:
-  # %tensorflow_version only exists in Colab.
-  %tensorflow_version 2.0.0-rc1
-except Exception:
-    pass
-
 import tensorflow as tf
-tf.enable_eager_execution()
+
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from sklearn.model_selection import train_test_split
@@ -25,19 +20,22 @@ from sklearn.model_selection import train_test_split
 import unicodedata
 import re
 import numpy as np
-import os
 import io
 import time
+import os
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # %%
 
 path_to_file = "gu-pt.txt"
 
+
 # %%
 # Converts the unicode file to ascii
 def unicode_to_ascii(s):
     return ''.join(c for c in unicodedata.normalize('NFD', s)
-        if unicodedata.category(c) != 'Mn')
+                   if unicodedata.category(c) != 'Mn')
 
 
 def preprocess_sentence(w):
@@ -59,6 +57,7 @@ def preprocess_sentence(w):
     w = '<start> ' + w + ' <end>'
     return w
 
+
 # %%
 # 1. Remove the accents
 # 2. Clean the sentences
@@ -66,31 +65,34 @@ def preprocess_sentence(w):
 def create_dataset(path, num_examples):
     lines = io.open(path, encoding='UTF-8').read().strip().split('\n')
 
-    word_pairs = [[preprocess_sentence(w) for w in l.split('\t')]  for l in lines[:num_examples]]
+    word_pairs = [[preprocess_sentence(w) for w in l.split('\t')] for l in lines[:num_examples]]
 
     return zip(*word_pairs)
+
 
 # %%
 en, sp = create_dataset(path_to_file, None)
 print(en[-1])
 print(sp[-1])
 
+
 # %%
 def max_length(tensor):
     return max(len(t) for t in tensor)
 
+
 # %%
 def tokenize(lang):
-    
     lang_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='')
     lang_tokenizer.fit_on_texts(lang)
 
     tensor = lang_tokenizer.texts_to_sequences(lang)
 
     tensor = tf.keras.preprocessing.sequence.pad_sequences(tensor,
-                                                         padding='post')
+                                                           padding='post')
 
     return tensor, lang_tokenizer
+
 
 # %%
 def load_dataset(path, num_examples=None):
@@ -102,6 +104,7 @@ def load_dataset(path, num_examples=None):
 
     return input_tensor, target_tensor, inp_lang_tokenizer, targ_lang_tokenizer
 
+
 # %%
 # Try experimenting with the size of that dataset
 num_examples = 5000
@@ -112,22 +115,26 @@ max_length_targ, max_length_inp = max_length(target_tensor), max_length(input_te
 
 # %%
 # Creating training and validation sets using an 80-20 split
-input_tensor_train, input_tensor_val, target_tensor_train, target_tensor_val = train_test_split(input_tensor, target_tensor, test_size=0.2)
+input_tensor_train, input_tensor_val, target_tensor_train, target_tensor_val = train_test_split(input_tensor,
+                                                                                                target_tensor,
+                                                                                                test_size=0.2)
 
 # Show length
 print(len(input_tensor_train), len(target_tensor_train), len(input_tensor_val), len(target_tensor_val))
 
+
 # %%
 def convert(lang, tensor):
     for t in tensor:
-        if t!=0:
-            print ("%d ----> %s" % (t, lang.index_word[t]))
+        if t != 0:
+            print("%d ----> %s" % (t, lang.index_word[t]))
+
 
 # %%
-print ("Input Language; index to word mapping")
+print("Input Language; index to word mapping")
 convert(inp_lang, input_tensor_train[0])
-print ()
-print ("Target Language; index to word mapping")
+print()
+print("Target Language; index to word mapping")
 convert(targ_lang, target_tensor_train[0])
 
 # %%
@@ -138,11 +145,11 @@ convert(targ_lang, target_tensor_train[0])
 # %%
 BUFFER_SIZE = len(input_tensor_train)
 BATCH_SIZE = 64
-steps_per_epoch = len(input_tensor_train)//BATCH_SIZE
+steps_per_epoch = len(input_tensor_train) // BATCH_SIZE
 embedding_dim = 256
 units = 1024
-vocab_inp_size = len(inp_lang.word_index)+1
-vocab_tar_size = len(targ_lang.word_index)+1
+vocab_inp_size = len(inp_lang.word_index) + 1
+vocab_tar_size = len(targ_lang.word_index) + 1
 
 dataset = tf.data.Dataset.from_tensor_slices((input_tensor_train, target_tensor_train)).shuffle(BUFFER_SIZE)
 dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
@@ -150,6 +157,7 @@ dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 # %%
 example_input_batch, example_target_batch = next(iter(dataset))
 example_input_batch.shape, example_target_batch.shape
+
 
 # %%
 class Encoder(tf.keras.Model):
@@ -159,17 +167,18 @@ class Encoder(tf.keras.Model):
         self.enc_units = enc_units
         self.embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim)
         self.gru = tf.keras.layers.GRU(self.enc_units,
-                                   return_sequences=True,
-                                   return_state=True,
-                                   recurrent_initializer='glorot_uniform')
+                                       return_sequences=True,
+                                       return_state=True,
+                                       recurrent_initializer='glorot_uniform')
 
     def call(self, x, hidden):
         x = self.embedding(x)
-        output, state = self.gru(x, initial_state = hidden)
+        output, state = self.gru(x, initial_state=hidden)
         return output, state
 
     def initialize_hidden_state(self):
         return tf.zeros((self.batch_sz, self.enc_units))
+
 
 # %%
 encoder = Encoder(vocab_inp_size, embedding_dim, units, BATCH_SIZE)
@@ -177,8 +186,9 @@ encoder = Encoder(vocab_inp_size, embedding_dim, units, BATCH_SIZE)
 # sample input
 sample_hidden = encoder.initialize_hidden_state()
 sample_output, sample_hidden = encoder(example_input_batch, sample_hidden)
-print ('Encoder output shape: (batch size, sequence length, units) {}'.format(sample_output.shape))
-print ('Encoder Hidden state shape: (batch size, units) {}'.format(sample_hidden.shape))
+print('Encoder output shape: (batch size, sequence length, units) {}'.format(sample_output.shape))
+print('Encoder Hidden state shape: (batch size, units) {}'.format(sample_hidden.shape))
+
 
 # %%
 class BahdanauAttention(tf.keras.Model):
@@ -209,12 +219,14 @@ class BahdanauAttention(tf.keras.Model):
 
         return context_vector, attention_weights
 
+
 # %%
 attention_layer = BahdanauAttention(10)
 attention_result, attention_weights = attention_layer(sample_hidden, sample_output)
 
 print("Attention result shape: (batch size, units) {}".format(attention_result.shape))
 print("Attention weights shape: (batch_size, sequence_length, 1) {}".format(attention_weights.shape))
+
 
 # %%
 class Decoder(tf.keras.Model):
@@ -224,9 +236,9 @@ class Decoder(tf.keras.Model):
         self.dec_units = dec_units
         self.embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim)
         self.gru = tf.keras.layers.GRU(self.dec_units,
-                                   return_sequences=True,
-                                   return_state=True,
-                                   recurrent_initializer='glorot_uniform')
+                                       return_sequences=True,
+                                       return_state=True,
+                                       recurrent_initializer='glorot_uniform')
         self.fc = tf.keras.layers.Dense(vocab_size)
 
         # used for attention
@@ -253,13 +265,14 @@ class Decoder(tf.keras.Model):
 
         return x, state, attention_weights
 
+
 # %%
 decoder = Decoder(vocab_tar_size, embedding_dim, units, BATCH_SIZE)
 
 sample_decoder_output, _, _ = decoder(tf.random.uniform((64, 1)),
                                       sample_hidden, sample_output)
 
-print ('Decoder output shape: (batch_size, vocab size) {}'.format(sample_decoder_output.shape))
+print('Decoder output shape: (batch_size, vocab size) {}'.format(sample_decoder_output.shape))
 
 # %%
 '''
@@ -271,6 +284,7 @@ optimizer = tf.keras.optimizers.Adam()
 loss_object = tf.keras.losses.SparseCategoricalCrossentropy(
     from_logits=True, reduction='none')
 
+
 def loss_function(real, pred):
     mask = tf.math.logical_not(tf.math.equal(real, 0))
     loss_ = loss_object(real, pred)
@@ -279,6 +293,7 @@ def loss_function(real, pred):
     loss_ *= mask
 
     return tf.reduce_mean(loss_)
+
 
 # %%
 '''
@@ -292,6 +307,7 @@ checkpoint = tf.train.Checkpoint(optimizer=optimizer,
                                  encoder=encoder,
                                  decoder=decoder)
 
+
 # %%
 @tf.function
 def train_step(inp, targ, enc_hidden):
@@ -304,15 +320,15 @@ def train_step(inp, targ, enc_hidden):
 
         dec_input = tf.expand_dims([targ_lang.word_index['<start>']] * BATCH_SIZE, 1)
 
-    # Teacher forcing - feeding the target as the next input
-    for t in range(1, targ.shape[1]):
-        # passing enc_output to the decoder
-        predictions, dec_hidden, _ = decoder(dec_input, dec_hidden, enc_output)
+        # Teacher forcing - feeding the target as the next input
+        for t in range(1, targ.shape[1]):
+            # passing enc_output to the decoder
+            predictions, dec_hidden, _ = decoder(dec_input, dec_hidden, enc_output)
 
-        loss += loss_function(targ[:, t], predictions)
+            loss += loss_function(targ[:, t], predictions)
 
-        # using teacher forcing
-        dec_input = tf.expand_dims(targ[:, t], 1)
+            # using teacher forcing
+            dec_input = tf.expand_dims(targ[:, t], 1)
 
     batch_loss = (loss / int(targ.shape[1]))
 
@@ -323,6 +339,7 @@ def train_step(inp, targ, enc_hidden):
     optimizer.apply_gradients(zip(gradients, variables))
 
     return batch_loss
+
 
 # %%
 EPOCHS = 4000
@@ -343,11 +360,12 @@ for epoch in range(EPOCHS):
                                                      batch_loss.numpy()))
     # saving (checkpoint) the model every 2 epochs
     if (epoch + 1) % 2 == 0:
-        checkpoint.save(file_prefix = checkpoint_prefix)
+        checkpoint.save(file_prefix=checkpoint_prefix)
 
     print('Epoch {} Loss {:.4f}'.format(epoch + 1,
-                                      total_loss / steps_per_epoch))
+                                        total_loss / steps_per_epoch))
     print('Time taken for 1 epoch {} sec\n'.format(time.time() - start))
+
 
 # %%
 def evaluate(sentence):
@@ -375,7 +393,7 @@ def evaluate(sentence):
                                                              enc_out)
 
         # storing the attention weights to plot later on
-        attention_weights = tf.reshape(attention_weights, (-1, ))
+        attention_weights = tf.reshape(attention_weights, (-1,))
         attention_plot[t] = attention_weights.numpy()
 
         predicted_id = tf.argmax(predictions[0]).numpy()
@@ -390,10 +408,11 @@ def evaluate(sentence):
 
     return result, sentence, attention_plot
 
+
 # %%
 # function for plotting the attention weights
 def plot_attention(attention, sentence, predicted_sentence):
-    fig = plt.figure(figsize=(10,10))
+    fig = plt.figure(figsize=(10, 10))
     ax = fig.add_subplot(1, 1, 1)
     ax.matshow(attention, cmap='viridis')
 
@@ -407,6 +426,7 @@ def plot_attention(attention, sentence, predicted_sentence):
 
     plt.show()
 
+
 # %%
 def translate(sentence):
     result, sentence, attention_plot = evaluate(sentence)
@@ -417,6 +437,7 @@ def translate(sentence):
     attention_plot = attention_plot[:len(result.split(' ')), :len(sentence.split(' '))]
     plot_attention(attention_plot, sentence.split(' '), result.split(' '))
 
+
 # %%
 '''
 ## Restore the latest checkpoint and test
@@ -426,18 +447,19 @@ def translate(sentence):
 # restoring the latest checkpoint in checkpoint_dir
 checkpoint.restore(tf.train.latest_checkpoint(checkpoint_dir))
 
+
 # %%
 def load_test_dataset(path, train_size, test_size):
-	lines = io.open(path, encoding='UTF-8').read().strip().split('\n')
+    lines = io.open(path, encoding='UTF-8').read().strip().split('\n')
 
-	sentences = []
-	original = []
-	for line in lines[train_size:train_size + test_size]:
-		test = line.split('\t')
-		original.append(test[0])
-		sentences.append(test[1])
+    sentences = []
+    original = []
+    for line in lines[train_size:train_size + test_size]:
+        test = line.split('\t')
+        original.append(test[0])
+        sentences.append(test[1])
 
-	return original, sentences
+    return original, sentences
 
 
 from nltk.translate.bleu_score import sentence_bleu
@@ -445,35 +467,33 @@ from nltk.translate.bleu_score import SmoothingFunction
 
 
 def bleu_accuracy(original, sentences):
-	translation = []
-	for sentence in sentences:
-		result, sentence, attention_plot = evaluate(sentence)
-		result = result.split()
-		result.pop()
-		translation.append(result)
+    translation = []
+    for sentence in sentences:
+        result, sentence, attention_plot = evaluate(sentence)
+        result = result.split()
+        result.pop()
+        translation.append(result)
 
-	references = []
+    references = []
 
-	for ref in original:
-		references.append(ref.split())
+    for ref in original:
+        references.append(ref.split())
 
-	scores = []
+    scores = []
 
-	smoth = SmoothingFunction().method0(4)
-	for hyp, ref in zip(translation, references):
-		score = sentence_bleu([ref], hyp, smoothing_function=smoth)
+    smoth = SmoothingFunction().method0(4)
+    for hyp, ref in zip(translation, references):
+        score = sentence_bleu([ref], hyp, smoothing_function=smoth)
 
-		scores.append(score)
+        scores.append(score)
 
-	return np.mean(scores), np.sqrt(np.var(scores))
+    return np.mean(scores), np.sqrt(np.var(scores))
 
 
 def saving_result(dataset, acc, desv):
-	file = open("test_result.txt", 'a')
-
-	file.write('Data set: ' + dataset + '\tAccuracy: ' + str(acc) + 'Desvio PadrÃ£o: ' + str(desv) + '\n')
-
-	file.close()
+    file = open("test_result.txt", 'w')
+    file.write('Data set: ' + dataset + '\tAccuracy: ' + str(acc) + 'Desvio Desviation: ' + str(desv) + '\n')
+    file.close()
 
 
 train_size = 5000
