@@ -28,7 +28,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # %%
 
-path_to_file = "gu-pt.txt"
+path_to_file = "Resources/pairs/Full/guarani-portugues.txt"
 
 
 # %%
@@ -41,9 +41,9 @@ def unicode_to_ascii(s):
 def preprocess_sentence(w):
     w = unicode_to_ascii(w.lower().strip())
 
-    # creating a space between a word and the punctuation following it
-    # eg: "he is a boy." => "he is a boy ."
-    # Reference:- https://stackoverflow.com/questions/3645931/python-padding-punctuation-with-white-spaces-keeping-punctuation
+    # creating a space between a word and the punctuation following it eg: "he is a boy." => "he is a boy ."
+    # Reference:- https://stackoverflow.com/questions/3645931/python-padding-punctuation-with-white-spaces-keeping
+    # -punctuation
     w = re.sub(r"([?.!,¿])", r" \1 ", w)
     w = re.sub(r'[" "]+', " ", w)
 
@@ -71,9 +71,9 @@ def create_dataset(path, num_examples):
 
 
 # %%
-en, sp = create_dataset(path_to_file, None)
-print(en[-1])
-print(sp[-1])
+l_1, l_2 = create_dataset(path_to_file, None)
+print(l_1[-1])
+print(l_2[-1])
 
 
 # %%
@@ -107,7 +107,7 @@ def load_dataset(path, num_examples=None):
 
 # %%
 # Try experimenting with the size of that dataset
-num_examples = 5000
+num_examples = 1500
 input_tensor, target_tensor, inp_lang, targ_lang = load_dataset(path_to_file, num_examples)
 
 # Calculate max_length of the target tensors

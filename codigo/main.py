@@ -3,6 +3,6 @@ import pandas as pd
 
 import os
 
-print(os.listdir('datasets/'))
-bible = pd.read_csv('datasets/portugues.csv')
+print(os.listdir('Resources/'))
+bible = pd.read_csv('Resources/portugues.csv')
 bible_text = bible['Scripture']
