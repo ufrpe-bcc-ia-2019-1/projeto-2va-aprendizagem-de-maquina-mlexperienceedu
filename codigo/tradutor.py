@@ -342,7 +342,7 @@ def train_step(inp, targ, enc_hidden):
 
 
 # %%
-EPOCHS = 4000
+EPOCHS = 10
 
 for epoch in range(EPOCHS):
     start = time.time()
