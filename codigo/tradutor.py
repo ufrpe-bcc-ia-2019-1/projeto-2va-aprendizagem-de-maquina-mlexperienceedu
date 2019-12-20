@@ -11,12 +11,15 @@
 # %%
 from __future__ import absolute_import, division, print_function, unicode_literals
 
+import itertools
+
 import tensorflow as tf
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from sklearn.model_selection import train_test_split
-
+from nltk.translate.bleu_score import sentence_bleu
+from nltk.translate.bleu_score import SmoothingFunction
 import unicodedata
 import re
 import numpy as np
@@ -25,10 +28,7 @@ import time
 import os
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
-# %%
-
-path_to_file = "Resources/pairs/Full/guarani-portugues.txt"
+path_to_file = "../Resources/pairs/Full/guarani-portugues.txt"
 
 
 # %%
@@ -72,6 +72,12 @@ def create_dataset(path, num_examples):
 
 # %%
 l_1, l_2 = create_dataset(path_to_file, None)
+stop = ['?', '.', '!', '¿', '<start>', '<end>']
+train_voc_l1 = [[word for word in lang.split(' ') if word not in stop] for lang in l_1]
+train_voc_l2 = [[word for word in lang.split(' ') if word not in stop] for lang in l_2]
+
+train_voc_l1 = set(list(itertools.chain.from_iterable(train_voc_l1)))
+train_voc_l2 = set(list(itertools.chain.from_iterable(train_voc_l2)))
 print(l_1[-1])
 print(l_2[-1])
 
@@ -342,7 +348,7 @@ def train_step(inp, targ, enc_hidden):
 
 
 # %%
-EPOCHS = 10
+EPOCHS = 1
 
 for epoch in range(EPOCHS):
     start = time.time()
@@ -455,15 +461,12 @@ def load_test_dataset(path, train_size, test_size):
     sentences = []
     original = []
     for line in lines[train_size:train_size + test_size]:
-        test = line.split('\t')
-        original.append(test[0])
-        sentences.append(test[1])
+        test_line = line.split('\t')
+
+        original.append(' '.join([word for word in test_line[0].split(' ') if word in train_voc_l1]))
+        sentences.append(' '.join([word for word in test_line[1].split(' ') if word in train_voc_l2]))
 
     return original, sentences
-
-
-from nltk.translate.bleu_score import sentence_bleu
-from nltk.translate.bleu_score import SmoothingFunction
 
 
 def bleu_accuracy(original, sentences):
@@ -496,10 +499,9 @@ def saving_result(dataset, acc, desv):
     file.close()
 
 
-train_size = 5000
-teste_size = 7000
+test_size = 7000
 
-original, sentences = load_test_dataset('gu-pt.txt', train_size, teste_size)
+original, sentences = load_test_dataset('gu-pt.txt', num_examples, test_size)
 bleu, desv = bleu_accuracy(original, sentences)
 print(bleu)
 dataset_n = 'gu-pt'
