@@ -30,6 +30,14 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 path_to_file = "../Resources/pairs/Full/guarani-portugues.txt"
 
+# %%
+
+gpu_status = tf.test.is_gpu_available(
+    cuda_only=False,
+    min_cuda_compute_capability=None
+)
+print(gpu_status)
+
 
 # %%
 # Converts the unicode file to ascii
