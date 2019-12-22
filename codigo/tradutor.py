@@ -13,12 +13,12 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 try:
     import tensorflow.compat.v2 as v2
-  
+
     v2.enable_v2_behavior()
 
     print(v2.__version__)
 except Exception:
-  pass
+    pass
 
 import tensorflow as tf
 import matplotlib.pyplot as plt
@@ -34,6 +34,7 @@ import io
 import time
 from nltk.translate.bleu_score import sentence_bleu
 from nltk.translate.bleu_score import SmoothingFunction
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 path_to_file = "../Resources/pairs/Full/guarani-portugues.txt"
@@ -88,7 +89,6 @@ def create_dataset(path, num_examples):
 
 # %%
 l_1, l_2 = create_dataset(path_to_file, None)
-
 
 print(l_1[-1])
 print(l_2[-1])
@@ -378,7 +378,8 @@ for epoch in range(EPOCHS):
                                                      batch_loss.numpy()))
     # saving (checkpoint) the model every 2 epochs
     if (epoch + 1) % 2 == 0:
-        checkpoint.save(file_prefix=checkpoint_prefix)
+        # checkpoint.save(file_prefix=checkpoint_prefix)
+        pass
 
     print('Epoch {} Loss {:.4f}'.format(epoch + 1,
                                         total_loss / steps_per_epoch))
