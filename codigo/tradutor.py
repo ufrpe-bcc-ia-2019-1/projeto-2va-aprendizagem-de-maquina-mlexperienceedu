@@ -385,7 +385,7 @@ for epoch in range(EPOCHS):
                                         total_loss / steps_per_epoch))
     print('Time taken for 1 epoch {} sec\n'.format(time.time() - start))
 
-
+checkpoint.save(file_prefix=checkpoint_prefix)
 # %%
 def evaluate(sentence):
     attention_plot = np.zeros((max_length_targ, max_length_inp))
