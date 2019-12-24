@@ -512,18 +512,17 @@ def bleu_accuracy(original, sentences):
 
 
 # %%
-def saving_result(dataset, acc, desv):
-    file = open("test_result.txt", 'w')
-    file.write('Data set: ' + dataset + '\tAccuracy: ' + str(acc) + 'Desvio Desviation: ' + str(desv) + '\n')
+def saving_result(dataset, acc, desv, train_size, test_size):
+    file = open("test_" + dataset_n + ".txt", 'w')
+    file.write('Data set: ' + dataset + '\tAccuracy: ' + str(acc) + '\tDesvio Desviation: ' + str(desv) + '\n')
+    file.write('Training Size: ' + train_size+ '\tTest Size: '+test_size + '\n')
     file.close()
 
-
 # %%
-
 test_size = 3000
 
 original, sentences = load_test_dataset('gu-pt.txt', num_examples, test_size)
 bleu, desv = bleu_accuracy(original, sentences)
-print(bleu)
-dataset_n = 'gu-pt'
-saving_result(dataset_n, bleu, desv)
+print(bleu, desv)
+dataset_n = path_to_file.split('/')[0]
+saving_result(dataset_n, bleu, desv, str(num_examples), str(test_size))
