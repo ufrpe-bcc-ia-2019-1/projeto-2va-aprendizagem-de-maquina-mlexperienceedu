@@ -386,7 +386,6 @@ for epoch in range(EPOCHS):
     print('Time taken for 1 epoch {} sec\n'.format(time.time() - start))
 
 
-
 # %%
 def evaluate(sentence):
     attention_plot = np.zeros((max_length_targ, max_length_inp))
@@ -487,6 +486,7 @@ def load_test_dataset(path, train_size, test_size):
     return original, sentences
 
 
+# %%
 def bleu_accuracy(original, sentences):
     translation = []
     for sentence in sentences:
@@ -511,13 +511,16 @@ def bleu_accuracy(original, sentences):
     return np.mean(scores), np.sqrt(np.var(scores))
 
 
+# %%
 def saving_result(dataset, acc, desv):
     file = open("test_result.txt", 'w')
     file.write('Data set: ' + dataset + '\tAccuracy: ' + str(acc) + 'Desvio Desviation: ' + str(desv) + '\n')
     file.close()
 
 
-test_size = 7000
+# %%
+
+test_size = 3000
 
 original, sentences = load_test_dataset('gu-pt.txt', num_examples, test_size)
 bleu, desv = bleu_accuracy(original, sentences)
