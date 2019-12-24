@@ -125,7 +125,7 @@ def load_dataset(path, num_examples=None):
 
 # %%
 # Try experimenting with the size of that dataset
-num_examples = 1500
+num_examples = 2000
 input_tensor, target_tensor, inp_lang, targ_lang = load_dataset(path_to_file, num_examples)
 
 # Calculate max_length of the target tensors
@@ -378,14 +378,15 @@ for epoch in range(EPOCHS):
                                                      batch_loss.numpy()))
     # saving (checkpoint) the model every 2 epochs
     if (epoch + 1) % 2 == 0:
-        # checkpoint.save(file_prefix=checkpoint_prefix)
+        checkpoint.save(file_prefix=checkpoint_prefix)
         pass
 
     print('Epoch {} Loss {:.4f}'.format(epoch + 1,
                                         total_loss / steps_per_epoch))
     print('Time taken for 1 epoch {} sec\n'.format(time.time() - start))
 
-checkpoint.save(file_prefix=checkpoint_prefix)
+
+
 # %%
 def evaluate(sentence):
     attention_plot = np.zeros((max_length_targ, max_length_inp))
@@ -465,6 +466,10 @@ def translate(sentence):
 # %%
 # restoring the latest checkpoint in checkpoint_dir
 checkpoint.restore(tf.train.latest_checkpoint(checkpoint_dir))
+
+# %%
+
+translate('entao samuel explicou ao povo tudo o que o senhor lhe tinha dito .')
 
 
 # %%
