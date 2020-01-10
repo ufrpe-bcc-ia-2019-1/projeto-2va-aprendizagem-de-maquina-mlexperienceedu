@@ -37,7 +37,7 @@ from nltk.translate.bleu_score import SmoothingFunction
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-path_to_file = "../Resources/pairs/Full/guarani-portugues.txt"
+path_to_file = "Resources/pairs/Full/guarani-portugues.txt"
 
 # %%
 
@@ -125,7 +125,7 @@ def load_dataset(path, num_examples=None):
 
 # %%
 # Try experimenting with the size of that dataset
-num_examples = 2000
+num_examples = 7000
 input_tensor, target_tensor, inp_lang, targ_lang = load_dataset(path_to_file, num_examples)
 
 # Calculate max_length of the target tensors
@@ -360,7 +360,7 @@ def train_step(inp, targ, enc_hidden):
 
 
 # %%
-EPOCHS = 1
+EPOCHS = 4000
 
 for epoch in range(EPOCHS):
     start = time.time()
@@ -515,8 +515,9 @@ def bleu_accuracy(original, sentences):
 def saving_result(dataset, acc, desv, train_size, test_size):
     file = open("test_" + dataset_n + ".txt", 'w')
     file.write('Data set: ' + dataset + '\tAccuracy: ' + str(acc) + '\tDesvio Desviation: ' + str(desv) + '\n')
-    file.write('Training Size: ' + train_size+ '\tTest Size: '+test_size + '\n')
+    file.write('Training Size: ' + train_size + '\tTest Size: ' + test_size + '\n')
     file.close()
+
 
 # %%
 test_size = 3000
