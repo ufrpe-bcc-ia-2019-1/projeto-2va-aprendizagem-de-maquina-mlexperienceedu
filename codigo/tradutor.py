@@ -502,9 +502,9 @@ def bleu_accuracy(original, sentences):
 
     scores = []
 
-    smoth = SmoothingFunction().method0(4)
+    #smoth = SmoothingFunction().method0(4)
     for hyp, ref in zip(translation, references):
-        score = sentence_bleu([ref], hyp, smoothing_function=smoth)
+        score = sentence_bleu([ref], hyp)
 
         scores.append(score)
 
